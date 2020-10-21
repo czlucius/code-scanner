@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/scanner"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_crop_free_24"
+        android:title="Scan"/>
+
+    <item
+        android:id="@+id/history"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="History"/>
+    
+</menu>

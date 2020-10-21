@@ -1,0 +1,490 @@
+
+        final PreviewView previewView = view.findViewById(R.id.previewV);
+
+        final Context ctx = getContext();
+        assert ctx != null;
+
+        ListenableFuture<ProcessCameraProvider> cpf = ProcessCameraProvider.getInstance(ctx);
+
+
+        String s = "w";
+        cpf.addListener(new Runnable(){
+            public void run() {
+                ProcessCameraProvider cp;
+                try {
+                    cp = cpf.get();
+                } catch (InterruptedException | ExecutionException e) {
+                    e.printStackTrace();
+                    cp = null;
+                }
+                CameraSelector cs = CameraSelector.DEFAULT_BACK_CAMERA;
+                Preview pv = new Preview.Builder()
+                        .build();
+
+
+                String a = "2";
+                pv.setSurfaceProvider(previewView.getSurfaceProvider());
+                try {
+
+                    cp.unbindAll();
+
+                    cp.bindToLifecycle(getViewLifecycleOwner(), cs, pv);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, ContextCompat.getMainExecutor(ctx));
+        
+        
+        
+                    if (x < r.left || x > r.right || y < r.top || event.get)
+                    -----
+
+
+                        for (Barcode barcode : barcodes) {
+                            Log.i(TAG, "w3d");
+                            // Check if the item was originally scanned
+                            // Create Code object
+                            Code code = new Code(barcode);
+                            if (!Utils.codeListContains(codes, code)) {
+                                codes.add(code);
+                                adapter.addItem(code);
+                            }
+
+                        }
+
+                        // Logging purposes only
+                        for (Code c : codes) {
+                            Log.e(TAG, c.getContents().getDisplayContents());
+                        }
+                        Log.e(TAG, "---");
+
+                        //Once added, pull up the UI
+                        binding.bottomSheetCodes.numCodesFound.setText(String.valueOf(codes.size()));
+                        binding.bottomSheetCodes.getRoot().setVisibility(View.VISIBLE);
+                        sheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+                        if (true) {
+                            Code current = codes.get(0);
+                            uiInitSingleItem(current);
+                        } else {
+                            // Displays a picker for the user to choose from(multiple codes found)
+                            binding.bottomSheetCodes.viewFlipper1.setDisplayedChild(0);
+                        }
+                        // Set the Type, Format, Contents text respectively.
+
+                        //TODO implement get method for Set.
+
+
+
+    private void uiInitSingleItem(Code code) {
+        binding.bottomSheetCodes.viewFlipper1.setDisplayedChild(1);
+
+        binding.bottomSheetCodes.codeDisplay.typeContents.setText(code.getDataType().getTypeName());
+        binding.bottomSheetCodes.codeDisplay.formatContents.setText(code.getFormat());
+        binding.bottomSheetCodes.codeDisplay.codeContentsText.setText(code.getContents().getDisplayContents());
+
+        binding.bottomSheetCodes.codeDisplay.actionsGroup.removeAllViews();
+        Chip chip;
+        for (ActionObj obj : code.getDataType().getActions()) {
+            chip = (Chip) getLayoutInflater()
+                    .inflate(R.layout.template_chip, binding.bottomSheetCodes.codeDisplay.actionsGroup, false);
+            //Setting width of chip
+            ViewGroup.LayoutParams layoutParams = chip.getLayoutParams();
+            chip.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            chip.setLayoutParams(layoutParams);
+
+            chip.setChipIconResource(obj.getActionIcon());
+            chip.setText(obj.getActionText());
+            chip.setOnClickListener((v) -> {
+                obj.doAction(getContext(), code.getContents());
+            });
+
+            binding.bottomSheetCodes.codeDisplay.actionsGroup.addView(chip);
+        }
+    }
+
+
+    ----- bottom_sheet_codes.xml ------
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+
+        app:behavior_hideable="true"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:behavior_peekHeight="56dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+        <TextView
+            android:id="@+id/textView"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Codes found"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/numCodesFound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{numCodes}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="1" />
+
+        <ViewFlipper
+            android:id="@+id/viewFlipper1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:inAnimation="@anim/nav_default_enter_anim"
+            android:outAnimation="@anim/nav_default_exit_anim"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+            <include
+                android:id="@+id/multiple_codes"
+                layout="@layout/multiple_codes" />
+
+            <include
+                android:id="@+id/code_display"
+                layout="@layout/code_display"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </ViewFlipper>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    ----- Former results_page.xml -------
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="81dp">
+
+        <TextView
+            android:id="@+id/info_text"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Information"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/type_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="75dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_outline_insert_drive_file_24" />
+
+        <TextView
+            android:id="@+id/type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Data type"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/type_image"
+            app:layout_constraintTop_toBottomOf="@+id/info_text"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/type_contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/type_image"
+            app:layout_constraintTop_toBottomOf="@+id/type_text"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Email" />
+
+
+        <ImageView
+            android:id="@+id/format_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_image"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_baseline_code_24" />
+
+        <TextView
+            android:id="@+id/format_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Format"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/format_image"
+            app:layout_constraintTop_toBottomOf="@+id/type_contents"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/format_contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/format_image"
+            app:layout_constraintTop_toBottomOf="@+id/format_text"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="AZTEC code" />
+
+        <ImageView
+            android:id="@+id/contents_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/format_image"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_baseline_attachment_24" />
+
+        <TextView
+            android:id="@+id/contents_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:text="Contents:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/contents_image"
+            app:layout_constraintTop_toBottomOf="@+id/format_contents"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ScrollView
+            android:id="@+id/code_contents_holder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contents_text">
+
+            <TextView
+                android:id="@+id/code_contents_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="http://google.com" />
+        </ScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/actions_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="8dp"/>
+
+        </HorizontalScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+--- MultipleCodesAdapter.java ---
+
+package com.czlucius.scan;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+@Deprecated
+public class MultipleCodesAdapter extends RecyclerView.Adapter<MCodesVH> {
+    private ArrayList<Code> codes;
+    private MultipleCodesCallback multipleCodesCallback;
+
+    public MultipleCodesAdapter(ArrayList<Code> codes, MultipleCodesCallback multipleCodesCallback) {
+        this.codes = codes;
+        this.multipleCodesCallback = multipleCodesCallback;
+
+    }
+
+    @NonNull
+    @Override
+    public MCodesVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View codeItem = inflater.inflate(R.layout.single_code_item, parent, true);
+
+        return new MCodesVH(codeItem);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MCodesVH holder, int position) {
+        TextView textView = holder.itemView.findViewById(R.id.single_code_item);
+        Code code = codes.get(position);
+        textView.setText(code.getContents().getDisplayValue());
+        textView.setOnClickListener((v) -> {
+            multipleCodesCallback.viewSpecificCode(code);
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return codes.size();
+    }
+
+    public void addItem(Code code) {
+        codes.add(code);
+        notifyItemInserted(codes.size());
+    }
+}
+
+@Deprecated
+class MCodesVH extends RecyclerView.ViewHolder{
+
+    public MCodesVH(@NonNull View itemView) {
+        super(itemView);
+    }
+}
+
+
+@Deprecated
+interface MultipleCodesCallback {
+    void viewSpecificCode(Code code);
+    // void viewListOfCodes();
+}
+
+--- rect bounding box ---
+
+        // Draw Bounding box in the centre of the screen
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        float density = dm.density;
+        // Screen size
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+        int scanFrameSize = 0;
+
+        // Create rect bounding box
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+
+        Rect rect = new Rect(
+                width / 2 - scanFrameSize / 2,
+                width / 2 - scanFrameSize / 2,
+                height / 2 - scanFrameSize / 2,
+                height /  2 - scanFrameSize / 2
+        );
+
+
+
+
+        Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bmp);
+        canvas.drawBitmap(
+                drawableToBitmap(ResourcesCompat.getDrawable(getResources(), R.drawable.corners_lt, null)),
+                rect.left,
+                rect.top,
+                paint);
+
+        canvas.drawBitmap(
+                drawableToBitmap(ResourcesCompat.getDrawable(getResources(), R.drawable.corners_rt, null)),
+                rect.right,
+                rect.top,
+                paint);
+
+        canvas.drawBitmap(
+                drawableToBitmap(ResourcesCompat.getDrawable(getResources(), R.drawable.corners_lb, null)),
+                rect.left,
+                rect.bottom,
+                paint);
+
+        canvas.drawBitmap(
+                drawableToBitmap(ResourcesCompat.getDrawable(getResources(), R.drawable.corners_rb, null)),
+                rect.right,
+                rect.bottom,
+                paint);
+
+        binding
+        binding.overlayImg.setImageBitmap(bmp);
+
