@@ -488,3 +488,14 @@ interface MultipleCodesCallback {
         binding
         binding.overlayImg.setImageBitmap(bmp);
 
+--- code typeconverter
+//    @TypeConverter
+//    public static String serializeCode(Code code) {
+//        return gson.toJson(code);
+//    }
+//
+//    @TypeConverter
+//    public static Code deserializeCode(String str) {
+//        Type codeType = new TypeToken<Code>() {}.getType();
+//        return gson.fromJson(str, codeType);
+//    }

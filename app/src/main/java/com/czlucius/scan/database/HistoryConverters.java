@@ -1,8 +1,8 @@
 package com.czlucius.scan.database;
 
+import androidx.annotation.Keep;
 import androidx.room.TypeConverter;
 
-import com.czlucius.scan.objects.Code;
 import com.czlucius.scan.objects.Contents;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.Date;
 
+@Keep
 public class HistoryConverters {
 
     static Gson gson = new Gson();
@@ -24,16 +25,7 @@ public class HistoryConverters {
     }
 
 
-    @TypeConverter
-    public static String serializeCode(Code code) {
-        return gson.toJson(code);
-    }
 
-    @TypeConverter
-    public static Code deserializeCode(String str) {
-        Type codeType = new TypeToken<Code>() {}.getType();
-        return gson.fromJson(str, codeType);
-    }
 
     @TypeConverter
     public static int typeToInt(com.czlucius.scan.objects.Type type) {
@@ -46,7 +38,7 @@ public class HistoryConverters {
     }
 
     @TypeConverter
-    public static String serializeCode(Contents contents) {
+    public static String serializeContents(Contents contents) {
         return gson.toJson(contents);
     }
 
