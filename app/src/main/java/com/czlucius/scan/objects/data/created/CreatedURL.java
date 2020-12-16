@@ -23,4 +23,9 @@ public class CreatedURL extends CreatedText{
         }
         return builder.build().toString();
     }
+
+    @Override
+    public boolean isEmpty() {
+        return text.isEmpty();
+    }
 }

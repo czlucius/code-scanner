@@ -1,12 +1,7 @@
 package com.czlucius.scan.objects.data.created;
 
 
-import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.czlucius.scan.R;
 
 public class CreatedWiFi implements ICreatedData {
     private final String ssid;
@@ -40,5 +35,10 @@ public class CreatedWiFi implements ICreatedData {
         EncryptionType(String value) {
             this.value = value;
         }
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return ssid.isEmpty() && password.isEmpty();
     }
 }

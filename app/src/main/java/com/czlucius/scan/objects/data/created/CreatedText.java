@@ -11,8 +11,6 @@ public class CreatedText implements ICreatedData {
         this.text = text;
     }
 
-
-
     @NonNull
     @Override
     public String getQRData() {
