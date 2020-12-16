@@ -46,7 +46,7 @@ public class CreateFragment extends Fragment {
     private static final String TAG = "CreateFragment";
     private static final int SAVE_IMAGE = 103;
     private CreateBinding binding;
-    private CurrentEditState currentEditState;
+    private CurrentEditState currentEditState = CurrentEditState.TEXT;
 
 
     private CreateViewModel vm;
