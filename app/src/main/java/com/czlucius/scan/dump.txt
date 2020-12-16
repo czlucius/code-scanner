@@ -44,7 +44,6 @@
 
 
                         for (Barcode barcode : barcodes) {
-                            Log.i(TAG, "w3d");
                             // Check if the item was originally scanned
                             // Create Code object
                             Code code = new Code(barcode);
@@ -499,3 +498,505 @@ interface MultipleCodesCallback {
 //        Type codeType = new TypeToken<Code>() {}.getType();
 //        return gson.fromJson(str, codeType);
 //    }
+
+
+--- code DataConverters class ----
+
+    public static class DataConverters {
+        @TypeConverter
+        public static String serialize(Object data) {
+
+            Moshi moshi = new Moshi.Builder().build();
+            String serialized = "";
+            // Since we need to know type, get type from object.
+            Class cl = data.getClass();
+            String type = data.getClass().getCanonicalName();
+            try {
+                Class.forName(type, false, cl.getClassLoader());
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                throw new RuntimeException("37!", e.getCause());
+            }
+
+            // Add the length of the type. The first 3 letters will always be the length of the type.
+            String typeLength = String.format(Locale.getDefault(), "%03d", type.length());
+
+            serialized += typeLength;
+
+            // Append the object type to the string to help in deserialization.
+            serialized += type;
+            Log.e(TAG, type);
+            JsonAdapter dataAdapter = moshi.adapter(cl);
+
+            serialized += dataAdapter.toJson(data);
+
+
+            return serialized;
+
+        }
+
+        @TypeConverter
+        public static Object deserializeContents(String str) {
+            Moshi moshi = new Moshi.Builder().build();
+            // Get the type length from 1st 3 characters.
+            int length = Integer.parseInt(str.substring(0, 3));
+            Log.i(TAG, "2r"+ length);
+
+            // Extract the type
+
+            String className = str.substring(3, 3 + length);
+            Log.i(TAG, className);
+            Class cl;
+            try {
+                cl = Class.forName(className, false, Barcode.UrlBookmark.class.getClassLoader());
+            } catch (ClassNotFoundException exc) {
+                cl = Object.class;
+                exc.printStackTrace();
+                Log.wtf(TAG, "deserializeContents: Class Not Found!", exc.getCause());
+            }
+
+            JsonAdapter dataAdapter = moshi.adapter(cl);
+            Object data;
+            try {
+                data = dataAdapter.fromJson(str.substring(3 + length));
+
+            } catch (IOException e) {
+                throw new RuntimeException("JSON Serialization cannot be read: IOException occured.", e.getCause());
+            } catch (JsonDataException e) {
+                throw new RuntimeException("JSON is in invalid format.", e.getCause());
+            }
+            return data;
+        }
+    }
+
+
+//    @TypeConverter
+//    public static Contents deserializeContents(List<String> strs) {
+//        Moshi moshi = new Moshi.Builder().build();
+//        JsonAdapter<Contents> contentsJsonAdapter = moshi.adapter(Contents.class);
+//        Contents contents;
+//        try {
+//            contents = contentsJsonAdapter.fromJson(strs.get(0));
+//            if (contents != null) {
+//                JsonAdapter<Object> dataAdapter = moshi.adapter(Object.class);
+//                contents.setBarcodeData(dataAdapter.fromJson(strs.get(1)));
+//            }
+//        } catch (IOException e) {
+//            throw new RuntimeException("JSON Serialization cannot be read: IOException occured.", e.getCause());
+//        } catch (JsonDataException e) {
+//            throw new RuntimeException("JSON is in invalid format.", e.getCause());
+//        }
+//
+//        // GSON IS NOT USED ANYMORE: Type contentsType = new TypeToken<Contents>() {}.getType();
+//        return contents;// gson.fromJson(str, contentsType);
+//    }
+
+
+
+----- fragment_result.xml-----------
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/info_text"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Information"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/type_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_outline_insert_drive_file_24" />
+
+    <TextView
+        android:id="@+id/type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Data type"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/type_image"
+        app:layout_constraintTop_toBottomOf="@+id/info_text"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/type_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/type_image"
+        app:layout_constraintTop_toBottomOf="@+id/type_text"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Email" />
+
+
+    <ImageView
+        android:id="@+id/format_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type_image"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_code_24" />
+
+    <TextView
+        android:id="@+id/format_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Format"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/format_image"
+        app:layout_constraintTop_toBottomOf="@+id/type_contents"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/format_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/format_image"
+        app:layout_constraintTop_toBottomOf="@+id/format_text"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="AZTEC code" />
+
+    <ImageView
+        android:id="@+id/contents_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/format_image"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_attachment_24" />
+
+    <TextView
+        android:id="@+id/contents_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="Contents:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/contents_image"
+        app:layout_constraintTop_toBottomOf="@+id/format_contents"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:id="@+id/code_contents_holder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contents_text"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/code_contents_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="http://google.com" />
+    </ScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/actions_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="8dp"/>
+
+    </HorizontalScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+---- getTypeString() from Email.java -----
+   public String getTypeString() throws InvalidTypeException {
+        switch (type) {
+            case Barcode.Email.TYPE_HOME: return "Home";
+            case Barcode.Email.TYPE_WORK: return "Work";
+            case Barcode.Email.TYPE_UNKNOWN: return "Unknown";
+            default:
+                throw new InvalidTypeException("No type int: " + type);
+        }
+    }
+
+
+
+-----in Action.java ----
+
+    // Static variables/ Action templates
+
+
+//  Join Wi-Fi code buggy on Android Q and above, hence would be added only in the future.
+//    public static Action joinWifi = new Action("Join", R.drawable.ic_baseline_signal_wifi_4_bar_24) {
+//        @Override
+//        public void doAction(Context context, Contents contents) {
+//
+//
+//            Barcode.WiFi wifiDetails = (Barcode.WiFi) contents.getBarcodeData();
+//            String ssid = wifiDetails.getSsid();
+//            String password = wifiDetails.getPassword();
+//
+//            WifiConfiguration configuration = new WifiConfiguration();
+//            WifiNetworkSuggestion.Builder builder = null;
+//            WifiNetworkSpecifier.Builder specifierBuilder = null;
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                builder = new WifiNetworkSuggestion.Builder();
+//                specifierBuilder = new WifiNetworkSpecifier.Builder();
+//                builder.setSsid(ssid);
+//                specifierBuilder.setSsid(ssid);
+//            }
+//            configuration.SSID = "\"" + ssid + "\"";
+//
+//
+//            switch (wifiDetails.getEncryptionType()) {
+//                case Barcode.WiFi.TYPE_WEP:
+//                    configuration.wepKeys[0] = "\"" + password + "\"";
+//                    configuration.wepTxKeyIndex = 0;
+//                    configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+//                    configuration.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
+//                    break;
+//                case Barcode.WiFi.TYPE_WPA:
+//                    configuration.preSharedKey = "\"" + password + "\"";
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                        builder.setWpa2Passphrase(password);
+//                        specifierBuilder.setWpa2Passphrase(password);
+//                    }
+//                    break;
+//                case Barcode.WiFi.TYPE_OPEN:
+//                    configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+//            }
+//
+//            WifiManager manager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                WifiNetworkSuggestion suggestion = builder.build();
+//                ArrayList<WifiNetworkSuggestion> networkSuggestions = new ArrayList<>();
+//                networkSuggestions.add(suggestion);
+//                manager.addNetworkSuggestions(networkSuggestions);
+//            } else {
+//
+//
+//                manager.addNetwork(configuration);
+//
+//                // Since Wi-Fi network is added to networks, we do not need to traverse through list of configured networks, and can connect straight away.
+//                // This removes the need to add android.permission.ACCESS_FINE_LOCATION, which is unnecessary for just a scanner.
+//                manager.disconnect();
+//                manager.enableNetwork(configuration.networkId, true);
+//                manager.reconnect();
+//            }
+//        }
+//    };
+
+//    public static Action copySSID = new Action("Copy SSID", null) {
+//        @Override
+//        public void doAction(Context context, Contents contents) {
+//            Barcode.WiFi wifiDetails = (Barcode.WiFi) contents.getBarcodeData();
+//            ClipData clipData = ClipData.newPlainText(
+//                    "Wifi: " + wifiDetails.getSsid(),
+//                    wifiDetails.getSsid()
+//            );
+//            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+//            clipboard.setPrimaryClip(clipData);
+//
+//        }
+//    };
+//
+//
+//    public static Action copyPassword = new Action("Copy Password", null) {
+//        @Override
+//        public void doAction(Context context, Contents contents) {
+//            Barcode.WiFi wifiDetails = (Barcode.WiFi) contents.getBarcodeData();
+//            ClipData clipData = ClipData.newPlainText(
+//                    "Wifi \"" + wifiDetails.getSsid() + "\" password",
+//                    wifiDetails.getPassword()
+//            );
+//            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+//            clipboard.setPrimaryClip(clipData);
+//
+//        }
+//    };
+
+
+    //More actions:
+    // Call contact, email contact, share, CALENDAR, SMS, WIFI
+------- EditState.java
+
+package com.czlucius.scan.ui;
+
+import android.content.Context;
+import android.os.Environment;
+import android.view.LayoutInflater;
+import android.widget.EditText;
+
+import com.azeesoft.lib.colorpicker.ColorPickerDialog;
+import com.czlucius.scan.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+public abstract class EditState {
+    protected Runnable positiveBtn;
+
+    public EditState(Runnable positiveBtn) {
+        this.positiveBtn = positiveBtn;
+    }
+
+
+    public abstract void display(Context context);
+
+    public static class Contents extends EditState {
+        private CharSequence contents;
+        private Runnable negativeBtn;
+        private LayoutInflater inflater;
+
+        public Contents(CharSequence contents, Runnable positiveBtn, Runnable negativeBtn, LayoutInflater inflater) {
+            super(positiveBtn);
+            this.negativeBtn = negativeBtn;
+            this.inflater = inflater;
+            this.contents = contents;
+        }
+
+        @Override
+        public void display(Context context) {
+            EditText textField = (EditText) inflater.inflate(R.layout.contents_dialog, null, false);
+            textField.setText(contents);
+
+            new MaterialAlertDialogBuilder(context)
+                    .setTitle(R.string.contents)
+                    .setView(textField)
+                    .setPositiveButton(R.string.ok, (_1, _2) -> positiveBtn.run())
+                    .setNegativeButton(R.string.cancel, (_1, _2) -> negativeBtn.run())
+                    .setCancelable(false)
+                    .create()
+                    .show();
+        }
+    }
+
+    private static abstract class Color extends EditState {
+        protected Integer color;
+
+        public Color(Integer color, Runnable positiveBtn) {
+            super(positiveBtn);
+            this.color = color;
+        }
+
+        protected final void displayColorPicker(Integer initialColor, Context context, ColorPickerDialog.OnColorPickedListener listener) {
+            ColorPickerDialog colorPickerDialog = ColorPickerDialog.createColorPickerDialog(context);
+            if (initialColor != null) {
+                colorPickerDialog.setInitialColor(initialColor);
+            }
+            colorPickerDialog.setPositiveActionText(context.getString(R.string.ok));
+            colorPickerDialog.setNegativeActionText(context.getString(R.string.cancel));
+            colorPickerDialog.setOnColorPickedListener(listener);
+            colorPickerDialog.hideOpacityBar();
+            colorPickerDialog.show();
+        }
+    }
+
+    public static class ForegroundColor extends Color {
+
+        public ForegroundColor(Integer color, Runnable positiveBtn) {
+            super(color, positiveBtn);
+        }
+
+        @Override
+        public void display(Context context) {
+            displayColorPicker(color, context,
+                    (color, hexVal) -> positiveBtn.run());
+        }
+    }
+
+    public static class BackgroundColor extends Color {
+        public BackgroundColor(Integer color, Runnable positiveBtn) {
+            super(color, positiveBtn);
+        }
+
+        @Override
+        public void display(Context context) {
+            displayColorPicker(color, context,
+                    (color, hexVal) -> positiveBtn.run());
+        }
+    }
+
+
+    public static class None extends EditState {
+
+        private static None instance;
+
+        public None() {
+            super(null);
+        }
+
+        public static None getInstance() {
+            return instance == null ? instance = new None() : instance;
+        }
+
+        // No implementation since state where contents are empty.
+        @Override
+        public void display(Context context) { }
+    }
+
+}

@@ -3,6 +3,7 @@ package com.czlucius.scan.objects;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
+import androidx.camera.core.Camera;
 import androidx.camera.core.CameraControl;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.UseCase;
@@ -21,9 +22,9 @@ import java.util.concurrent.ExecutionException;
 
 public class CamAccess {
     private Availability mFlash;
-    private WeakReference<Context> wctx;
-    private boolean mHasCamera;
-    private UseCaseCreator mUseCaseCreator;
+    private final WeakReference<Context> wctx;
+    private final boolean mHasCamera;
+    private final UseCaseCreator mUseCaseCreator;
     private CameraControl cameraControl;
 
     public CamAccess(final WeakReference<Context> wctx, final UseCaseCreator useCaseCreator) throws NoCameraException {
@@ -58,6 +59,7 @@ public class CamAccess {
         final ListenableFuture<ProcessCameraProvider> cpf = ProcessCameraProvider.getInstance(wctx.get());
 
 
+
         cpf.addListener(() -> {
 
             // Retrieving the Camera Provider
@@ -68,7 +70,6 @@ public class CamAccess {
                 e.printStackTrace();
                 cp = null;
             }
-
 
 
             // Create the CameraX use cases with the supplied function
@@ -83,11 +84,13 @@ public class CamAccess {
                 }
 
                 cp.unbindAll();
-                cameraControl = cp.bindToLifecycle(lifecycleOwner, cs, useCases[0], useCases[1]).getCameraControl();
+                Camera camera = cp.bindToLifecycle(lifecycleOwner, cs, useCases[0], useCases[1]);
+                cameraControl = camera.getCameraControl();
             } catch (Exception e) {
                 cameraFailureCallback.run(e);
                 e.printStackTrace();
             }
+
 
         }, ContextCompat.getMainExecutor(wctx.get()));
 
@@ -106,6 +109,8 @@ public class CamAccess {
     public Availability getFlash() {
         return mFlash;
     }
+
+
 
     public boolean hasCamera() {
         return mHasCamera;

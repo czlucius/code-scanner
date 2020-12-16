@@ -12,3 +12,5 @@
 /captures
 .externalNativeBuild
 .cxx
+/app/src/main/java/com/czlucius/scan/dump.txt // Do not remove
+/app/src/main/java/com/czlucius/scan/OverlayView.java // Do not remove

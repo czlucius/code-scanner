@@ -1,10 +1,17 @@
 package com.czlucius.scan.objects;
 
 
+import android.content.Context;
+import android.content.ContextWrapper;
+
+import com.czlucius.scan.R;
+import com.czlucius.scan.database.CodeMemento;
+import com.czlucius.scan.objects.data.Data;
 import com.google.mlkit.vision.barcode.Barcode;
 import com.google.mlkit.vision.barcode.Barcode.BarcodeFormat;
 
 import java.util.Date;
+import java.util.Objects;
 
 import static com.google.mlkit.vision.barcode.Barcode.FORMAT_AZTEC;
 import static com.google.mlkit.vision.barcode.Barcode.FORMAT_CODABAR;
@@ -22,37 +29,39 @@ import static com.google.mlkit.vision.barcode.Barcode.FORMAT_UPC_E;
 
 
 public class Code {
-    private int codeId;
 
-
-    private Type dataType;
+    private final Type dataType;
     @BarcodeFormat
-    private int format;
-    private Contents contents;
-    private Date timeScanned;
+    private final int format;
+    private final Data data;
+    private final Date timeScanned;
     // For comparison purposes only
 
 
     public Code(Barcode barcode) {
         dataType = Type.getTypeFromCode(barcode.getValueType());
         format = barcode.getFormat();
-        contents = Contents.getInstanceFromBarcode(barcode);
+
+        Data.Factory factory = Data.Factory.getInstance();
+        data = factory.create(barcode);
         timeScanned = new Date();
     }
 
-    private Code(Type dataType, int format, Contents contents) {
+    private Code(Type dataType, int format, Data data) {
         this.dataType = dataType;
         this.format = format;
-        this.contents = contents;
+        this.data = data;
         this.timeScanned = new Date();
     }
+
 
 
     public Type getDataType() {
         return dataType;
     }
 
-    public String getFormatName() {
+    public String getFormatName(Context ctx) {
+
         switch (format) {
             case FORMAT_CODABAR:
                 return "Codabar";
@@ -79,37 +88,47 @@ public class Code {
             case FORMAT_PDF417:
                 return "PDF417";
             case FORMAT_QR_CODE:
-                return "QR Code";
+                return ctx.getString(R.string.qr);
             default:
-                return "Unknown";
+                return ctx.getString(R.string.unknown);
         }
 
     }
 
-    public Contents getContents() {
-        return contents;
+
+    public Data getData() {
+        return data;
     }
 
     public Date getTimeScanned() {
         return timeScanned;
     }
 
-    public HistoryCode toHistoryElement(Date date) {
-        return new HistoryCode(dataType, format, contents, date);
+    public CodeMemento toMemento() {
+        return new CodeMemento(dataType, format, data, timeScanned);
     }
 
-    public static Code fromHistoryElement(HistoryCode code) {
-        return new Code(code.getDataType(), code.getFormat(), code.getContents());
+    public static Code fromHistoryElement(CodeMemento code) {
+        return new Code(code.getDataType(), code.getFormat(), code.getData());
     }
 
 
-    public boolean equals(Code code) {
-        // Using 3 parameters to confirm equality
-        boolean b1 = dataType.getTypeName().equals(code.dataType.getTypeName());
-        boolean b2 = dataType.getActions().equals(code.dataType.getActions());
-        boolean b3 = contents.getDisplayValue().equals(code.contents.getDisplayValue());
-        return (b1 && b2) && b3;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Code code = (Code) o;
+        return format == code.format &&
+                Objects.equals(dataType, code.dataType) &&
+                Objects.equals(data, code.data);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dataType, format, data);
+    }
+
 
 
 }

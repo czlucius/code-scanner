@@ -13,10 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/date_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_baseline_date_range_24" />
 
     <TextView
@@ -36,8 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Data type of code scanned"
+        android:layout_marginTop="14dp"
+        android:contentDescription="@string/data_type_code"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -67,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="Format of code scanned"
+        android:contentDescription="@string/format_code"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -88,7 +91,7 @@
         app:layout_constraintStart_toEndOf="@+id/format_image"
         app:layout_constraintTop_toBottomOf="@+id/type_contents"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="AZTEC code" />
+        tools:text="QR" />
 
     <ScrollView
         android:id="@+id/code_contents_holder"
@@ -107,7 +110,7 @@
             android:id="@+id/code_contents_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="http://google.com" />
+            tools:text="person@example.com" />
     </ScrollView>
 
     <HorizontalScrollView

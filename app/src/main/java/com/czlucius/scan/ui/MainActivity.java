@@ -1,6 +1,8 @@
 package com.czlucius.scan.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -11,9 +13,19 @@ import androidx.navigation.ui.NavigationUI;
 import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ActivityMainBinding;
 
+import org.json.JSONArray;
+
+/**
+ * NOTE:
+ *
+ * Tag EXPM is used for experimental features.
+ * Use Ctrl+Shift+F to perform project-wide search in Android Studio.
+ */
+
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     private ActivityMainBinding binding;
-    private static final int[] topLevelDestIds = {R.id.scannerFragment, R.id.historyFragment};
+    private static final int[] topLevelDestIds = {R.id.scannerFragment, R.id.historyFragment, R.id.createFragment};
 
 
     @Override
@@ -35,18 +47,35 @@ public class MainActivity extends AppCompatActivity {
 
             int itemId = item.getItemId();
             if (itemId == R.id.scanner) {
-
-                navController.navigate(R.id.scannerFragment);
-                return true;
+                return navigate(navController, R.id.scannerFragment);
             } else if (itemId == R.id.history) {
-                navController.navigate(R.id.historyFragment);
-                return true;
+                return navigate(navController, R.id.historyFragment);
+            } else if (itemId == R.id.create) {
+                return navigate(navController, R.id.createFragment);
             }
+
             return false;
         });
 
-        binding.bottomNav.setOnNavigationItemReselectedListener(item -> {
-        });
+        binding.bottomNav.setOnNavigationItemReselectedListener(item -> {});
+
+
+        handleIntent(getIntent(), navController);
+    }
+
+    private void handleIntent(Intent intent, NavController navController)  {
+        if (intent == null || intent.getType() == null) return;
+        if (intent.getType().equals("image/*")) {
+            navigate(navController, R.id.scannerFragment);
+        } else {
+            navigate(navController, R.id.createFragment);
+        }
+    }
+
+
+    private boolean navigate(NavController navController, int id) {
+        navController.navigate(id);
+        return true;
     }
 
 

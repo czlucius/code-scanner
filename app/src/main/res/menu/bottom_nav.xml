@@ -5,12 +5,20 @@
         android:id="@+id/scanner"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_crop_free_24"
-        android:title="Scan"/>
+        android:title="@string/scan"/>
 
     <item
         android:id="@+id/history"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_history_24"
-        android:title="History"/>
+        android:title="@string/history"/>
+
+    <item
+        android:id="@+id/create"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_add_circle_24"
+        android:title="@string/create" />
+
+
     
 </menu>

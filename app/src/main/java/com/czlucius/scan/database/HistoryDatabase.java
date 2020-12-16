@@ -7,14 +7,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
+import com.czlucius.scan.App;
 import com.czlucius.scan.objects.Code;
-import com.czlucius.scan.objects.HistoryCode;
-
-import java.util.Date;
 
 
-@Database(entities = {HistoryCode.class}, version = 1, exportSchema = false)
-@TypeConverters({HistoryConverters.class})
+@Database(entities = {CodeMemento.class}, version = 4, exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class HistoryDatabase extends RoomDatabase {
 
     private static HistoryDatabase INSTANCE;
@@ -33,8 +31,7 @@ public abstract class HistoryDatabase extends RoomDatabase {
     public static void insertCode(Context context, Code code) {
         // Open Database and insert item
         HistoryDao dao = HistoryDatabase.getInstance(context).historyDao();
-        Date currentDateTime = new Date();
-        HistoryCode codeHistoryElement = code.toHistoryElement(currentDateTime);
-        new Thread(() -> dao.add(codeHistoryElement)).start();
+        CodeMemento codeHistoryElement = code.toMemento();
+        App.globalExService.submit(() -> dao.add(codeHistoryElement));
     }
 }

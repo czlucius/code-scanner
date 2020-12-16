@@ -5,25 +5,23 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.czlucius.scan.objects.HistoryCode;
-
 import java.util.List;
 
 @Dao
 public interface HistoryDao {
-    @Query("SELECT * FROM history_code_table")
-    List<HistoryCode> getAll();
+    @Query("SELECT * FROM code_memento_table")
+    List<CodeMemento> getAll();
 
 
 
     @Insert
-    void add(HistoryCode code);
+    void add(CodeMemento code);
 
-    @Query("DELETE FROM history_code_table")
+    @Query("DELETE FROM code_memento_table")
     void clearAll();
 
-    @Query("SELECT * FROM history_code_table where id==:entryId")
-    HistoryCode get(int entryId);
+    @Query("SELECT * FROM code_memento_table where id==:entryId")
+    CodeMemento get(int entryId);
 
 
 }

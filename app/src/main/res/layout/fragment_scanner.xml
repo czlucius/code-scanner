@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
         android:layout_width="match_parent"
@@ -13,15 +14,18 @@
     </androidx.camera.view.PreviewView>
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_margin="8dp"
         android:background="@drawable/rounded_shape"
         android:backgroundTint="#FFFFFF"
-        android:text="Position code on screen"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+        android:orientation="vertical"
+        android:text="@string/position_code"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
 
+    <com.czlucius.scan.ui.OverlayView2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

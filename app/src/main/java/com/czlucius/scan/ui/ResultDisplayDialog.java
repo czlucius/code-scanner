@@ -3,10 +3,11 @@ package com.czlucius.scan.ui;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ResultsPageBinding;
-import com.czlucius.scan.objects.Action;
+import com.czlucius.scan.objects.actions.Action;
 import com.czlucius.scan.objects.Code;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -25,7 +26,7 @@ public class ResultDisplayDialog extends BottomSheetDialog {
         populateLayout();
     }
 
-    public void initialize() {
+    private void initialize() {
         setCancelable(true);
         binding = ResultsPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -38,12 +39,12 @@ public class ResultDisplayDialog extends BottomSheetDialog {
         getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
     }
 
-    public void populateLayout() {
+    private void populateLayout() {
         DateFormat dateFormat = DateFormat.getDateTimeInstance();
         binding.dateContents.setText(dateFormat.format(code.getTimeScanned()));
         binding.typeContents.setText(code.getDataType().getTypeName());
-        binding.formatContents.setText(code.getFormatName());
-        binding.codeContentsText.setText(code.getContents().getDisplayValue());
+        binding.formatContents.setText(code.getFormatName(getContext()));
+        binding.codeContentsText.setText(code.getData().getStringRepresentation());
 
 
         binding.actionsGroup.removeAllViews();
@@ -51,16 +52,15 @@ public class ResultDisplayDialog extends BottomSheetDialog {
         for (Action obj : code.getDataType().getActions()) {
             chip = (Chip) getLayoutInflater()
                     .inflate(R.layout.template_chip, binding.actionsGroup, false);
-            chip.setChipIconResource(obj.getActionIcon());
+            if (obj.getActionIcon() != null) {
+                chip.setChipIconResource(obj.getActionIcon());
+            }
             chip.setText(obj.getActionText());
             chip.setOnClickListener((v) -> {
-                obj.doAction(getContext(), code.getContents());
+                obj.performAction(getContext(), code.getData());
             });
             binding.actionsGroup.addView(chip);
         }
 
     }
-
-
-
 }

@@ -1,7 +1,6 @@
 package com.czlucius.scan.objects;
 
 import android.media.Image;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
@@ -16,7 +15,7 @@ import com.google.mlkit.vision.common.InputImage;
 import java.util.List;
 
 public class CodeAnalyser implements ImageAnalysis.Analyzer {
-    private static String TAG = "CodeAnalyser";
+    private static final String TAG = "CodeAnalyser";
     private SuccessCallback mCallBack;
     private FailureHandler mExceptionHandler;
 
@@ -24,9 +23,9 @@ public class CodeAnalyser implements ImageAnalysis.Analyzer {
 
 
     public CodeAnalyser(SuccessCallback scanCallback, FailureHandler exceptionHandler) {
+
         mCallBack = scanCallback;
         mExceptionHandler = exceptionHandler;
-
     }
 
 
@@ -35,23 +34,24 @@ public class CodeAnalyser implements ImageAnalysis.Analyzer {
 
 
     @Override
-    public void analyze(@NonNull ImageProxy image) {
-        Image barcodeImage = image.getImage(); // Ignore experimental usage
+    @androidx.camera.core.ExperimentalGetImage
+    public void analyze(@NonNull ImageProxy imageProxy) {
+        Image barcodeImage = imageProxy.getImage();
         if (barcodeImage != null) {
-            InputImage inputImage = InputImage.fromMediaImage(barcodeImage, image.getImageInfo().getRotationDegrees());
+            InputImage inputImage = InputImage.fromMediaImage(barcodeImage, imageProxy.getImageInfo().getRotationDegrees());
             //Pass to ML Kit API
 
             BarcodeScanner barcodeScanner = BarcodeScanning.getClient();
             Task<List<Barcode>> result = barcodeScanner.process(inputImage)
                     .addOnSuccessListener(barcodes -> {
-                        Log.i(TAG, "77837");
-                        mCallBack.scannedBarcode(barcodes);
+                        mCallBack.scannedBarcodes(barcodes);
                     })
                     .addOnFailureListener(exception -> {
                         mExceptionHandler.handleException(exception);
+
                     })
                     .addOnCompleteListener(task -> {
-                        image.close();
+                        imageProxy.close();
                         barcodeScanner.close();
                     });
 
@@ -61,8 +61,9 @@ public class CodeAnalyser implements ImageAnalysis.Analyzer {
     }
 
 
+
     public interface SuccessCallback {
-        void scannedBarcode(List<Barcode> barcodes);
+        void scannedBarcodes(List<Barcode> barcodes);
     }
 
     public interface FailureHandler {

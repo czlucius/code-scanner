@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="OverlayView2">
+        <attr name="showText" format="boolean" />
+        <attr name="rectSize" format="enum">
+            <enum name="width" value="0" />
+            <enum name="right" value="400" />
+        </attr>
+    </declare-styleable>
+</resources>

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/scannerFragment"
         android:name="com.czlucius.scan.ui.ScannerFragment"
-        android:label="Scan"
+        android:label="@string/scan"
         tools:layout="@layout/fragment_scanner" >
         <action
             android:id="@+id/action_scannerFragment_to_historyFragment"
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.czlucius.scan.ui.HistoryFragment"
-        android:label="History"
+        android:label="@string/history"
         tools:layout="@layout/fragment_history" >
         <action
             android:id="@+id/action_historyFragment_to_scannerFragment"
@@ -29,4 +29,10 @@
             app:enterAnim="@anim/fragment_fade_enter"
             app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.czlucius.scan.ui.CreateFragment"
+        android:label="@string/create"
+        tools:layout="@layout/create" />
+    <!-- EXPM fragment_create -> create_dialog -->
 </navigation>

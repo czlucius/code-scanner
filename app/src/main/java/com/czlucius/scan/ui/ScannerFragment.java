@@ -8,12 +8,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,23 +28,21 @@ import androidx.camera.core.Preview;
 import androidx.camera.core.UseCase;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.czlucius.scan.callbacks.CameraFailureCallback;
 import com.czlucius.scan.R;
+import com.czlucius.scan.callbacks.CameraFailureCallback;
+import com.czlucius.scan.callbacks.Consumer;
 import com.czlucius.scan.callbacks.UseCaseCreator;
-import com.czlucius.scan.database.HistoryDatabase;
 import com.czlucius.scan.databinding.FragmentScannerBinding;
 import com.czlucius.scan.exceptions.NoCameraException;
 import com.czlucius.scan.exceptions.ReferenceInvalidException;
 import com.czlucius.scan.objects.Availability;
 import com.czlucius.scan.objects.CamAccess;
-import com.czlucius.scan.objects.Code;
+import com.czlucius.scan.objects.ScanningWrapper;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.mlkit.vision.barcode.Barcode;
 import com.google.mlkit.vision.barcode.BarcodeScanner;
 import com.google.mlkit.vision.barcode.BarcodeScanning;
 import com.google.mlkit.vision.common.InputImage;
@@ -57,7 +51,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -69,22 +62,21 @@ public class ScannerFragment extends Fragment {
     private CamAccess camAccessObj;
     private FragmentScannerBinding binding;
     private ExecutorService camExecutor;
-    private static String TAG = "ScannerFragment";
-    private ScanVM vm;
+    private final static String TAG = "ScannerFragment";
+    private ScanViewModel vm;
     private final BarcodeScanner barcodeScanner = BarcodeScanning.getClient();
 
     private static final int CAMERA_REQUEST_CODE = 1000;
     private static final int GALLERY_REQUEST_CODE = 1001;
 
 
-    public ScannerFragment() {
-        // Required empty public constructor
-    }
+
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         super.onCreateView(inflater, container, savedInstanceState);
         binding = FragmentScannerBinding.inflate(getLayoutInflater());
@@ -101,6 +93,7 @@ public class ScannerFragment extends Fragment {
 
             // Use case 2: Barcode analysis
             ImageAnalysis imageAnalysis = new ImageAnalysis.Builder()
+                    .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                     .build();
 
             imageAnalysis.setAnalyzer(camExecutor, vm.getCodeAnalyser());
@@ -148,25 +141,35 @@ public class ScannerFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
 
+        // Handle intent.
+        Intent intent = requireActivity().getIntent();
+        if (!(intent == null || intent.getType() == null || !intent.getType().startsWith("image/"))) {
+            // Get data.
+            Uri uri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+            processImageUri(uri);
+            requireActivity().setIntent(null); // do not want multiple popups
+        }
+
+
+
+
+
         // Initialise ViewModel
-        vm = new ViewModelProvider.AndroidViewModelFactory(getActivity().getApplication()).create(ScanVM.class);
+        vm = new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()).create(ScanViewModel.class);
 
         camExecutor = Executors.newSingleThreadExecutor();
 
-        //Handle the changes in the array list of codes. Pull up the ResultFragment.
-        vm.getCodes().observe(getViewLifecycleOwner(), new Observer<ArrayList<Code>>() {
-            @Override
-            public void onChanged(ArrayList<Code> codes) {
-                if (codes.size() >= 1) {
-                    for (Code code : codes) {
-                        ResultDisplayDialog dialog = new ResultDisplayDialog(getContext(), code);
-                        dialog.setOnCancelListener(dialogInterface -> {
-                            // When cancel, remove the instance of Code from the ViewModel's list.
-                            vm.getCodes().getValue().remove(code);
-                        });
-                        dialog.show();
-                    }
-                }
+        vm.getCodes().observe(getViewLifecycleOwner(), scanningWrappers -> {
+            for (ScanningWrapper s : scanningWrappers) {
+                s.display(getContext());
+            }
+        });
+
+
+        vm.getModelDownloaded().observe(getViewLifecycleOwner(), downloaded -> {
+            if (downloaded == Boolean.FALSE) {
+                // Not downloaded yet
+                Snackbar.make(view, R.string.no_model, Snackbar.LENGTH_LONG).show();
             }
         });
 
@@ -187,6 +190,18 @@ public class ScannerFragment extends Fragment {
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (vm.getCodes() == null) return;
+        if (vm.getCodes().getValue() == null) return;
+
+        for (ScanningWrapper s: vm.getCodes().getValue()) {
+            s.dismissDialog();
+        }
+        binding = null;
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         if (camExecutor != null) {
@@ -199,55 +214,12 @@ public class ScannerFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
             Uri selectedImg = data.getData();
-
-            if (selectedImg == null) {
-                imageNotFound(getContext());
-                return;
-            }
-            String[] filePathColumn = {MediaStore.Images.Media.DATA};
-            ContentResolver cr = getActivity().getContentResolver();
-            InputStream inputStream;
-            try {
-                inputStream = cr.openInputStream(selectedImg);
-                if (inputStream == null) {
-                    imageNotFound(getContext());
-                    return;
-                }
-            } catch (FileNotFoundException e) {
-                imageNotFound(getContext());
-                return;
-            }
-
-            Bitmap bmp = BitmapFactory.decodeStream(inputStream);
-            // Send bitmap to ML Kit image analyser
-            InputImage inputImage = InputImage.fromBitmap(bmp, 0); //TODO get rotation degree.
-            barcodeScanner.process(inputImage)
-                    .addOnSuccessListener(barcodes -> {
-                        for (Barcode barcode : barcodes) {
-                            Code c = new Code(barcode);
-                            vm.getCodes().getValue().add(c);
-                            // Add to history
-                            HistoryDatabase.insertCode(getContext(), c);
-                        }
-                        vm.notifyLiveDataChanged();
-
-
-                    })
-                    .addOnCompleteListener(task -> {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    });
-
-
+            processImageUri(selectedImg);
         }
     }
 
-    private void imageNotFound(Context context) {
-        Toast.makeText(context, "Image not found.", Toast.LENGTH_SHORT).show();
-    }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -262,6 +234,66 @@ public class ScannerFragment extends Fragment {
                 permissionDeniedPermanently(); // Permanent denial
             }
         }
+    }
+
+    private void processImageUri(Uri selectedImg) {
+        if (selectedImg == null) {
+            imageNotFound(getContext());
+            return;
+        }
+
+        InputStream inputStream = openInputStream(selectedImg);
+        if (inputStream == null) return;
+
+        Bitmap bmp = BitmapFactory.decodeStream(inputStream);
+        // Send bitmap to ML Kit image analyser
+        processImage(inputStream, bmp, detected -> {
+            if (!detected) {
+                Snackbar.make(requireView(), R.string.no_codes_detected, Snackbar.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
+
+
+    private void processImage(InputStream inputStream, Bitmap bmp, Consumer<Boolean> detected) {
+
+        InputImage inputImage = InputImage.fromBitmap(bmp, 0); //TODO get rotation degree.
+        barcodeScanner.process(inputImage)
+                .addOnSuccessListener(barcodes -> {
+                    vm.scanBarcodes(barcodes);
+                    detected.accept(barcodes.size() > 0);
+                })
+                .addOnCompleteListener(task -> {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+    }
+
+
+    private InputStream openInputStream(Uri selectedImg) {
+        ContentResolver cr = requireActivity().getContentResolver();
+        InputStream inputStream;
+        try {
+            inputStream = cr.openInputStream(selectedImg);
+            if (inputStream == null) {
+                imageNotFound(getContext());
+                return null;
+            }
+        } catch (FileNotFoundException e) {
+            imageNotFound(getContext());
+            return null;
+        }
+        return inputStream;
+    }
+
+    private void imageNotFound(Context context) {
+        Toast.makeText(context, R.string.img_not_found, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -289,11 +321,11 @@ public class ScannerFragment extends Fragment {
 
     private void displayRationale() {
         // Display a permission rationale.
-        new MaterialAlertDialogBuilder(getContext())
-                .setTitle("Camera permission")
-                .setMessage("Please grant camera permission.\nThis is for this app to scan codes(barcode/QR code).")
-                .setPositiveButton("Grant", (dialog, which) -> requestPm())
-                .setNegativeButton("Cancel", (dialog, which) -> permissionDenied())
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.cam_pm)
+                .setMessage(R.string.grant_pm_rationale)
+                .setPositiveButton(R.string.grant, (dialog, which) -> requestPm())
+                .setNegativeButton(R.string.cancel, (dialog, which) -> permissionDenied())
                 .setCancelable(false)
                 .create()
                 .show();
@@ -302,8 +334,8 @@ public class ScannerFragment extends Fragment {
     private void permissionDenied() {
 
         Snackbar snack = Snackbar.make(binding.coordinatorLayout,
-                "Camera permission has been denied.", Snackbar.LENGTH_INDEFINITE)
-                .setAction("Grant", v -> requestPm());
+                R.string.pm_denial, Snackbar.LENGTH_INDEFINITE)
+                .setAction(R.string.grant, v -> requestPm());
 
         setMargins(snack);
         snack.setBehavior(new DisableSwipeBehavior());
@@ -312,15 +344,12 @@ public class ScannerFragment extends Fragment {
     }
 
     private void permissionDeniedPermanently() {
-        Snackbar snack = Snackbar.make(binding.previewView, "Camera permission has been denied permanently. Please go to system settings.", Snackbar.LENGTH_INDEFINITE);
-        snack.setAction("Grant", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                Uri pkg = Uri.fromParts("package", getContext().getPackageName(), null);
-                intent.setData(pkg);
-                startActivity(intent);
-            }
+        Snackbar snack = Snackbar.make(binding.previewView, R.string.pm_denial_permanant, Snackbar.LENGTH_INDEFINITE);
+        snack.setAction(R.string.grant, v -> {
+            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            Uri pkg = Uri.fromParts("package", requireContext().getPackageName(), null);
+            intent.setData(pkg);
+            startActivity(intent);
         });
         setMargins(snack);
         snack.show();
@@ -328,7 +357,7 @@ public class ScannerFragment extends Fragment {
 
     private void setMargins(Snackbar snack) {
         CoordinatorLayout.LayoutParams params = ((CoordinatorLayout.LayoutParams) snack.getView().getLayoutParams());
-        params.bottomMargin = getActivity().findViewById(R.id.bottomNav).getHeight();
+        params.bottomMargin = requireActivity().findViewById(R.id.bottomNav).getHeight();
         snack.getView().setLayoutParams(params);
     }
 
@@ -340,50 +369,28 @@ public class ScannerFragment extends Fragment {
         } catch (ReferenceInvalidException e) {
             Log.e(TAG, "Context invalid.");
         }
-    }
-    
-    public static Bitmap drawableToBitmap (Drawable drawable) {
 
-        if (drawable instanceof BitmapDrawable) {
-            return ((BitmapDrawable)drawable).getBitmap();
-        }
-
-        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-        drawable.draw(canvas);
-
-        return bitmap;
     }
 
 
     @NonNull
     private CameraFailureCallback cameraFailureDialog() {
         return e -> {
-            Toast.makeText(getActivity().getApplicationContext(), "Camera unavailable at the moment", Toast.LENGTH_SHORT).show();
-
-
-//            new MaterialAlertDialogBuilder(getContext())
-//                    .setTitle("Camera unavailable at the moment")
-//                    .setMessage("Camera is currently in use, or not accessible through this app. \nPlease try enabling permissions or closing other apps currently using the camera.")
-//                    .setPositiveButton("Try Again", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            startCamera();
-//                        }
-//                    });
+            if (getActivity() == null) {
+                return;
+            }
+            Toast.makeText(getActivity().getApplicationContext(), R.string.cam_unavailable, Toast.LENGTH_SHORT).show();
         };
     }
 
     private void noCamera() {
-        AlertDialog cameraWarningDialog = new MaterialAlertDialogBuilder(getContext())
-                .setTitle("No Camera found")
-                .setMessage("Device does not have a hardware camera, hence no QR codes/barcodes can be scanned.\nTry using an USB OTG camera to add camera functionality to your device.")
+        AlertDialog cameraWarningDialog = new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.no_cam)
+                .setMessage(R.string.no_cam_msg)
                 .create();
 
         cameraWarningDialog.show();
     }
-
 
     private static class DisableSwipeBehavior extends BaseTransientBottomBar.Behavior {
         @Override

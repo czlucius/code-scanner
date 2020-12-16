@@ -35,6 +35,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/history_item_type"
+            android:maxLines="4"
             tools:text="http://example.com" />
 
         <TextView

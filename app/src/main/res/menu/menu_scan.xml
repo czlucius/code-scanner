@@ -5,11 +5,12 @@
     <item
         android:id="@+id/open_from_gallery"
         android:icon="@drawable/ic_baseline_image_24"
-        android:title="Scan from image"
+        android:title="@string/scan_from_image"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/flash_toggle"
         android:icon="@drawable/ic_baseline_flash_on_24"
-        android:title="Flash"
+        android:title="@string/flash"
         app:showAsAction="ifRoom" />
+
 </menu>
