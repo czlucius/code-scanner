@@ -57,7 +57,7 @@ dependencies {
 
     // User added libraries go here:
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.2.0'
 
 
     // CameraX:
