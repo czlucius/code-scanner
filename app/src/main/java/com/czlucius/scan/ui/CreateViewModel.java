@@ -14,6 +14,8 @@ import com.czlucius.scan.objects.data.Text;
 import com.czlucius.scan.objects.data.created.ICreatedData;
 import com.google.zxing.WriterException;
 
+import java.util.Objects;
+
 
 public class CreateViewModel extends AndroidViewModel {
     private static final String TAG = "CreateViewModel";
@@ -35,8 +37,7 @@ public class CreateViewModel extends AndroidViewModel {
     }
 
     public QR getQrNullSafe() {
-        assert qr.getValue() != null;
-        return qr.getValue();
+        return Objects.requireNonNull(qr.getValue());
     }
 
     public LiveData<QR> getQr() {
