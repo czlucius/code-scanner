@@ -15,6 +15,7 @@ import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
@@ -38,6 +39,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -47,6 +49,7 @@ public class CreateFragment extends Fragment {
     private static final int SAVE_IMAGE = 103;
     private CreateBinding binding;
     private CurrentEditState currentEditState = CurrentEditState.TEXT;
+    private final ArrayList<AlertDialog> alertDialogsOpen = new ArrayList<>();
 
 
     private CreateViewModel vm;
@@ -57,7 +60,6 @@ public class CreateFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         vm = new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()).create(CreateViewModel.class);
-
 
         vm.getCurrentState().observe(getViewLifecycleOwner(), editState -> {
             switch (editState) {
@@ -75,12 +77,10 @@ public class CreateFragment extends Fragment {
             }
         });
 
-
         vm.getQr().observe(getViewLifecycleOwner(), newQr -> regenerateQRImage());
 
         binding = CreateBinding.inflate(inflater, container, false);
-
-
+        
         // Process intent filter data
 
         Intent intent = requireActivity().getIntent();
@@ -129,6 +129,10 @@ public class CreateFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        for (AlertDialog dialog : alertDialogsOpen) {
+            dialog.dismiss();
+        }
+        vm.getQr().removeObservers(getViewLifecycleOwner());
     }
 
     private void save(Uri uri) {
@@ -214,7 +218,6 @@ public class CreateFragment extends Fragment {
 
     private void displayContentsDialog() {
         ContentsDialogBinding binding = ContentsDialogBinding.inflate(getLayoutInflater());
-        ConstraintLayout rootDialog = binding.getRoot();
         MaterialButtonToggleGroup toggleGroup = binding.typeToggle;
         ViewFlipper flipper = binding.viewFlipper;
         Spinner spinner = binding.enterWifiEncModeCreate;
@@ -222,8 +225,7 @@ public class CreateFragment extends Fragment {
         toggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
             int index = group.indexOfChild(group.findViewById(checkedId));
             Log.i(TAG, "displayContentsDialog: index is " + index);
-            ((ViewFlipper)rootDialog.findViewById(R.id.viewFlipper))
-                    .setDisplayedChild(index);
+            flipper.setDisplayedChild(index);
             currentEditState = CurrentEditState.values()[index];
         });
 
@@ -231,16 +233,17 @@ public class CreateFragment extends Fragment {
                 new ArrayAdapter<>(getContext(), android.R.layout.simple_expandable_list_item_1, CreatedWiFi.EncryptionType.values());
         spinner.setAdapter(encryptionTypeAdapter);
 
-        new MaterialAlertDialogBuilder(requireContext())
+        AlertDialog contentsDialog = new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.contents)
-                .setView(rootDialog)
+                .setView(binding.getRoot())
                 .setPositiveButton(R.string.ok, (dialog, which) -> {
                     vm.setContents(currentEditState.createData(flipper.getCurrentView()));
 
                     vm.setCurrentState(CreateViewModel.EditState.NONE);
                 }).setNegativeButton(R.string.cancel, (dialog, which) -> vm.setCurrentState(CreateViewModel.EditState.NONE)).setCancelable(false)
-                .create()
-                .show();
+                .create();
+        contentsDialog.show();
+        alertDialogsOpen.add(contentsDialog);
     }
 
     private void displayForegroundDialog() {
@@ -248,7 +251,6 @@ public class CreateFragment extends Fragment {
         displayColorPicker(vm.getForegroundColor(),
                 (color, hexVal) -> vm.setForegroundColor(color));
     }
-
 
 
     private void displayBackgroundDialog() {
