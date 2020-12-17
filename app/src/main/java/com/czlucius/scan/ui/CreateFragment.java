@@ -59,8 +59,8 @@ public class CreateFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        vm = new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()).create(CreateViewModel.class);
-
+        vm = new ViewModelProvider(this).get(CreateViewModel.class);
+        
         vm.getCurrentState().observe(getViewLifecycleOwner(), editState -> {
             switch (editState) {
                 case CONTENTS:
@@ -80,7 +80,7 @@ public class CreateFragment extends Fragment {
         vm.getQr().observe(getViewLifecycleOwner(), newQr -> regenerateQRImage());
 
         binding = CreateBinding.inflate(inflater, container, false);
-        
+
         // Process intent filter data
 
         Intent intent = requireActivity().getIntent();
