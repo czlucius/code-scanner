@@ -1,7 +1,7 @@
 # code-scanner
 An Android app to scan codes(barcodes/QR codes)
 
-Currently in beta stage.
+Currently in testing stage. Contributors welcome.
 
 
 # Using this project
