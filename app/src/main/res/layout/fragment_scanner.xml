@@ -31,6 +31,10 @@
 
     </androidx.camera.view.PreviewView>
 
+    <com.czlucius.scan.ui.OverlayView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,8 +46,5 @@
         android:text="@string/position_code"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
 
-    <com.czlucius.scan.ui.OverlayView2
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
