@@ -138,8 +138,7 @@ public class Contact extends Data {
     @NonNull
     @Override
     public String getStringRepresentation() {
-        // EXPM!!!!!!!!!!!!!!
-        return addresses[0].getFormattedAddresses()[0];//App.getStringGlobal(R.string.contact, "Contact") + "\n" + getDescription();
+        return App.getStringGlobal(R.string.contact, "Contact") + "\n" + getDescription();
     }
 
     @Override
