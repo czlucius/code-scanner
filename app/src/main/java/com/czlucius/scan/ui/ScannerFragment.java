@@ -178,7 +178,7 @@ public class ScannerFragment extends Fragment {
 
         camExecutor = Executors.newSingleThreadExecutor();
 
-        vm.getCodes().observe(this, scanningWrappers -> {
+        vm.getCodes().observe(getViewLifecycleOwner(), scanningWrappers -> {
             for (ScanningWrapper s : scanningWrappers) {
                 s.display(getContext());
             }
@@ -398,7 +398,7 @@ public class ScannerFragment extends Fragment {
             if (getActivity() == null) {
                 return;
             }
-            Toast.makeText(getActivity().getApplicationContext(), R.string.cam_unavailable, Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Camera unavailable.");
         };
     }
 
