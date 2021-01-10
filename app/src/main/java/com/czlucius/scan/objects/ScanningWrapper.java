@@ -74,14 +74,16 @@ public class ScanningWrapper {
             dialog.setOnDismissListener(__ -> release());
             dialog.show();
             scanned = true;
-            
+
             // Add to history
             HistoryDatabase.insertCode(ctx, code);
         }
     }
 
     public void dismissDialog() {
-        dialog.dismiss();
+        if (dialog != null) {
+            dialog.dismiss();
+        }
         dialog = null; // Prevent references to old dialog.
     }
 
