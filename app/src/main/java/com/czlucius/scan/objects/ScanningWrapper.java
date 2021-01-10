@@ -54,7 +54,7 @@ public class ScanningWrapper {
         App.globalExService.submit(() -> {
             // Wait for a while 1st
             try {
-                Thread.sleep(400);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
