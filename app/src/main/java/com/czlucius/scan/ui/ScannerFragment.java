@@ -106,8 +106,9 @@ public class ScannerFragment extends Fragment {
 
             // Use Case 1: Preview
             Preview preview = new Preview.Builder().build();
-            preview.setSurfaceProvider(binding.previewView.getSurfaceProvider());
-
+            if (binding != null && binding.previewView != null) {
+                preview.setSurfaceProvider(binding.previewView.getSurfaceProvider());
+            }
 
             // Use case 2: Barcode analysis
             ImageAnalysis imageAnalysis = new ImageAnalysis.Builder()
