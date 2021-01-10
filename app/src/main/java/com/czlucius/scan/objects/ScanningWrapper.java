@@ -20,7 +20,6 @@ package com.czlucius.scan.objects;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.util.Log;
 
 import com.czlucius.scan.App;
 import com.czlucius.scan.database.HistoryDatabase;
@@ -30,7 +29,7 @@ import com.google.mlkit.vision.barcode.Barcode;
 import java.util.Objects;
 
 /**
- * An UI wrapper around <code>Code</code> to manage UI interactions.
+ * An UI wrapper around {@link Code} to manage UI interactions.
  */
 public class ScanningWrapper {
     private static final String TAG = "ScanningWrapper";
