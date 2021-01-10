@@ -178,7 +178,7 @@ public class ScannerFragment extends Fragment {
 
         camExecutor = Executors.newSingleThreadExecutor();
 
-        vm.getCodes().observe(getViewLifecycleOwner(), scanningWrappers -> {
+        vm.getCodes().observe(this, scanningWrappers -> {
             for (ScanningWrapper s : scanningWrappers) {
                 s.display(getContext());
             }
