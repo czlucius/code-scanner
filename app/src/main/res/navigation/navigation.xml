@@ -28,24 +28,12 @@
         android:name="com.czlucius.scan.ui.ScannerFragment"
         android:label="@string/scan"
         tools:layout="@layout/fragment_scanner" >
-        <action
-            android:id="@+id/action_scannerFragment_to_historyFragment"
-            app:destination="@id/historyFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popUpTo="@id/navigation"
-            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.czlucius.scan.ui.HistoryFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_history" >
-        <action
-            android:id="@+id/action_historyFragment_to_scannerFragment"
-            app:destination="@id/scannerFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
     <fragment
         android:id="@+id/createFragment"
