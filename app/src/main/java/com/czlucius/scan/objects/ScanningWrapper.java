@@ -20,8 +20,10 @@ package com.czlucius.scan.objects;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 
 import com.czlucius.scan.App;
+import com.czlucius.scan.database.HistoryDatabase;
 import com.czlucius.scan.ui.ResultDisplayDialog;
 import com.google.mlkit.vision.barcode.Barcode;
 
@@ -72,6 +74,9 @@ public class ScanningWrapper {
             dialog.setOnDismissListener(__ -> release());
             dialog.show();
             scanned = true;
+            
+            // Add to history
+            HistoryDatabase.insertCode(ctx, code);
         }
     }
 
