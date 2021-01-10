@@ -20,19 +20,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/scanner"
+        android:id="@+id/scannerFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_crop_free_24"
         android:title="@string/scan"/>
 
     <item
-        android:id="@+id/history"
+        android:id="@+id/historyFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_history_24"
         android:title="@string/history"/>
 
     <item
-        android:id="@+id/create"
+        android:id="@+id/createFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_add_circle_24"
         android:title="@string/create" />
