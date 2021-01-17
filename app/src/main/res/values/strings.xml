@@ -50,7 +50,7 @@
     <string name="no_contents">No contents!</string>
     <string name="error">Error!</string>
     <string name="no_cam">No Camera found</string>
-    <string name="no_cam_msg">Device does not have a hardware camera, hence no QR codes/barcodes can be scanned.\nTry using an USB OTG camera to add camera functionality to your device.</string>
+    <string name="no_cam_msg">Device does not have a hardware camera, hence no codes can be scanned.\nTry using an external camera to add camera functionality to your device.</string>
     <string name="no_model">QR/Barcode reading model not available.\nCheck/Update Google Play Services and try again.</string>
     <string name="cam_unavailable">Camera unavailable at the moment</string>
 
