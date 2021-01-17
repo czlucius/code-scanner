@@ -394,12 +394,7 @@ public class ScannerFragment extends Fragment {
 
     @NonNull
     private CameraFailureCallback cameraFailureDialog() {
-        return e -> {
-            if (getActivity() == null) {
-                return;
-            }
-            Log.e(TAG, "Camera unavailable.");
-        };
+        return e -> Log.e(TAG, "Camera unavailable.");
     }
 
     private void noCamera() {

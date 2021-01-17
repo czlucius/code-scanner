@@ -19,13 +19,14 @@
 package com.czlucius.scan.objects.data;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.czlucius.scan.exceptions.QRDataNotSupportedException;
 
 public class Text extends Data{
-    private final CharSequence data;
+    private final String data;
 
-    public Text(CharSequence data) {
+    public Text(String data) {
         this.data = data;
     }
 
