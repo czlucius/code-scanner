@@ -10,3 +10,7 @@ Do note that this project is protected by the GNU Affero General Public License 
 
 # License
 This project is licensed with the GNU Affero General Public License. View [the license file](LICENSE.md) for more info.
+
+# Notes
+1.  Tag EXPM is used for experimental features.                       
+    Use Ctrl+Shift+F to perform project-wide search in Android Studio.
