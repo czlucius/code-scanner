@@ -28,9 +28,6 @@ import com.google.mlkit.vision.barcode.Barcode;
 import java.util.Arrays;
 import java.util.Objects;
 
-import ezvcard.VCard;
-import ezvcard.property.FormattedName;
-
 public class Contact extends Data {
 
     private static final String TAG = "Contact";
@@ -138,13 +135,13 @@ public class Contact extends Data {
     @NonNull
     @Override
     public String getStringRepresentation() {
-        return App.getStringGlobal(R.string.contact, "Contact") + "\n" + getDescription();
-    }
 
-    @Override
-    public String getDescription() {
+
         StringBuilder contact = new StringBuilder();
-        contact.append(!title.equals("") ? App.getStringGlobal(R.string.title, "Title") + ": \"" : "")
+
+        contact.append(App.getStringGlobal(R.string.contact, "Contact"))
+                .append("\n")
+                .append(!title.equals("") ? App.getStringGlobal(R.string.title, "Title") + ": \"" : "")
                 .append(title)
                 .append(!title.equals("") ? "\"" : "")
                 .append("\n")
@@ -184,8 +181,10 @@ public class Contact extends Data {
         return contact.toString();
     }
 
-
-
+    @Override
+    public String getSummary() {
+        return name.getFormattedName() + "\n" + (phones.length > 0 ? phones[0] : "") + "...";
+    }
 
     @Override
     public boolean isEmpty() {
