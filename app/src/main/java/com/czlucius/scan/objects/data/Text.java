@@ -19,11 +19,8 @@
 package com.czlucius.scan.objects.data;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
-import com.czlucius.scan.exceptions.QRDataNotSupportedException;
-
-public class Text extends Data{
+public class Text extends Data {
     private final String data;
 
     public Text(String data) {
@@ -38,7 +35,7 @@ public class Text extends Data{
     @NonNull
     @Override
     public String getStringRepresentation() {
-        return data.toString();
+        return data;
     }
 
 
