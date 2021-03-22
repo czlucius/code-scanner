@@ -36,7 +36,7 @@ import java.util.Locale;
 
 @Keep
 public class Converters {
-    private static final String TAG = "HistoryConverters";
+    private static final String TAG = "Converters";
 
     @TypeConverter
     public static Date fromTimestamp(Long value) {
@@ -61,12 +61,12 @@ public class Converters {
 
 
     @TypeConverter
-    public static String serializeIData(Data data) {
+    public static String serializeData(Data data) {
         Moshi moshi = new Moshi.Builder().build();
         String serialized = "";
         // Since we need to know type, get type from object.
         Class cl = data.getClass();
-        String type = data.getClass().getCanonicalName();
+        String type = data.getClass().getName();
         try {
             Class.forName(type, false, cl.getClassLoader());
         } catch (ClassNotFoundException e) {
@@ -85,13 +85,12 @@ public class Converters {
 
         serialized += dataAdapter.toJson(data);
 
-
         return serialized;
     }
 
 
     @TypeConverter
-    public static Data deserializeIData(String str) {
+    public static Data deserializeData(String str) {
         Moshi moshi = new Moshi.Builder().build();
         // Get the type length from 1st 3 characters.
         int length = Integer.parseInt(str.substring(0, 3));
