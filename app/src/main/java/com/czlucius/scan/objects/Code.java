@@ -20,7 +20,6 @@ package com.czlucius.scan.objects;
 
 
 import android.content.Context;
-import android.content.ContextWrapper;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.database.CodeMemento;

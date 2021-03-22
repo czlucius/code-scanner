@@ -52,7 +52,6 @@ public class URLAction extends Action {
             context.startActivity(intent);
         } else {
             Toast.makeText(context, R.string.no_browsers, Toast.LENGTH_SHORT).show();
-
         }
     }
 }

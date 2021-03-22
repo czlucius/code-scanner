@@ -18,8 +18,6 @@
 
 package com.czlucius.scan.objects.data;
 
-import android.net.Uri;
-
 import androidx.annotation.NonNull;
 
 import com.google.mlkit.vision.barcode.Barcode;

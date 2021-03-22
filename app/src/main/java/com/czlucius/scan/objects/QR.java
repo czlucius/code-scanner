@@ -21,7 +21,6 @@ package com.czlucius.scan.objects;
 import android.graphics.Bitmap;
 
 import com.czlucius.scan.callbacks.Observer;
-import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.created.ICreatedData;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
