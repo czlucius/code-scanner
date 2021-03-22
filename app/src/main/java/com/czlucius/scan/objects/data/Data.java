@@ -34,7 +34,12 @@ public abstract class Data {
 
 
 
+    @Deprecated
     public String getDescription() {
+        return getStringRepresentation();
+    }
+
+    public String getSummary() {
         return getStringRepresentation();
     }
 
@@ -57,6 +62,12 @@ public abstract class Data {
     @Override
     public int hashCode() {
         return Objects.hash(getStringRepresentation(), getDescription());
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return getStringRepresentation();
     }
 
     public static class Factory {
