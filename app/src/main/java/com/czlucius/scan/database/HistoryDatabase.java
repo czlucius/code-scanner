@@ -32,6 +32,7 @@ import com.czlucius.scan.objects.Code;
 @Database(entities = {CodeMemento.class}, version = 4, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class HistoryDatabase extends RoomDatabase {
+    private static final String TAG = "HistoryDatabase";
 
     private static HistoryDatabase INSTANCE;
 
