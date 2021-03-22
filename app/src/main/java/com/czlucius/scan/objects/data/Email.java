@@ -18,17 +18,12 @@
 
 package com.czlucius.scan.objects.data;
 
-import android.text.Html;
-
 import androidx.annotation.NonNull;
 
 import com.czlucius.scan.App;
 import com.czlucius.scan.R;
-import com.czlucius.scan.Utils;
 import com.google.mlkit.vision.barcode.Barcode;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Objects;
 
 public class Email extends Data {
@@ -42,12 +37,7 @@ public class Email extends Data {
     public String getStringRepresentation() {
         return App.getStringGlobal(R.string.email, "Email")
                 + ": \n"
-                + getDescription();
-    }
-
-    @Override
-    public String getDescription() {
-        return App.getStringGlobal(R.string.to, "To")
+                + App.getStringGlobal(R.string.to, "To")
                 + "<"
                 + address + ">, "
                 + App.getStringGlobal(R.string.subject, "Subject")
