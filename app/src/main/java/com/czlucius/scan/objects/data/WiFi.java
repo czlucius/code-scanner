@@ -97,6 +97,11 @@ public class WiFi extends Data {
     }
 
     @Override
+    public String getSummary() {
+        return ssid;
+    }
+
+    @Override
     public boolean equals(Object o) {
 
         if (this == o) return true;
