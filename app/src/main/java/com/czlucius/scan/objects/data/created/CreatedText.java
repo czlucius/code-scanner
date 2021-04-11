@@ -34,4 +34,8 @@ public class CreatedText implements ICreatedData {
     public String getQRData() {
         return text;
     }
+
+    public String getText() {
+        return text;
+    }
 }

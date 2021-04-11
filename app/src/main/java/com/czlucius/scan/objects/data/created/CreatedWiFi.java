@@ -19,7 +19,12 @@
 package com.czlucius.scan.objects.data.created;
 
 
+import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
+import com.czlucius.scan.App;
+import com.czlucius.scan.R;
 
 public class CreatedWiFi implements ICreatedData {
     private final String ssid;
@@ -47,11 +52,21 @@ public class CreatedWiFi implements ICreatedData {
 
 
     public enum EncryptionType {
-        Open("nopass"), WEP("WEP"), WPA("WPA");
+        Open(0,"nopass", R.string.open_network), WEP(1,"WEP", R.string.wep), WPA(2,"WPA", R.string.wpa);
 
+        public final int index;
         private final String value;
-        EncryptionType(String value) {
+        private final @StringRes int displayName;
+        EncryptionType(int index, String value, @StringRes int displayName) {
+            this.index = index;
             this.value = value;
+            this.displayName = displayName;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return App.getStringGlobal(displayName, name());
         }
     }
 
@@ -59,4 +74,18 @@ public class CreatedWiFi implements ICreatedData {
     public boolean isEmpty() {
         return ssid.isEmpty() && password.isEmpty();
     }
+
+    public String getSsid() {
+        return ssid;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public EncryptionType getEncryptionType() {
+        return encryptionType;
+    }
+
+
 }

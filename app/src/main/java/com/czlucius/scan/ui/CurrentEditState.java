@@ -19,13 +19,17 @@
 package com.czlucius.scan.ui;
 
 
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.czlucius.scan.R;
+import com.czlucius.scan.databinding.ContentsDialogBinding;
+import com.czlucius.scan.objects.data.Text;
 import com.czlucius.scan.objects.data.created.CreatedText;
 import com.czlucius.scan.objects.data.created.CreatedURL;
 import com.czlucius.scan.objects.data.created.CreatedWiFi;
@@ -37,10 +41,35 @@ public enum CurrentEditState {
         public ICreatedData createData(View v) {
             return new CreatedText(((EditText) v).getText().toString());
         }
+
+        @Override
+        public boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data) {
+            CreatedText createdText;
+            if (data.getClass() == CreatedText.class) {
+                createdText = (CreatedText) data;
+            } else {
+                return false;
+            }
+            rootBinding.textFieldCreate.setText(createdText.getText());
+            return true;
+        }
     }, URL(1) {
         @Override
         public ICreatedData createData(View v) {
             return new CreatedURL(((EditText) v).getText().toString());
+        }
+
+        @Override
+        public boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data) {
+            
+            CreatedURL createdURL;
+            if (data.getClass() == CreatedURL.class) {
+                createdURL = (CreatedURL) data;
+            } else {
+                return false;
+            }
+            rootBinding.urlFieldCreate.setText(createdURL.getText());
+            return true;
         }
     }, WIFI(2) {
         @Override
@@ -51,9 +80,23 @@ public enum CurrentEditState {
             String pw = ((EditText) layout.findViewById(R.id.enterWifiPwCreate))
                     .getText().toString();
             CreatedWiFi.EncryptionType encryptionType = (CreatedWiFi.EncryptionType) ((Spinner) layout.findViewById(R.id.enterWifiEncModeCreate)).getSelectedItem();
-
             return new CreatedWiFi(ssid, pw, encryptionType);
 
+        }
+
+        @Override
+        public boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data) {
+            CreatedWiFi createdWiFi;
+            if (data.getClass() == CreatedWiFi.class) {
+                createdWiFi = (CreatedWiFi) data;
+            } else {
+                return false;
+            }
+
+            rootBinding.enterWifiSsidCreate.setText(createdWiFi.getSsid());
+            rootBinding.enterWifiPwCreate.setText(createdWiFi.getPassword());
+            rootBinding.enterWifiEncModeCreate.setSelection(createdWiFi.getEncryptionType().index);
+            return true;
         }
     };
 
@@ -65,4 +108,22 @@ public enum CurrentEditState {
 
 
     public abstract ICreatedData createData(View v);
+
+    /**
+     *
+     * @return Returns true when cast to specific type succeeds, false if the provided data is not of this CurrentEditState type, so that the next type is tried(template method pattern)
+     */
+    protected abstract boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data);
+
+    public static void populateFields(ContentsDialogBinding binding, @Nullable ICreatedData data) {
+        if (data == null) {
+            return;
+        }
+        for (CurrentEditState editState: CurrentEditState.values()) {
+            // Correct type is found
+            if (editState.populateIndividualFields(binding, data)) {
+                break;
+            }
+        }
+    }
 }
