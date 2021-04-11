@@ -21,14 +21,17 @@
 package com.czlucius.scan.ui;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.ViewFlipper;
@@ -36,7 +39,6 @@ import android.widget.ViewFlipper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -242,12 +244,19 @@ public class CreateFragment extends Fragment {
         ViewFlipper flipper = binding.viewFlipper;
         Spinner spinner = binding.enterWifiEncModeCreate;
 
+
         toggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
             int index = group.indexOfChild(group.findViewById(checkedId));
             Log.i(TAG, "displayContentsDialog: index is " + index);
             flipper.setDisplayedChild(index);
             currentEditState = CurrentEditState.values()[index];
         });
+        toggleGroup.check(toggleGroup.getChildAt(currentEditState.index).getId());
+
+
+
+        // Pre-populate the fields
+        CurrentEditState.populateFields(binding, vm.getContents());
 
         ArrayAdapter<CreatedWiFi.EncryptionType> encryptionTypeAdapter =
                 new ArrayAdapter<>(getContext(), android.R.layout.simple_expandable_list_item_1, CreatedWiFi.EncryptionType.values());
@@ -257,11 +266,22 @@ public class CreateFragment extends Fragment {
                 .setTitle(R.string.contents)
                 .setView(binding.getRoot())
                 .setPositiveButton(R.string.ok, (dialog, which) -> {
-                    vm.setContents(currentEditState.createData(flipper.getCurrentView()));
-
+                    ICreatedData data = currentEditState.createData(flipper.getCurrentView());
+                    vm.setContents(data);
                     vm.setCurrentState(CreateViewModel.EditState.NONE);
                 }).setNegativeButton(R.string.cancel, (dialog, which) -> vm.setCurrentState(CreateViewModel.EditState.NONE)).setCancelable(false)
                 .create();
+        contentsDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                // EXPM note: this attribute retrieving method may not work!
+                TypedValue color = new TypedValue();
+                getContext().getTheme().resolveAttribute(R.attr.colorSecondary, color, true);
+                int textColor = color.data;
+                contentsDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(textColor);
+                contentsDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(textColor);
+            }
+        });
         contentsDialog.show();
         alertDialogsOpen.add(contentsDialog);
     }
