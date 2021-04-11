@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
+  ~ Copyright (C) 2020 Lucius Chee Zihan
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published
+  ~ by the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.App" parent="Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/pure_white</item>
+        <item name="colorPrimaryVariant">@color/mist</item>
+        <item name="colorPrimaryDark">@color/mist</item>
+
+        <item name="backgroundColor">@color/pine_green</item>
+
+        <item name="colorSecondary">@color/jungle_green</item>
+        <item name="colorSecondaryVariant">@color/downy_green</item>
+        <item name="colorOnPrimary">@color/pure_black</item>
+        <item name="colorAccent">@color/jungle_green</item>
+
+        <item name="bottomNavigationStyle">
+            @style/Widget.MaterialComponents.BottomNavigationView.Colored
+        </item>
+
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+
+    <style name="ThemeOverlay.App.ToggleButtonGroupStyle" parent="">
+        <item name="colorPrimary">@color/pine_green</item>
+    </style>
+
+    <style name="Theme.App.AlertDialogTheme">
+        <item name="android:textColor">@color/pure_black</item>
+    </style>
+
+
+
+</resources>

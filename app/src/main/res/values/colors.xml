@@ -18,11 +18,19 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#2196F3</color>
-    <color name="colorPrimaryDark">#1871B7</color>
+    <!-- Deprecated -->
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#E9E9E9</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="backgroundNav">#EBEBEB</color>
+    <!-- End of deprecated values.-->
 
-    <color name="qr_code_reader_square">#C4C4C4</color>
+    <color name="white_smoke">#EDEDED</color>
+
+    <color name="pure_white">#ffffff</color>
+    <color name="mist">#D4D4D4</color>
+    <color name="jungle_green">#26a69a</color>
+    <color name="downy_green">#64d8cb</color>
+    <color name="pine_green">#00766c</color>
+    <color name="pure_black">#000000</color>
 
 </resources>
