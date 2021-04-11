@@ -23,7 +23,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <fragment
         android:layout_weight="1"
         android:id="@+id/nav_host"
@@ -36,9 +35,10 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        app:labelVisibilityMode="selected"
         android:layout_height="wrap_content"
-        android:background="@color/backgroundNav"
+        android:background="@color/white_smoke"
+        app:itemTextColor="@color/pure_black"
+        app:labelVisibilityMode="selected"
         app:menu="@menu/bottom_nav" />
 
 </LinearLayout>
