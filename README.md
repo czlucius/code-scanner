@@ -4,7 +4,8 @@ An Android app to scan codes(barcodes/QR codes)
 This app is now stable enough for daily usage. Please file an issue when you notice bugs. Thank you.
 
 # Using this project
-This project is not ready for release, but you may run it on your machine by opening this project in Android Studio, and compiling it to your Android device.
+This project is ready for release, you may download it here: https://github.com/czlucius/code-scanner/releases/tag/v1.0
+You may also run this code on your machine by opening this project in Android Studio, and compiling it to your Android device.
 Do note that this project is protected by the GNU Affero General Public License version 3, hence usage of this project would have to be compliant to the GNU AGPL.
 
 # License
