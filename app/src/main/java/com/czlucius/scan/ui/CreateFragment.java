@@ -262,7 +262,7 @@ public class CreateFragment extends Fragment {
                 new ArrayAdapter<>(getContext(), android.R.layout.simple_expandable_list_item_1, CreatedWiFi.EncryptionType.values());
         spinner.setAdapter(encryptionTypeAdapter);
 
-        AlertDialog contentsDialog = new MaterialAlertDialogBuilder(requireContext())
+        AlertDialog contentsDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.Theme_App_AlertDialogTheme)
                 .setTitle(R.string.contents)
                 .setView(binding.getRoot())
                 .setPositiveButton(R.string.ok, (dialog, which) -> {
@@ -271,17 +271,6 @@ public class CreateFragment extends Fragment {
                     vm.setCurrentState(CreateViewModel.EditState.NONE);
                 }).setNegativeButton(R.string.cancel, (dialog, which) -> vm.setCurrentState(CreateViewModel.EditState.NONE)).setCancelable(false)
                 .create();
-        contentsDialog.setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialog) {
-                // EXPM note: this attribute retrieving method may not work!
-                TypedValue color = new TypedValue();
-                getContext().getTheme().resolveAttribute(R.attr.colorSecondary, color, true);
-                int textColor = color.data;
-                contentsDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(textColor);
-                contentsDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(textColor);
-            }
-        });
         contentsDialog.show();
         alertDialogsOpen.add(contentsDialog);
     }

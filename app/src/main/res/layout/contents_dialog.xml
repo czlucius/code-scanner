@@ -27,6 +27,7 @@
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/typeToggle"
+        android:theme="@style/ThemeOverlay.App.ToggleButtonGroupStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -82,7 +83,7 @@
             android:layout_height="wrap_content"
             android:autofillHints=""
             android:hint="@string/enter_contents_here"
-            android:inputType="textImeMultiLine" />
+            android:inputType="textMultiLine" />
 
         <EditText
             android:id="@+id/urlFieldCreate"

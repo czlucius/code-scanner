@@ -40,11 +40,17 @@
 
 
     <style name="ThemeOverlay.App.ToggleButtonGroupStyle" parent="">
-        <item name="colorPrimary">@color/pine_green</item>
+        <item name="colorPrimary">@color/pure_black</item>
     </style>
 
-    <style name="Theme.App.AlertDialogTheme">
+    <style name="Theme.App.AlertDialogTheme" parent="Theme.MaterialComponents.Light.Dialog">
         <item name="android:textColor">@color/pure_black</item>
+        <item name="colorPrimary">@color/pure_white</item>
+        <item name="buttonBarButtonStyle">@style/Theme.App.AlertDialogTheme.ButtonStyle</item>
+    </style>
+
+    <style name="Theme.App.AlertDialogTheme.ButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
 
