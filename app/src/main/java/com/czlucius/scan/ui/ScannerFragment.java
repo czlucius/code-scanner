@@ -340,7 +340,7 @@ public class ScannerFragment extends Fragment {
 
     private void displayRationale() {
         // Display a permission rationale.
-        new MaterialAlertDialogBuilder(requireContext())
+        new MaterialAlertDialogBuilder(requireContext(), R.style.Theme_App_AlertDialogTheme)
                 .setTitle(R.string.cam_pm)
                 .setMessage(R.string.grant_pm_rationale)
                 .setPositiveButton(R.string.grant, (dialog, which) -> requestPm())
