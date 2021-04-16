@@ -1,8 +1,7 @@
 # code-scanner
 An Android app to scan codes(barcodes/QR codes)
 
-Currently in testing stage. Contributors welcome.
-
+This app is now stable enough for daily usage. Please file an issue when you notice bugs. Thank you.
 
 # Using this project
 This project is not ready for release, but you may run it on your machine by opening this project in Android Studio, and compiling it to your Android device.
@@ -14,3 +13,5 @@ This project is licensed with the GNU Affero General Public License. View [the l
 # Notes
 1.  Tag EXPM is used for experimental features.                       
     Use Ctrl+Shift+F to perform project-wide search in Android Studio.
+    
+Hope you enjoy this app!
