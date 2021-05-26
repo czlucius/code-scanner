@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.czlucius.scan.App;
 import com.czlucius.scan.R;
+import com.czlucius.scan.Utils;
 import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.URL;
 
@@ -48,9 +49,8 @@ public class URLAction extends Action {
         URL url = (URL) data;
         Uri webpage = Uri.parse(url.getUrlAddress());
         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        if (intent.resolveActivity(context.getPackageManager()) != null) {
-            context.startActivity(intent);
-        } else {
+        if (!Utils.launchIntentCheckAvailable(intent, context)) {
+            // Browser unavailable.
             Toast.makeText(context, R.string.no_browsers, Toast.LENGTH_SHORT).show();
         }
     }

@@ -33,13 +33,6 @@
         android:name="android.hardware.camera.flash"
         android:required="false" />
 
-    <queries>
-        <intent>
-            <action android:name="android.intent.action.SENDTO" />
-        </intent>
-
-    </queries>
-
 
     <application
         android:name=".App"
@@ -77,7 +70,7 @@
 
         </activity>
 
-        
+
         <provider
             android:authorities="com.czlucius.scan.provider"
             android:name="androidx.core.content.FileProvider"

@@ -18,7 +18,9 @@
 
 package com.czlucius.scan;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiNetworkSuggestion;
@@ -139,6 +141,22 @@ public class Utils {
 
     public static int getToggleGroupIndex(MaterialButtonToggleGroup toggleGroup) {
         return toggleGroup.indexOfChild(toggleGroup.findViewById(toggleGroup.getCheckedButtonId()));
+    }
+
+    /**
+     *
+     * @param intent Intent to launch.
+     * @param context Context to use startActivity() method
+     * @return Whether an app to launch the intent exists on the device
+     */
+    public static boolean launchIntentCheckAvailable(Intent intent, Context context) {
+        try {
+            context.startActivity(intent);
+            return true;
+        } catch (ActivityNotFoundException e) {
+            // There are no apps that support this intent
+            return false;
+        }
     }
 
 }
