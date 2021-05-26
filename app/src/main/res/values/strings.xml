@@ -18,6 +18,8 @@
 
 <resources>
     <string name="app_name">Code Scanner</string>
+    <string name="simple_description">A simple app to scan codes(QR codes, barcodes, etc.)</string>
+    <string name="open_source_link">This app is open source.\nContribute or view the source code at <a href="https://github.com/czlucius/code-scanner">https://github.com/czlucius/code-scanner</a></string>
 
     <string name="description_permission">Allow scanning of codes(barcode, QR code, etc.) with the camera.</string>
     <string name="add">Add</string>
@@ -125,5 +127,8 @@
     <string name="wifi_enctype_hint">Encryption type:</string>
     <string name="wep">WEP</string>
     <string name="wpa">WPA</string>
+    <string name="info">Info</string>
+    <string name="open_source_licenses">Open-source licenses</string>
+
 
 </resources>
