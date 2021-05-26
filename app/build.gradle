@@ -28,8 +28,8 @@ android {
         applicationId "com.czlucius.scan"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 2
-        versionName "1.1"
+        versionCode 4
+        versionName "1.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,6 +37,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
         }
@@ -73,7 +74,7 @@ dependencies {
 
 
 
-    // User added libraries go here:
+
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
     implementation 'com.google.android.material:material:1.3.0'
 
@@ -99,12 +100,13 @@ dependencies {
     // Moshi serialization library:
     implementation("com.squareup.moshi:moshi:1.11.0")
 
+    // ZXing:
     implementation 'com.google.zxing:core:3.3.2'
 
     // Color Picker:
     implementation 'com.azeesoft.lib.colorpicker:colorpicker:1.0.8@aar'
 
-    // VCard creator
+    // VCard creator:
     implementation 'com.googlecode.ez-vcard:ez-vcard:0.11.2'
 
 
