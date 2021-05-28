@@ -18,6 +18,7 @@
 
 package com.czlucius.scan.objects;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
@@ -30,6 +31,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.czlucius.scan.callbacks.CameraFailureCallback;
+import com.czlucius.scan.callbacks.CameraShutdownCallback;
 import com.czlucius.scan.callbacks.UseCaseCreator;
 import com.czlucius.scan.exceptions.NoCameraException;
 import com.czlucius.scan.exceptions.ReferenceInvalidException;
@@ -70,11 +72,11 @@ public class CamAccess {
 
     }
 
-    public void startCamera(LifecycleOwner lifecycleOwner, CameraFailureCallback cameraFailureCallback) throws ReferenceInvalidException {
+    public CameraShutdownCallback startCamera(LifecycleOwner lifecycleOwner, CameraFailureCallback cameraFailureCallback) throws ReferenceInvalidException {
         if (wctx.get() == null) {
             throw new ReferenceInvalidException("Weak reference to context is null.");
         }
-        final ListenableFuture<ProcessCameraProvider> cpf = ProcessCameraProvider.getInstance(wctx.get());
+        final ListenableFuture<ProcessCameraProvider> cpf = ProcessCameraProvider.getInstance(wctx.get().getApplicationContext());
 
 
 
@@ -110,7 +112,24 @@ public class CamAccess {
             }
 
 
+
         }, ContextCompat.getMainExecutor(wctx.get()));
+
+        // EXPM possible leak of context here? ("cpf" was created with wctx.get())
+        @SuppressLint("RestrictedApi") CameraShutdownCallback shutdownCallback = () -> {
+            ProcessCameraProvider pcp;
+            try {
+                pcp = cpf.get();
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+                return; // the ProcessCameraProvider cannot be obtained, hence we just skip the shutdown process
+            }
+            pcp.unbindAll();
+            pcp.shutdown();
+            // Shutdown finished.
+        };
+
+        return shutdownCallback;
 
     }
 

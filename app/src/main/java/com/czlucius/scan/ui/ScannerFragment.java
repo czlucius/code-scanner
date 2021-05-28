@@ -50,6 +50,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.callbacks.CameraFailureCallback;
+import com.czlucius.scan.callbacks.CameraShutdownCallback;
 import com.czlucius.scan.callbacks.Consumer;
 import com.czlucius.scan.callbacks.UseCaseCreator;
 import com.czlucius.scan.databinding.FragmentScannerBinding;
@@ -78,6 +79,7 @@ import static android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
 public class ScannerFragment extends Fragment {
     private final String cameraPermission = Manifest.permission.CAMERA;
     private CamAccess camAccessObj;
+    private CameraShutdownCallback cameraShutdownCallback;
     private FragmentScannerBinding binding;
     private ExecutorService camExecutor;
     private final static String TAG = "ScannerFragment";
@@ -218,6 +220,10 @@ public class ScannerFragment extends Fragment {
             s.dismissDialog();
         }
         binding = null;
+        if (cameraShutdownCallback != null) {
+            // Shutdown the camera if there is a callback, if not, most likely the camera is not even open anyway.
+            cameraShutdownCallback.shutdown();
+        }
     }
 
     @Override
@@ -384,7 +390,7 @@ public class ScannerFragment extends Fragment {
     public void startCamera() {
         CameraFailureCallback cameraFailureCallback = cameraFailureDialog();
         try {
-            camAccessObj.startCamera(getViewLifecycleOwner(), cameraFailureCallback);
+            cameraShutdownCallback = camAccessObj.startCamera(getViewLifecycleOwner(), cameraFailureCallback);
         } catch (ReferenceInvalidException e) {
             Log.e(TAG, "Context invalid.");
         }
