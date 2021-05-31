@@ -22,23 +22,28 @@ import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.czlucius.scan.objects.QR;
-import com.czlucius.scan.objects.data.Data;
-import com.czlucius.scan.objects.data.Text;
 import com.czlucius.scan.objects.data.created.ICreatedData;
 import com.google.zxing.WriterException;
 
 import java.util.Objects;
 
+import static com.czlucius.scan.ui.CreateViewModel.EditState.BACKGROUND;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.CONTENTS;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.FOREGROUND;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.NONE;
+
 
 public class CreateViewModel extends AndroidViewModel {
     private static final String TAG = "CreateViewModel";
 
-    private final MutableLiveData<EditState> currentState;
+    private final MutableLiveData<Integer> currentState; // since current Java version doesn't allow for annotated type arguments, we just use Integer.
     private final MutableLiveData<QR> qr;
 
 
@@ -78,10 +83,9 @@ public class CreateViewModel extends AndroidViewModel {
         return getQrNullSafe().getBackground();
     }
 
-    public LiveData<EditState> getCurrentState() {
+    public LiveData<Integer> getCurrentState() {
         return currentState;
     }
-
 
 
     public void setContents(ICreatedData contents) {
@@ -97,7 +101,7 @@ public class CreateViewModel extends AndroidViewModel {
     }
 
 
-    public void setCurrentState(EditState currentState) {
+    public void setCurrentState(@EditState int currentState) {
         this.currentState.setValue(currentState);
     }
 
@@ -108,9 +112,15 @@ public class CreateViewModel extends AndroidViewModel {
 
 
 
-    public enum EditState {
-        CONTENTS, FOREGROUND, BACKGROUND, NONE
+
+    @IntDef({CONTENTS, FOREGROUND, BACKGROUND, NONE})
+    public @interface EditState {
+        public static final int CONTENTS = 0;
+        public static final int FOREGROUND = 1;
+        public static final int BACKGROUND = 2;
+        public static final int NONE = 3;
     }
+
 
 
 }

@@ -30,17 +30,16 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
 import com.czlucius.scan.exceptions.NetworkInvalidException;
+import com.czlucius.scan.objects.Availability;
 import com.czlucius.scan.objects.Code;
 import com.czlucius.scan.database.CodeMemento;
 import com.czlucius.scan.objects.data.WiFi;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.mlkit.vision.barcode.Barcode;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class Utils {
     public static boolean codeListContains(Iterable<Code> codes, Code code) {
@@ -159,4 +158,7 @@ public class Utils {
         }
     }
 
+    public static boolean availabilityToBoolean(@Availability int availability) {
+        return availability == Availability.ON;
+    }
 }

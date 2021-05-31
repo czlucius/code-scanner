@@ -30,6 +30,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.czlucius.scan.Utils;
 import com.czlucius.scan.callbacks.CameraFailureCallback;
 import com.czlucius.scan.callbacks.CameraShutdownCallback;
 import com.czlucius.scan.callbacks.UseCaseCreator;
@@ -41,7 +42,7 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutionException;
 
 public class CamAccess {
-    private Availability mFlash;
+    private @Availability int mFlash;
     private final WeakReference<Context> wctx;
     private final boolean mHasCamera;
     private final UseCaseCreator mUseCaseCreator;
@@ -133,17 +134,17 @@ public class CamAccess {
 
     }
 
-    public void toggleFlash(Availability state) {
+    public void toggleFlash(@Availability int state) {
         if (state == Availability.UNAVAILABLE) {
             throw new RuntimeException("This must be an error in the code. Please do not set flash state to unavailable. Contact the app developers immediately if you see this message.");
         } else {
             if (cameraControl != null) {
                 mFlash = state;
-                cameraControl.enableTorch(state.toBoolean());
+                cameraControl.enableTorch(Utils.availabilityToBoolean(state));
             }
         }
     }
-    public Availability getFlash() {
+    public @Availability int getFlash() {
         return mFlash;
     }
 

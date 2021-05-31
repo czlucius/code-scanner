@@ -64,6 +64,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static com.czlucius.scan.ui.CreateViewModel.EditState.*;
+
 
 public class CreateFragment extends Fragment {
 
@@ -122,9 +124,9 @@ public class CreateFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.contentsBtn.setOnClickListener(v -> vm.setCurrentState(CreateViewModel.EditState.CONTENTS));
-        binding.colorBtn.setOnClickListener(v -> vm.setCurrentState(CreateViewModel.EditState.FOREGROUND));
-        binding.backgroundColorBtn.setOnClickListener(v -> vm.setCurrentState(CreateViewModel.EditState.BACKGROUND));
+        binding.contentsBtn.setOnClickListener(v -> vm.setCurrentState(CONTENTS));
+        binding.colorBtn.setOnClickListener(v -> vm.setCurrentState(FOREGROUND));
+        binding.backgroundColorBtn.setOnClickListener(v -> vm.setCurrentState(BACKGROUND));
 
         binding.shareButton.setOnClickListener(this::share);
         binding.saveToGalleryButton.setOnClickListener(v -> {

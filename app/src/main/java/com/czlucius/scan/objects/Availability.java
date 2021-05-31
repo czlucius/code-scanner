@@ -18,11 +18,15 @@
 
 package com.czlucius.scan.objects;
 
-public enum Availability {
-    ON, OFF, UNAVAILABLE;
+import androidx.annotation.IntDef;
 
+import static com.czlucius.scan.objects.Availability.OFF;
+import static com.czlucius.scan.objects.Availability.ON;
+import static com.czlucius.scan.objects.Availability.UNAVAILABLE;
 
-    public boolean toBoolean() {
-        return this == ON;
-    }
+@IntDef({ON, OFF, UNAVAILABLE})
+public @interface Availability {
+    public static final int ON = 1;
+    public static final int OFF = 0;
+    public static final int UNAVAILABLE = -1;
 }
