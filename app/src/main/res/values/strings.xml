@@ -131,4 +131,18 @@
     <string name="open_source_licenses">Open-source licenses</string>
 
 
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="prefix">Prefix</string>
+    <string name="suffix">Suffix</string>
+    <string name="company">Company</string>
+    <string name="job">Job</string>
+    <string name="phone_number">Phone number</string>
+    <string name="street">Street</string>
+    <string name="zip_code">Zip code</string>
+    <string name="region">Region</string>
+    <string name="country">Country</string>
+    <string name="additional_notes">Additional notes</string>
+
+
 </resources>

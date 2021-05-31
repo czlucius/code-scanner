@@ -28,14 +28,16 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.czlucius.scan.R;
+import com.czlucius.scan.databinding.ContactFieldsBinding;
 import com.czlucius.scan.databinding.ContentsDialogBinding;
-import com.czlucius.scan.objects.data.Text;
+import com.czlucius.scan.objects.data.created.CreatedContact;
 import com.czlucius.scan.objects.data.created.CreatedText;
 import com.czlucius.scan.objects.data.created.CreatedURL;
 import com.czlucius.scan.objects.data.created.CreatedWiFi;
 import com.czlucius.scan.objects.data.created.ICreatedData;
 
 public enum CurrentEditState {
+
     TEXT(0) {
         @Override
         public ICreatedData createData(View v) {
@@ -61,7 +63,7 @@ public enum CurrentEditState {
 
         @Override
         public boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data) {
-            
+
             CreatedURL createdURL;
             if (data.getClass() == CreatedURL.class) {
                 createdURL = (CreatedURL) data;
@@ -98,9 +100,61 @@ public enum CurrentEditState {
             rootBinding.enterWifiEncModeCreate.setSelection(createdWiFi.getEncryptionType().index);
             return true;
         }
+    }, CONTACT(3) {
+
+        @Override
+        public ICreatedData createData(View v) {
+            // This method is only executed when the "Ok" button is pressed.
+
+            ContactFieldsBinding rootBinding = ContactFieldsBinding.bind(v);
+
+            return new CreatedContact(
+                    rootBinding.enterFirstNameContactsCreate.getText().toString(),
+                    rootBinding.enterLastNameContactsCreate.getText().toString(),
+                    rootBinding.enterPrefixContactsCreate.getText().toString(),
+                    rootBinding.enterSuffixContactsCreate.getText().toString(),
+                    rootBinding.enterCompanyContactsCreate.getText().toString(),
+                    rootBinding.enterJobContactsCreate.getText().toString(),
+                    rootBinding.enterPhoneNoContactsCreate.getText().toString(),
+                    rootBinding.enterEmailContactsCreate.getText().toString(),
+                    rootBinding.enterStreetContactsCreate.getText().toString(),
+                    rootBinding.enterZipCodeContactsCreate.getText().toString(),
+                    rootBinding.enterRegionContactsCreate.getText().toString(),
+                    rootBinding.enterCountryContactsCreate.getText().toString(),
+                    rootBinding.enterUrlContactsCreate.getText().toString(),
+                    rootBinding.enterNotesContactsCreate.getText().toString());
+        }
+
+        @Override
+        protected boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data) {
+            if (data.getClass() != CreatedContact.class) {
+                return false;
+            }
+
+            ContactFieldsBinding contactBinding = rootBinding.contactFieldCreate;
+
+            CreatedContact createdContact = (CreatedContact) data;
+            contactBinding.enterFirstNameContactsCreate.setText(createdContact.firstName);
+            contactBinding.enterLastNameContactsCreate.setText(createdContact.lastName);
+            contactBinding.enterPrefixContactsCreate.setText(createdContact.prefix);
+            contactBinding.enterSuffixContactsCreate.setText(createdContact.suffix);
+            contactBinding.enterCompanyContactsCreate.setText(createdContact.company);
+            contactBinding.enterJobContactsCreate.setText(createdContact.job);
+            contactBinding.enterPhoneNoContactsCreate.setText(createdContact.phoneNo);
+            contactBinding.enterEmailContactsCreate.setText(createdContact.email);
+            contactBinding.enterStreetContactsCreate.setText(createdContact.street);
+            contactBinding.enterZipCodeContactsCreate.setText(createdContact.zipCode);
+            contactBinding.enterRegionContactsCreate.setText(createdContact.region);
+            contactBinding.enterCountryContactsCreate.setText(createdContact.country);
+            contactBinding.enterUrlContactsCreate.setText(createdContact.url);
+            contactBinding.enterNotesContactsCreate.setText(createdContact.additionalNotes);
+
+            return true;
+        }
     };
 
     public int index;
+    private static final String TAG = "CurrentEditState";
 
     CurrentEditState(int index) {
         this.index = index;
@@ -110,7 +164,6 @@ public enum CurrentEditState {
     public abstract ICreatedData createData(View v);
 
     /**
-     *
      * @return Returns true when cast to specific type succeeds, false if the provided data is not of this CurrentEditState type, so that the next type is tried(template method pattern)
      */
     protected abstract boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data);
@@ -119,7 +172,7 @@ public enum CurrentEditState {
         if (data == null) {
             return;
         }
-        for (CurrentEditState editState: CurrentEditState.values()) {
+        for (CurrentEditState editState : CurrentEditState.values()) {
             // Correct type is found
             if (editState.populateIndividualFields(binding, data)) {
                 break;
