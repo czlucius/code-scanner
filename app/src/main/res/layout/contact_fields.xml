@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
+  ~ Copyright (C) 2020 Lucius Chee Zihan
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published
+  ~ by the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contactFieldCreate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/enterFirstNameContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/first_name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterLastNameContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/last_name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterPrefixContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/prefix"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterSuffixContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/suffix"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterCompanyContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/company"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterJobContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/job"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterPhoneNoContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/phone_number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/enterEmailContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/enterStreetContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/street"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterZipCodeContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/zip_code"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/enterRegionContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/region"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterCountryContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/country"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/enterUrlContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/url"
+        android:inputType="textUri" />
+
+    <EditText
+        android:id="@+id/enterNotesContactsCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/additional_notes"
+        android:inputType="textMultiLine" />
+
+
+
+
+</LinearLayout>

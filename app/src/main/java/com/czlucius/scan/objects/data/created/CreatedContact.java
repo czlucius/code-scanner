@@ -26,20 +26,20 @@ import ezvcard.property.Organization;
 import ezvcard.property.StructuredName;
 
 public class CreatedContact implements ICreatedData {
-    private final String firstName;
-    private final String lastName;
-    private final String prefix;
-    private final String suffix;
-    private final String company;
-    private final String job;
-    private final String phoneNo;
-    private final String email;
-    private final String street;
-    private final String zipCode;
-    private final String region;
-    private final String country;
-    private final String url;
-    private final String additionalNotes;
+    public final String firstName;
+    public final String lastName;
+    public final String prefix;
+    public final String suffix;
+    public final String company;
+    public final String job;
+    public final String phoneNo;
+    public final String email;
+    public final String street;
+    public final String zipCode;
+    public final String region;
+    public final String country;
+    public final String url;
+    public final String additionalNotes;
 
     public CreatedContact(String firstName, String lastName, String prefix, String suffix, String company, String job, String phoneNo, String email, String street, String zipCode, String region, String country, String url, String additionalNotes) {
         this.firstName = firstName;
@@ -88,7 +88,7 @@ public class CreatedContact implements ICreatedData {
 
         vCard.addUrl(url);
         vCard.addNote(additionalNotes);
-        return vCard.toString();
+        return vCard.write();
     }
 
     @Override
@@ -100,4 +100,7 @@ public class CreatedContact implements ICreatedData {
                         && zipCode.isEmpty() && region.isEmpty() && country.isEmpty()
                         && url.isEmpty() && additionalNotes.isEmpty();
     }
+
+    public static CreatedContact EMPTY = new CreatedContact("", "", "", "", "", "", "", "", "", "", "", "", "", "");
+
 }
