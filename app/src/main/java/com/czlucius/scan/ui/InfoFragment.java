@@ -53,7 +53,6 @@ public class InfoFragment extends Fragment {
 
         // WebView for displaying open-source licenses
         WebView webView = new WebView(requireContext());
-        webView.loadUrl("file:///android_asset/licenses.html"); // Load from app's asset folder
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -82,7 +81,10 @@ public class InfoFragment extends Fragment {
         ossDialog.setView(webView);
         AlertDialog finalDialog = ossDialog.create();
 
-        binding.openSourceButton.setOnClickListener(v -> finalDialog.show());
+        binding.openSourceButton.setOnClickListener(v -> {
+            webView.loadUrl("file:///android_asset/licenses.html"); // Load from app's asset folder
+            finalDialog.show();
+        });
 
         return binding.getRoot();
     }
