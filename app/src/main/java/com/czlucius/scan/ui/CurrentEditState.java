@@ -31,6 +31,7 @@ import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ContactFieldsBinding;
 import com.czlucius.scan.databinding.ContentsDialogBinding;
 import com.czlucius.scan.objects.data.created.CreatedContact;
+import com.czlucius.scan.objects.data.created.CreatedSMS;
 import com.czlucius.scan.objects.data.created.CreatedText;
 import com.czlucius.scan.objects.data.created.CreatedURL;
 import com.czlucius.scan.objects.data.created.CreatedWiFi;
@@ -150,6 +151,19 @@ public enum CurrentEditState {
             contactBinding.enterNotesContactsCreate.setText(createdContact.additionalNotes);
 
             return true;
+        }
+    }, SMS(4) {
+        @Override
+        public ICreatedData createData(View v) {
+            EditText recipent = (EditText) v.findViewById(R.id.enterRecipientSmsCreate);
+            EditText contents = (EditText) v.findViewById(R.id.enterContentsSmsCreate);
+
+            return new CreatedSMS(recipent.getText().toString(), contents.getText().toString());
+        }
+
+        @Override
+        protected boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data) {
+            return false;
         }
     };
 

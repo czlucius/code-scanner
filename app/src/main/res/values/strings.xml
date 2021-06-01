@@ -144,5 +144,13 @@
     <string name="country">Country</string>
     <string name="additional_notes">Additional notes</string>
 
+    <string name="sms">SMS</string>
+    <string name="sms_recipients_phone_number">Recipient\'s phone number</string>
+    <string name="start_sms">Start message</string>
+    <string name="no_msg_app_found">No messaging apps found.</string>
+    <string name="copy_sms_recipient">Copy recipient</string>
+    <string name="recipient">Recipient</string>
+    <string name="copy_sms_contents">Copy SMS contents</string>
+
 
 </resources>

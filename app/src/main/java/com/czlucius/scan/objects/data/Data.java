@@ -95,6 +95,8 @@ public abstract class Data {
                 case Barcode.TYPE_WIFI:
                     assert barcode.getWifi() != null;
                     return new WiFi(barcode.getWifi());
+                case Barcode.TYPE_SMS:
+                    return new SMS(Objects.requireNonNull(barcode.getSms()));
                 default:
                     return new Text(barcode.getDisplayValue());
             }

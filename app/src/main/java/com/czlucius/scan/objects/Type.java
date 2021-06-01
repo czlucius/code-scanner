@@ -27,8 +27,11 @@ import com.czlucius.scan.objects.actions.AddContactAction;
 import com.czlucius.scan.objects.actions.AddWiFiAction;
 import com.czlucius.scan.objects.actions.CopyAction;
 import com.czlucius.scan.objects.actions.CopyPasskeyAction;
+import com.czlucius.scan.objects.actions.CopySMSContentsAction;
+import com.czlucius.scan.objects.actions.CopySMSRecipientAction;
 import com.czlucius.scan.objects.actions.CopySSIDAction;
 import com.czlucius.scan.objects.actions.EmailAction;
+import com.czlucius.scan.objects.actions.SMSAction;
 import com.czlucius.scan.objects.actions.URLAction;
 import com.google.mlkit.vision.barcode.Barcode;
 
@@ -48,6 +51,7 @@ public class Type {
     public static Type CONTACT;
     public static Type UNKNOWN_OR_TEXT;
     public static Type WIFI;
+    public static Type SMS;
 
     private Type(List<Action> actions, String typeName, int typeInt) {
         actions.add(0, CopyAction.getInstance());
@@ -80,6 +84,8 @@ public class Type {
                 return Type.URL;
             case Barcode.TYPE_WIFI:
                 return Type.WIFI;
+            case Barcode.TYPE_SMS:
+                return Type.SMS;
             default:
                 return Type.UNKNOWN_OR_TEXT;
         }
@@ -112,7 +118,15 @@ public class Type {
         wifiActions.add(CopySSIDAction.getInstance());
         wifiActions.add(CopyPasskeyAction.getInstance());
         wifiActions.add(AddWiFiAction.getInstance());
-        WIFI = new Type(wifiActions, "WiFi", Barcode.TYPE_WIFI);
+        WIFI = new Type(wifiActions, App.getStringGlobal(R.string.wifi, "Wi-Fi"), Barcode.TYPE_WIFI);
+
+
+        // SMS
+        ArrayList<Action> smsActions = new ArrayList<>();
+        smsActions.add(CopySMSRecipientAction.getInstance());
+        smsActions.add(CopySMSContentsAction.getInstance());
+        smsActions.add(SMSAction.getInstance());
+        SMS = new Type(smsActions, App.getStringGlobal(R.string.sms, "SMS"), Barcode.TYPE_WIFI);
 
         //unknown, same as text
         UNKNOWN_OR_TEXT = new Type(new ArrayList<>(), App.getStringGlobal(R.string.text, "Text"), Barcode.TYPE_TEXT);

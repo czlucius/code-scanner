@@ -71,6 +71,15 @@
                 android:layout_height="wrap_content"
                 android:text="@string/contact" />
 
+            <Button
+                android:id="@+id/createSms"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sms" />
+
+
+
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </HorizontalScrollView>
 
@@ -167,6 +176,31 @@
             <include
                 android:id="@+id/contactFieldCreate"
                 layout="@layout/contact_fields" />
+
+            <LinearLayout
+                android:id="@+id/smsFieldCreate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/enterRecipientSmsCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="http://"
+                    android:hint="@string/sms_recipients_phone_number"
+                    android:inputType="phone" />
+
+                <EditText
+                    android:id="@+id/enterContentsSmsCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="http://"
+                    android:hint="@string/contents"
+                    android:inputType="textMultiLine" />
+
+
+            </LinearLayout>
 
 
         </ViewFlipper>
