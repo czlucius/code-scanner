@@ -32,7 +32,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-// EXPM
+
 public class QR {
     private ICreatedData contents;
     private int color;
