@@ -23,7 +23,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 
 import androidx.annotation.IntDef;
-import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

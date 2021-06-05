@@ -19,7 +19,6 @@
 package com.czlucius.scan.objects.data.created;
 
 
-import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 

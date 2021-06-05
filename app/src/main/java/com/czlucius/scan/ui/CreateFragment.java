@@ -21,17 +21,14 @@
 package com.czlucius.scan.ui;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.ViewFlipper;
@@ -64,7 +61,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static com.czlucius.scan.ui.CreateViewModel.EditState.*;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.BACKGROUND;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.CONTENTS;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.FOREGROUND;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.NONE;
 
 
 public class CreateFragment extends Fragment {

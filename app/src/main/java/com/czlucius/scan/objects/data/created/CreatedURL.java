@@ -19,7 +19,6 @@
 package com.czlucius.scan.objects.data.created;
 
 import android.net.Uri;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 

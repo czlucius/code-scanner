@@ -29,10 +29,10 @@ import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import com.czlucius.scan.database.CodeMemento;
 import com.czlucius.scan.exceptions.NetworkInvalidException;
 import com.czlucius.scan.objects.Availability;
 import com.czlucius.scan.objects.Code;
-import com.czlucius.scan.database.CodeMemento;
 import com.czlucius.scan.objects.data.WiFi;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.mlkit.vision.barcode.Barcode;

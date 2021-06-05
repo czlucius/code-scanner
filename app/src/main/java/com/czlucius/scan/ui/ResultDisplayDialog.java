@@ -21,12 +21,11 @@ package com.czlucius.scan.ui;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ResultsPageBinding;
-import com.czlucius.scan.objects.actions.Action;
 import com.czlucius.scan.objects.Code;
+import com.czlucius.scan.objects.actions.Action;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.chip.Chip;

@@ -26,9 +26,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.czlucius.scan.R;
+import com.czlucius.scan.Utils;
 import com.czlucius.scan.database.CodeMemento;
 import com.czlucius.scan.database.HistoryDao;
-import com.czlucius.scan.Utils;
 import com.czlucius.scan.databinding.SingleHistoryItemBinding;
 import com.czlucius.scan.objects.Code;
 

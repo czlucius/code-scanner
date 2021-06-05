@@ -31,15 +31,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.Utils;
 import com.czlucius.scan.databinding.FragmentInfoBinding;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import java.util.Objects;
 
 
 public class InfoFragment extends Fragment {

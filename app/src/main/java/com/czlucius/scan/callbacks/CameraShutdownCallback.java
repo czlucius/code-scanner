@@ -18,12 +18,6 @@
 
 package com.czlucius.scan.callbacks;
 
-import androidx.camera.lifecycle.ProcessCameraProvider;
-
-import com.google.common.util.concurrent.ListenableFuture;
-
-import java.util.concurrent.ExecutionException;
-
 /**
  * A callback to shutdown the {@link androidx.camera.lifecycle.ProcessCameraProvider},
  * so that an instance of the said class does not have to be passed around, but only this callback

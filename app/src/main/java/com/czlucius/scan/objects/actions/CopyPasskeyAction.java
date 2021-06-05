@@ -22,8 +22,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 
-import androidx.annotation.Nullable;
-
 import com.czlucius.scan.App;
 import com.czlucius.scan.R;
 import com.czlucius.scan.objects.data.Data;
