@@ -110,8 +110,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="http://"
-                android:hint="Enter URL here"
+                android:hint="@string/enter_url_here"
                 android:inputType="textUri" />
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/wifiFieldCreate"
