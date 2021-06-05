@@ -40,4 +40,12 @@ public class CreatedSMS implements ICreatedData {
     public boolean isEmpty() {
         return (recipient == null || recipient.isEmpty()) || (contents == null || contents.isEmpty());
     }
+
+    public String getRecipient() {
+        return recipient;
+    }
+
+    public String getContents() {
+        return contents;
+    }
 }

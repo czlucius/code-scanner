@@ -163,7 +163,15 @@ public enum CurrentEditState {
 
         @Override
         protected boolean populateIndividualFields(ContentsDialogBinding rootBinding, ICreatedData data) {
-            return false;
+            if (data.getClass() != CreatedSMS.class) {
+                return false;
+            }
+
+            CreatedSMS sms = (CreatedSMS) data;
+
+            rootBinding.enterRecipientSmsCreate.setText(sms.getRecipient());
+            rootBinding.enterContentsSmsCreate.setText(sms.getContents());
+            return true;
         }
     };
 
