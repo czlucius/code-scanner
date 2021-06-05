@@ -130,7 +130,7 @@ public class Utils {
 
 
     public static RuntimeException suppressExceptionRuntime(Throwable exception) {
-        if (!(exception instanceof RuntimeException)) throw (RuntimeException) exception;
+        if (exception instanceof RuntimeException) throw (RuntimeException) exception;
 
         RuntimeException runtimeException = new RuntimeException(exception.getCause());
         runtimeException.addSuppressed(exception);
