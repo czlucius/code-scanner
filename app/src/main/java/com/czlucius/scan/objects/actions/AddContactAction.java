@@ -69,14 +69,14 @@ public class AddContactAction extends Action {
             row.put(ContactsContract.CommonDataKinds.Phone.TYPE, Utils.convertPhoneType(phone.getType()));
             dataList.add(row);
         }
-        intent.putParcelableArrayListExtra(DATA, dataList);
+
 
         intent.putExtra(ContactsContract.Intents.Insert.COMPANY, contactInfo.getOrganization());
 
 
         Email[] emailList = contactInfo.getEmails();
 
-        dataList = new ArrayList<>();
+
         for (Email email : emailList) {
             ContentValues row = new ContentValues();
             row.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Email.CONTENT_ITEM_TYPE);
@@ -84,11 +84,11 @@ public class AddContactAction extends Action {
             row.put(ContactsContract.CommonDataKinds.Email.TYPE, Utils.convertEmailType(email.getType()));
             dataList.add(row);
         }
-        intent.putParcelableArrayListExtra(DATA, dataList);
+
 
 
         String[] urlList = contactInfo.getUrls();
-        dataList = new ArrayList<>();
+
 
         for (String url: urlList) {
             ContentValues row = new ContentValues();
@@ -98,10 +98,10 @@ public class AddContactAction extends Action {
 
         }
 
-        intent.putParcelableArrayListExtra(DATA, dataList);
+
 
         Address[] addresses = contactInfo.getAddresses();
-        dataList = new ArrayList<>();
+
 
         for (Address address: addresses) {
             ContentValues row = new ContentValues();
