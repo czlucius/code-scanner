@@ -20,6 +20,7 @@ package com.czlucius.scan.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -59,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
         binding.bottomNav.setOnNavigationItemReselectedListener(item -> {});
 
-        handleIntent(getIntent(), navController);
+        if (savedInstanceState == null) {
+            handleIntent(getIntent(), navController); // First launch
+        }
     }
 
 
