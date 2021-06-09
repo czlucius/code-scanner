@@ -33,7 +33,7 @@ public class CreatedSMS implements ICreatedData {
     @NonNull
     @Override
     public String getQRData() {
-        return "SMS:" + recipient + ":" + contents;
+        return "SMSTO:" + recipient + ":" + contents;
     }
 
     @Override
