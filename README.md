@@ -1,4 +1,6 @@
 # code-scanner
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c5bbd14d952d462c95e6177aea893056)](https://www.codacy.com/gh/czlucius/code-scanner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=czlucius/code-scanner&amp;utm_campaign=Badge_Grade)
+
 An Android app to scan codes(barcodes/QR codes)
 
 This app is now stable enough for daily usage. Please file an issue when you notice bugs. Thank you.
