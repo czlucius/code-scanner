@@ -38,15 +38,12 @@ import com.czlucius.scan.databinding.ActivityMainBinding;
  */
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
-    private static final String BOTTOM_NAV = "BOTTOM_NAV";
-    private ActivityMainBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.czlucius.scan.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host);

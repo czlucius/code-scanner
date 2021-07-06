@@ -30,11 +30,12 @@ import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.SMS;
 
 public class SMSAction extends Action {
+    private static Action INSTANCE;
     public SMSAction() {
         super(App.getStringGlobal(R.string.start_sms, "Start message"), R.drawable.ic_baseline_sms_24);
     }
 
-    private static Action INSTANCE;
+
     public static Action getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new SMSAction();

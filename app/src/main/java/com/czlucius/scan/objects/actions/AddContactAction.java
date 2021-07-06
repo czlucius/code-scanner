@@ -37,11 +37,11 @@ import java.util.ArrayList;
 import static android.provider.ContactsContract.Intents.Insert.DATA;
 
 public class AddContactAction extends Action {
+    private static AddContactAction INSTANCE;
     private AddContactAction() {
         super(App.getStringGlobal(R.string.add_contact, "Add Contact"), R.drawable.ic_baseline_add_circle_24);
     }
 
-    private static AddContactAction INSTANCE;
     public static AddContactAction getInstance() {
 
         if (INSTANCE == null) {

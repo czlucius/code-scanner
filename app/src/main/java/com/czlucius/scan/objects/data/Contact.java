@@ -30,7 +30,7 @@ import java.util.Objects;
 
 public class Contact extends Data {
 
-    private static final String TAG = "Contact";
+
 
     private final Address[] addresses;
     private final Email[] emails;
@@ -162,10 +162,10 @@ public class Contact extends Data {
         for (int i = 0; i < emails.length; i++) {
             // just get sender
             contact.append(emails[i].getAddress());
-            if (!(i == emails.length - 1)) {
-                contact.append("\", ");
-            } else {
+            if (i != (emails.length - 1)) {
                 contact.append("\"\n");
+            } else {
+                contact.append("\", ");
             }
         }
 

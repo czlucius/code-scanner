@@ -28,11 +28,11 @@ import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.WiFi;
 
 public class CopyPasskeyAction extends Action {
+    private static Action INSTANCE;
     private CopyPasskeyAction() {
         super(App.getStringGlobal(R.string.copy_password, "Copy password"), null);
     }
 
-    private static Action INSTANCE;
     public static Action getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new CopyPasskeyAction();

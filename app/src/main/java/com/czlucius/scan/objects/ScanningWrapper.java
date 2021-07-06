@@ -32,7 +32,7 @@ import java.util.Objects;
  * An UI wrapper around {@link Code} to manage UI interactions.
  */
 public class ScanningWrapper {
-    private static final String TAG = "ScanningWrapper";
+
     private Dialog dialog;
     private final Code code;
     private boolean scanned;

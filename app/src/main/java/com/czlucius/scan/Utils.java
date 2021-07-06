@@ -121,6 +121,7 @@ public class Utils {
                     break;
                 case Barcode.WiFi.TYPE_OPEN:
                     config.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+                    break;
             }
             if (manager.addNetwork(config) == -1) {
                 throw new NetworkInvalidException(NetworkInvalidException.SIMPLE_ERROR);

@@ -30,11 +30,11 @@ import com.czlucius.scan.objects.data.Email;
 
 public class EmailAction extends Action {
 
-
+    private static EmailAction INSTANCE;
     private EmailAction() {
         super(App.getStringGlobal(R.string.send_email, "Send email"), R.drawable.ic_baseline_alternate_email_24);
     }
-    private static EmailAction INSTANCE;
+
     public static EmailAction getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new EmailAction();

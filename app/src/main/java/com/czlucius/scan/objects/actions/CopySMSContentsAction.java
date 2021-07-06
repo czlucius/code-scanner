@@ -29,11 +29,12 @@ import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.SMS;
 
 public class CopySMSContentsAction extends Action {
+    private static Action INSTANCE;
     private CopySMSContentsAction() {
         super(App.getStringGlobal(R.string.copy_sms_contents, "Copy SMS contents"), null);
     }
 
-    private static Action INSTANCE;
+
     public static Action getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new CopySMSContentsAction();

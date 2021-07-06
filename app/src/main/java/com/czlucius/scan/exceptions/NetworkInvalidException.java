@@ -28,6 +28,17 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 public class NetworkInvalidException extends Exception {
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    public static final int INTERNAL_ERR = 1,
+            APP_DISALLOWED = 2,
+            DUPLICATE = 3,
+            EXCEED_MAX_LIMIT = 4,
+            NETWORK_NOT_ALLOWED = 6,
+            NETWORK_INVALID = 7;
+
+    public static final int SIMPLE_ERROR = -1;
+
     @ErrorCode
     private final int type;
 
@@ -42,11 +53,6 @@ public class NetworkInvalidException extends Exception {
         return type;
     }
 
-
-    @RequiresApi(Build.VERSION_CODES.Q)
-    public static final int INTERNAL_ERR = 1, APP_DISALLOWED = 2, DUPLICATE = 3, EXCEED_MAX_LIMIT = 4, NETWORK_NOT_ALLOWED = 6, NETWORK_INVALID = 7;
-
-    public static final int SIMPLE_ERROR = -1;
 
 
     @SuppressLint("NewApi")

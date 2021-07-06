@@ -40,7 +40,7 @@ import static com.czlucius.scan.ui.CreateViewModel.EditState.NONE;
 
 
 public class CreateViewModel extends AndroidViewModel {
-    private static final String TAG = "CreateViewModel";
+
 
     private final MutableLiveData<Integer> currentState; // since current Java version doesn't allow for annotated type arguments, we just use Integer.
     private final MutableLiveData<QR> qr;
@@ -50,7 +50,7 @@ public class CreateViewModel extends AndroidViewModel {
         super(app);
         // Initialization
         currentState = new MutableLiveData<>();
-        currentState.setValue(EditState.NONE);
+        currentState.setValue(NONE);
 
         qr = new MutableLiveData<>();
         qr.setValue(new QR(null, Color.BLACK, Color.WHITE));
@@ -114,10 +114,10 @@ public class CreateViewModel extends AndroidViewModel {
 
     @IntDef({CONTENTS, FOREGROUND, BACKGROUND, NONE})
     public @interface EditState {
-        public static final int CONTENTS = 0;
-        public static final int FOREGROUND = 1;
-        public static final int BACKGROUND = 2;
-        public static final int NONE = 3;
+        int CONTENTS = 0;
+        int FOREGROUND = 1;
+        int BACKGROUND = 2;
+        int NONE = 3;
     }
 
 

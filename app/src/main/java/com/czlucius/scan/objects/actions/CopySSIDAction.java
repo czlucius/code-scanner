@@ -28,11 +28,11 @@ import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.WiFi;
 
 public class CopySSIDAction extends Action {
+    private static Action INSTANCE;
     private CopySSIDAction() {
         super(App.getStringGlobal(R.string.copy_ssid, "Copy SSID"), null);
     }
 
-    private static Action INSTANCE;
     public static Action getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new CopySSIDAction();

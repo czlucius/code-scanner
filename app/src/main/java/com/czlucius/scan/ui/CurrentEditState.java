@@ -175,7 +175,7 @@ public enum CurrentEditState {
     };
 
     public int index;
-    private static final String TAG = "CurrentEditState";
+
 
     CurrentEditState(int index) {
         this.index = index;

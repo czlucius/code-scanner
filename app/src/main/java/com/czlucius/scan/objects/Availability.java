@@ -26,7 +26,7 @@ import static com.czlucius.scan.objects.Availability.UNAVAILABLE;
 
 @IntDef({ON, OFF, UNAVAILABLE})
 public @interface Availability {
-    public static final int ON = 1;
-    public static final int OFF = 0;
-    public static final int UNAVAILABLE = -1;
+    int ON = 1;
+    int OFF = 0;
+    int UNAVAILABLE = -1;
 }

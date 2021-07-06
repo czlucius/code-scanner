@@ -31,11 +31,11 @@ import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.WiFi;
 
 public class AddWiFiAction extends Action {
+    private static Action INSTANCE;
     public AddWiFiAction() {
         super(App.getStringGlobal(R.string.connect_wifi, "Connect"), R.drawable.ic_baseline_signal_wifi_4_bar_24);
     }
 
-    private static Action INSTANCE;
     public static Action getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new AddWiFiAction();
@@ -71,10 +71,13 @@ public class AddWiFiAction extends Action {
                     case NetworkInvalidException.NETWORK_NOT_ALLOWED:
                         errorMsg(context, R.string.connection_ntwk_disallowed);
                         break;
-                    default:
-                        e.printStackTrace();
                     case NetworkInvalidException.SIMPLE_ERROR:
                         e.printStackTrace();
+                        break;
+                    default:
+                        e.printStackTrace();
+                        break;
+
                 }
             }
         }

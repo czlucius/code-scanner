@@ -33,7 +33,7 @@ import com.google.mlkit.vision.common.InputImage;
 import java.util.List;
 
 public class CodeAnalyser implements ImageAnalysis.Analyzer {
-    private static final String TAG = "CodeAnalyser";
+
     private SuccessCallback mCallBack;
     private FailureHandler mExceptionHandler;
 

@@ -42,7 +42,7 @@ import java.util.ArrayList;
 
 
 public class HistoryFragment extends Fragment {
-    private static final String TAG = "HistoryFragment";
+
     private FragmentHistoryBinding binding;
     private HistoryAdapter adapter;
     private HistoryDao dao;

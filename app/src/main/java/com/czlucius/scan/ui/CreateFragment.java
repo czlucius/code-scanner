@@ -140,12 +140,10 @@ public class CreateFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == SAVE_IMAGE && resultCode == Activity.RESULT_OK) {
-            if (data != null) {
-                // Get data from storage access framework.
-                Uri uri = data.getData();
-                save(uri);
-            }
+        if (requestCode == SAVE_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+            // Get data from storage access framework.
+            Uri uri = data.getData();
+            save(uri);
         }
     }
 
@@ -270,8 +268,8 @@ public class CreateFragment extends Fragment {
                 .setPositiveButton(R.string.ok, (dialog, which) -> {
                     ICreatedData data = currentEditState.createData(flipper.getCurrentView());
                     vm.setContents(data);
-                    vm.setCurrentState(CreateViewModel.EditState.NONE);
-                }).setNegativeButton(R.string.cancel, (dialog, which) -> vm.setCurrentState(CreateViewModel.EditState.NONE)).setCancelable(false)
+                    vm.setCurrentState(NONE);
+                }).setNegativeButton(R.string.cancel, (dialog, which) -> vm.setCurrentState(NONE)).setCancelable(false)
                 .create();
         contentsDialog.show();
         alertDialogsOpen.add(contentsDialog);
