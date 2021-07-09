@@ -5,7 +5,9 @@ An Android app to scan codes(barcodes/QR codes)
 
 This app is now stable enough for daily usage. Please file an issue when you notice bugs. Thank you.
 
-[![GalaxyStore_English](https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png)](https://galaxy.store/codescan)
+[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" 
+      alt="Available on Galaxy Store" 
+      height="80">](https://galaxy.store/codescan)
 
 
 ## Using this project
