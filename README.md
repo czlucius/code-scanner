@@ -19,7 +19,7 @@ You may also run this code on your machine by opening this project in Android St
 Do note that this project is protected by the GNU Affero General Public License version 3, hence usage of this project would have to be compliant to the GNU AGPL.
 
 ## License
-This project is licensed with the GNU Affero General Public License. View [the license file](LICENSE.md) for more info.
+This project is licensed with the GNU Affero General Public License. View [the license file](LICENSE.txt) for more info.
 
 ## Open-source dependencies
 
