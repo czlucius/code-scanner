@@ -11,6 +11,9 @@ This app is now stable enough for daily usage. Please file an issue when you not
 [<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" 
       alt="Available on Galaxy Store" 
       height="80">](https://galaxy.store/codescan)
+[<img src="https://stc.utdstc.com/img/mediakit/download-gio-big.png" 
+      alt="Download Code Scanner on Uptodown" 
+      height="80">](https://code-scanner.en.uptodown.com/android)
 
 
 ## Using this project
