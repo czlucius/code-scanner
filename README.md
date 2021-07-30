@@ -14,10 +14,19 @@ This app is now stable enough for daily usage. Please file an issue when you not
 [<img src="https://stc.utdstc.com/img/mediakit/download-gio-big.png" 
       alt="Download Code Scanner on Uptodown" 
       height="80">](https://code-scanner.en.uptodown.com/android)
+[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png" 
+      alt="Available at Amazon Appstore" 
+      height="80">](http://www.amazon.com/gp/mas/dl/android?p=com.czlucius.scan)      
 
 
 ## Using this project
-This project is ready for release, you may download it here: https://github.com/czlucius/code-scanner/releases, or at the Galaxy Store: https://galaxy.store/codescan.
+This project is stable for release.
+Download it through these platforms (or share it with others):
+
+- GitHub Releases: https://github.com/czlucius/code-scanner/releases (APK file for all devices)
+- Samsung Galaxy Store: https://galaxy.store/codescan
+- Uptodown: https://code-scanner.en.uptodown.com/android
+- Amazon Appstore: http://www.amazon.com/gp/mas/dl/android?p=com.czlucius.scan
 
 You may also run this code on your machine by opening this project in Android Studio, and compiling it to your Android device.
 Do note that this project is protected by the GNU Affero General Public License version 3, hence usage of this project would have to be compliant to the GNU AGPL.
