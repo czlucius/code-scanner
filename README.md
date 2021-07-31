@@ -6,14 +6,9 @@
 
 An Android app to scan codes(barcodes/QR codes)
 
-This app is now stable enough for daily usage. Please file an issue when you notice bugs. Thank you.
-
 [<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" 
       alt="Available on Galaxy Store" 
       height="80">](https://galaxy.store/codescan)
-[<img src="https://stc.utdstc.com/img/mediakit/download-gio-big.png" 
-      alt="Download Code Scanner on Uptodown" 
-      height="80">](https://code-scanner.en.uptodown.com/android)
 [<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png" 
       alt="Available at Amazon Appstore" 
       height="80">](http://www.amazon.com/gp/mas/dl/android?p=com.czlucius.scan)      
@@ -50,5 +45,13 @@ This app uses the following open-source libraries:
 ## Notes
 1.  Tag EXPM is used for experimental features.                       
     Use Ctrl+Shift+F to perform project-wide search in Android Studio.
+    
+## Support
+To support this project, you can
+- File an issue when you notice bugs - (https://github.com/czlucius/code-scanner/issues)
+- Star this repo
+- Use this application
+
+Thanks!
     
 Hope you enjoy this app!
