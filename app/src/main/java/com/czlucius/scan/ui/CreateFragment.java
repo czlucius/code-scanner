@@ -221,7 +221,7 @@ public class CreateFragment extends Fragment {
 
     private void regenerateQRImage() {
 
-        if (vm.getContents() == null) {
+        if (vm.getContents() == null || vm.getContents().isEmpty()) {
             binding.qrImage.setImageDrawable(null);
 
             // Make the share options invisible
