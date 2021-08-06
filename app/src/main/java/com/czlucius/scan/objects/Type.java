@@ -126,7 +126,7 @@ public class Type {
         smsActions.add(CopySMSRecipientAction.getInstance());
         smsActions.add(CopySMSContentsAction.getInstance());
         smsActions.add(SMSAction.getInstance());
-        SMS = new Type(smsActions, App.getStringGlobal(R.string.sms, "SMS"), Barcode.TYPE_WIFI);
+        SMS = new Type(smsActions, App.getStringGlobal(R.string.sms, "SMS"), Barcode.TYPE_SMS);
 
         //unknown, same as text
         UNKNOWN_OR_TEXT = new Type(new ArrayList<>(), App.getStringGlobal(R.string.text, "Text"), Barcode.TYPE_TEXT);
