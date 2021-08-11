@@ -111,7 +111,7 @@
         app:layout_constraintVertical_bias="0.0"
         tools:text="QR" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/code_contents_holder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
             android:layout_gravity="center"
             android:autoLink="all"
             tools:text="person@example.com" />
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
