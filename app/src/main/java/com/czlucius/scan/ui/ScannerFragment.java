@@ -285,7 +285,8 @@ public class ScannerFragment extends Fragment {
 
     private void processImage(InputStream inputStream, Bitmap bmp, Consumer<Boolean> detected) {
 
-        InputImage inputImage = InputImage.fromBitmap(bmp, 0); //TODO get rotation degree.
+        // Analysing as if image is upright as API should be able to detect rotated codes.
+        InputImage inputImage = InputImage.fromBitmap(bmp, 0);
         barcodeScanner.process(inputImage)
                 .addOnSuccessListener(barcodes -> {
                     vm.scanBarcodes(barcodes);
