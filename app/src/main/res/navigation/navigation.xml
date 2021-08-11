@@ -45,5 +45,5 @@
         android:name="com.czlucius.scan.ui.InfoFragment"
         android:label="@string/info"
         tools:layout="@layout/fragment_info"/>
-    <!-- EXPM fragment_create -> create_dialog -->
+
 </navigation>
