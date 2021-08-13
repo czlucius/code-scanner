@@ -16,3 +16,4 @@
 /app/src/main/java/com/czlucius/scan/translators // Translators still under development, do not push/commit for now
 /app/release
 /app/src/main/java/com/czlucius/scan/callbacks/ActivityResultCallback.java
+/app/obfuscation
