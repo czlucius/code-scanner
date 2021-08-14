@@ -4,7 +4,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/czlucius/code-scanner)
 [![Lines of code](https://tokei.rs/b1/github/czlucius/code-scanner?category=code)](https://github.com/czlucius/code-scanner)
 
-An Android app to scan codes(barcodes/QR codes)
+An Android app to scan and generate codes(barcodes/QR codes)
 
 [<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" 
       alt="Available on Galaxy Store" 
