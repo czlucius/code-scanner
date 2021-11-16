@@ -1,27 +1,17 @@
 # code-scanner
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c5bbd14d952d462c95e6177aea893056)](https://www.codacy.com/gh/czlucius/code-scanner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=czlucius/code-scanner&amp;utm_campaign=Badge_Grade)
 [![GitHub license](https://img.shields.io/github/license/czlucius/code-scanner)](https://github.com/czlucius/code-scanner/blob/main/LICENSE.txt)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/czlucius/code-scanner)](https://github.com/czlucius/code-scanner/releases)
 [![Lines of code](https://tokei.rs/b1/github/czlucius/code-scanner?category=code)](https://github.com/czlucius/code-scanner)
 
 An Android app to scan and generate codes(barcodes/QR codes)
 
-[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" 
-      alt="Available on Galaxy Store" 
-      height="80">](https://galaxy.store/codescan)
-[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png" 
-      alt="Available at Amazon Appstore" 
-      height="80">](http://www.amazon.com/gp/mas/dl/android?p=com.czlucius.scan)      
+**Note:**
+**Branch "play" is for Google Play, tailored to comply with Google Play Developer Program Policies.**
+**Some things have been added and removed in this branch e.g. links to other app stores**
 
 
 ## Using this project
 This project is stable for release.
-Download it through these platforms (or share it with others):
-
--  GitHub Releases: https://github.com/czlucius/code-scanner/releases (APK file for all devices)
--  Samsung Galaxy Store: https://galaxy.store/codescan
--  Uptodown: https://code-scanner.en.uptodown.com/android
--  Amazon Appstore: http://www.amazon.com/gp/mas/dl/android?p=com.czlucius.scan
 
 You may also run this code on your machine by opening this project in Android Studio, and compiling it to your Android device.
 Do note that this project is protected by the GNU Affero General Public License version 3, hence usage of this project would have to be compliant to the GNU AGPL.
