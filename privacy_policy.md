@@ -29,6 +29,8 @@ And in Google’s overarching Privacy policy:
 The Service does not collect these data:
 -  Camera feed (they are only sent to an offline API to process, then discarded)
 
+Please do note that this app does not have any internet permissions, hence any data that is being used in this app cannot be sent to external sources and remains on your device.
+
 If you choose to use my Service, then you agree to the collection and use of information concerning this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.
 
 ## Changes to This Privacy Policy
