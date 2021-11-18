@@ -30,7 +30,9 @@ import com.czlucius.scan.objects.data.Address;
 import com.czlucius.scan.objects.data.Contact;
 import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.Email;
+import com.czlucius.scan.objects.data.Name;
 import com.czlucius.scan.objects.data.Phone;
+import com.google.mlkit.vision.barcode.Barcode;
 
 import java.util.ArrayList;
 
@@ -39,7 +41,7 @@ import static android.provider.ContactsContract.Intents.Insert.DATA;
 public class AddContactAction extends Action {
     private static AddContactAction INSTANCE;
     private AddContactAction() {
-        super(App.getStringGlobal(R.string.add_contact, "Add Contact"), R.drawable.ic_baseline_add_circle_24);
+        super(App.getStringGlobal(R.string.add_contact, "Add Contact"), R.drawable.ic_baseline_add_circle_filled_24);
     }
 
     public static AddContactAction getInstance() {
@@ -58,10 +60,30 @@ public class AddContactAction extends Action {
 
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setType(ContactsContract.Contacts.CONTENT_TYPE);
-        intent.putExtra(ContactsContract.Intents.Insert.NAME, contactInfo.getName().getStringRepresentation());
-        Phone[] phoneList = contactInfo.getPhones();
 
         ArrayList<ContentValues> dataList = new ArrayList<>();
+
+        // Name
+        ContentValues names = new ContentValues();
+
+        Name name = contactInfo.getName();
+        // Prefixes and Suffixes
+       names.put(ContactsContract.CommonDataKinds.StructuredName.PREFIX, name.getPrefix());
+       names.put(ContactsContract.CommonDataKinds.StructuredName.SUFFIX, name.getSuffix());
+        // Add First Name (Given Name)
+       names.put(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME, name.getFirstName());
+        // Middle Name
+       names.put(ContactsContract.CommonDataKinds.StructuredName.MIDDLE_NAME, name.getMiddleName());
+        // Family Name (Last Name)
+       names.put(ContactsContract.CommonDataKinds.StructuredName.FAMILY_NAME, name.getLastName());
+
+       names.put(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, name.getFormattedName());
+
+       dataList.add(names);
+
+        // Add Phone numbers
+        Phone[] phoneList = contactInfo.getPhones();
+
         for (Phone phone : phoneList) {
             ContentValues row = new ContentValues();
             row.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
@@ -71,6 +93,8 @@ public class AddContactAction extends Action {
         }
 
 
+        // Org & Job title
+        intent.putExtra(ContactsContract.Intents.Insert.JOB_TITLE, contactInfo.getTitle());
         intent.putExtra(ContactsContract.Intents.Insert.COMPANY, contactInfo.getOrganization());
 
 
@@ -104,10 +128,10 @@ public class AddContactAction extends Action {
 
 
         for (Address address: addresses) {
-            ContentValues row = new ContentValues();
-            row.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredPostal.CONTENT_ITEM_TYPE);
-            row.put(ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS, address.getStringRepresentation());
-            dataList.add(row);
+            for (String formattedAddr: address.getFormattedAddresses()) {
+                intent.putExtra(ContactsContract.Intents.Insert.POSTAL, formattedAddr);
+            }
+
 
         }
 

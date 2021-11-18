@@ -61,7 +61,7 @@ public class Contact extends Data {
         this.phones = phones;
         this.name = contactInfo.getName() != null ? new Name(contactInfo.getName()) : Name.NO_NAME_INSTANCE;
         this.organization = contactInfo.getOrganization();
-        this.title = contactInfo.getTitle();
+        this.title = contactInfo.getTitle(); // Job Title
         this.urls = contactInfo.getUrls().toArray(new String[0]);
     }
 
@@ -141,15 +141,13 @@ public class Contact extends Data {
 
         contact.append(App.getStringGlobal(R.string.contact, "Contact"))
                 .append("\n")
-                .append(!title.equals("") ? App.getStringGlobal(R.string.title, "Title") + ": \"" : "")
-                .append(title)
-                .append(!title.equals("") ? "\"" : "")
-                .append("\n")
                 .append(App.getStringGlobal(R.string.name, "Name"))
                 .append(": \"")
                 .append(name.getStringRepresentation())
                 .append(phones.length != 0 ? "\"\n" + App.getStringGlobal(R.string.phones, "Phones") + ":\n" : "\"\n")
-                .append(getStringFromIDataList(phones));
+                .append(getStringFromIDataList(phones))
+                .append("\n");
+
 
         if (!(organization.isEmpty() || organization.trim().isEmpty())) {
             contact.append(App.getStringGlobal(R.string.org, "Organization"))
@@ -157,12 +155,19 @@ public class Contact extends Data {
                     .append(organization)
                     .append("\"\n");
         }
+        if (!(title.isEmpty() || title.trim().isEmpty())) {
+            contact.append(App.getStringGlobal(R.string.title, "Job Title"))
+                    .append(": \"")
+                    .append(title)
+                    .append("\"\n\n");
+        }
+
 
         contact.append(emails.length != 0 ? App.getStringGlobal(R.string.emails, "Emails") + ": \"" : "");
         for (int i = 0; i < emails.length; i++) {
             // just get sender
             contact.append(emails[i].getAddress());
-            if (i != (emails.length - 1)) {
+            if (i == (emails.length - 1)) {
                 contact.append("\"\n");
             } else {
                 contact.append("\", ");
