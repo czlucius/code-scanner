@@ -56,7 +56,7 @@
     <string name="no_model">QR/Barcode reading model not available.\nCheck/Update Google Play Services and try again.</string>
     <string name="cam_unavailable">Camera unavailable at the moment</string>
 
-    <string name="title">Title</string>
+    <string name="title">Job Title</string>
     <string name="name">Name</string>
     <string name="phones">Phones</string>
     <string name="org">Organization</string>
@@ -69,8 +69,8 @@
     <string name="url">URL</string>
     <string name="text">Text</string>
 
-    <string name="to">to</string>
-    <string name="subject">subject</string>
+    <string name="to">To</string>
+    <string name="subject">Subject</string>
 
     <string name="contents">Contents</string>
 

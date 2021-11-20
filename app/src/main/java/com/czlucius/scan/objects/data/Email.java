@@ -38,8 +38,8 @@ public class Email extends Data {
         return App.getStringGlobal(R.string.email, "Email")
                 + ": \n"
                 + App.getStringGlobal(R.string.to, "To")
-                + "<"
-                + address + ">, "
+                + " <"
+                + address + ">\n"
                 + App.getStringGlobal(R.string.subject, "Subject")
                 + ": \""
                 + subject
