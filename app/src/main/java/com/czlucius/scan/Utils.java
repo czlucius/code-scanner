@@ -150,6 +150,10 @@ public class Utils {
      * @return Whether an app to launch the intent exists on the device
      */
     public static boolean launchIntentCheckAvailable(Intent intent, Context context) {
+        /*
+         TODO/GPV: This may violate Google Play policies (may provide a way for broad scanning) -> have to check w Google Play staff
+         TODO/GPV: Use queries instead of trying and catching exceptions.
+         */
         try {
             context.startActivity(intent);
             return true;

@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.czlucius.scan.App;
 import com.czlucius.scan.R;
+import com.czlucius.scan.Utils;
 import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.Email;
 
@@ -58,7 +59,7 @@ public class EmailAction extends Action {
         intent.putExtra(Intent.EXTRA_SUBJECT, email.getSubject());
         intent.putExtra(Intent.EXTRA_TEXT, email.getBody());
         intent.setData(Uri.parse("mailto:"));
-        if (intent.resolveActivity(context.getPackageManager()) != null) {
+        if (Utils.launchIntentCheckAvailable(intent, context)) {
             context.startActivity(intent);
         } else {
             Toast.makeText(context, R.string.no_email_providers, Toast.LENGTH_SHORT).show();
