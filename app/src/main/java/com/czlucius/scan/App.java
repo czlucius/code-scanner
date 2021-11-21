@@ -26,6 +26,8 @@ import android.util.Log;
 
 import androidx.annotation.StringRes;
 
+import com.google.android.material.color.DynamicColors;
+
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -45,6 +47,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         res = new WeakReference<>(getResources());
+        DynamicColors.applyToActivitiesIfAvailable(this);
     }
 
 

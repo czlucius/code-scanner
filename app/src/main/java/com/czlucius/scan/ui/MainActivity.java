@@ -29,6 +29,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationBarMenu;
+import com.google.android.material.navigation.NavigationBarView;
 
 /**
  * NOTE:
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.bottomNav, navController);
 
 
-        binding.bottomNav.setOnNavigationItemReselectedListener(item -> {});
+        binding.bottomNav.setOnItemReselectedListener(item -> {});
 
         if (savedInstanceState == null) {
             handleIntent(getIntent(), navController); // First launch

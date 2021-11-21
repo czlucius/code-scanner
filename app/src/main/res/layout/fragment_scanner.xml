@@ -44,7 +44,7 @@
         android:backgroundTint="#FFFFFF"
         android:orientation="vertical"
         android:text="@string/position_code"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

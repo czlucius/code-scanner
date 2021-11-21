@@ -18,9 +18,9 @@
 
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.App" parent="Theme.MaterialComponents.Light">
+    <style name="Theme.App" parent="Theme.Material3.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/pure_white</item>
+        <item name="colorPrimary">#ABABAB</item>
         <item name="colorPrimaryVariant">@color/mist</item>
         <item name="colorPrimaryDark">@color/mist</item>
 
@@ -32,8 +32,10 @@
         <item name="colorAccent">@color/jungle_green</item>
 
         <item name="bottomNavigationStyle">
-            @style/Widget.MaterialComponents.BottomNavigationView.Colored
+            @style/Widget.Material3.BottomNavigationView
         </item>
+
+        <item name="colorSecondaryContainer">@color/moderate_grey</item>
 
         <item name="android:windowLightStatusBar">true</item>
     </style>
@@ -43,13 +45,13 @@
         <item name="colorPrimary">@color/pure_black</item>
     </style>
 
-    <style name="Theme.App.AlertDialogTheme" parent="Theme.MaterialComponents.Light.Dialog">
+    <style name="Theme.App.AlertDialogTheme" parent="Theme.Material3.Light.Dialog">
         <item name="android:textColor">@color/pure_black</item>
         <item name="colorPrimary">@color/pure_white</item>
         <item name="buttonBarButtonStyle">@style/Theme.App.AlertDialogTheme.ButtonStyle</item>
     </style>
 
-    <style name="Theme.App.AlertDialogTheme.ButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <style name="Theme.App.AlertDialogTheme.ButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textColor">@color/pure_black</item>
     </style>
 
