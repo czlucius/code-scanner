@@ -44,6 +44,7 @@ import com.azeesoft.lib.colorpicker.ColorPickerDialog;
 import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ContentsDialogBinding;
 import com.czlucius.scan.databinding.CreateBinding;
+import com.czlucius.scan.misc.monetization.AdStrategy;
 import com.czlucius.scan.objects.data.created.CreatedText;
 import com.czlucius.scan.objects.data.created.CreatedWiFi;
 import com.czlucius.scan.objects.data.created.ICreatedData;
@@ -132,9 +133,13 @@ public class CreateFragment extends Fragment {
         binding.saveToGalleryButton.setOnClickListener(v -> {
             // Prompt user to create a png file.
             DateFormat dateFormat = SimpleDateFormat.getDateTimeInstance();
-            createFile("QR @ " + dateFormat.format(new Date()) + ".png");
+            createFile("QR @ " + dateFormat.format(new Date()) + ".png"); // TODO add customisation options, shouldn't be that hard
 
         });
+
+        // AdMob SDK
+        View v = view.findViewById(R.id.banner);
+        AdStrategy.loadAdView(v);
     }
 
     @Override
@@ -183,7 +188,7 @@ public class CreateFragment extends Fragment {
 
         // Use current date/time as name of image.
         String fileName = "qr_image_" + System.currentTimeMillis() + ".png";
-        File bmpFile = new File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), fileName);
+        File bmpFile = new File(requireContext().getCacheDir(), fileName);
         OutputStream os = null;
         try {
             os = new FileOutputStream(bmpFile);
