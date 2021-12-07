@@ -25,7 +25,6 @@ If applicable, add screenshots to help explain your problem.
 **Device information**
  - Device
  - OS:
- - Browser:
  - App version:
 
 **Additional context**
