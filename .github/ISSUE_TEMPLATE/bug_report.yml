@@ -1,0 +1,89 @@
+name: "Bug report"
+description: Create a report to help us improve.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        - Please do your best to search for duplicate issues before filing a new issue so we can keep our issue board clean.
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the behaviour.
+      placeholder: |
+        1. Open the app
+        2. Go to the "Create" section
+        ....
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behaviour
+      placeholder: A menu should open..
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Actual behaviour
+      placeholder: The app closes unexpectedly..
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        # Device information
+  - type: input
+    attributes:
+      label: Device name
+      description: The name of the device model and manufacturer.
+      placeholder: Google Pixel 6 
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: Android version/API Level
+      description: You can find the Android version information in the About section of your device's system settings.
+      placeholder: Android 12
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: App version
+      description: You can find this information in Settings -> Apps -> Code Scanner -> scroll down to version name
+      placeholder: "1.6"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Device/crash logs
+      description: |
+        Device logs or crash information can greatly aid in debugging. 
+        You may use [ADB (Android Debug Bridge)][adb_url] and [logcat][logcat_url] to obtain device logs.
+        Alternatively, you may also use [Scoop][scoop_url], an app designed to catch stack traces of apps when they crash unexpectedly.
+        
+        **NOTE: when obtaining crash logs, it is recommended that you get the debug version by compiling from source. This is because the release version, the one released as an APK, has minification and obfuscation enabled, which would make the class names different and unreadable.**
+        
+        [scoop_url]: https://github.com/TacoTheDank/Scoop
+        [adb_url]: https://developer.android.com/studio/command-line/adb
+        [logcat_url]: https://developer.android.com/studio/command-line/logcat
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: |
+        If you have any additional information for us, use the field below.
+        Please note, you can attach screenshots or screen recordings here, by
+        dragging and dropping files in the field below.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        Issue template adapted from [Firefox for Android (fenix)][fenix_url], and the bug report file is located in `.github/ISSUE_TEMPLATE/`
+        Hence, this bug report template is licensed under the [Mozilla Public License][mpl].
+        
+        [fenix_url]: https://github.com/mozilla-mobile/fenix
+        [mpl]: https://github.com/mozilla-mobile/fenix/blob/main/LICENSE
