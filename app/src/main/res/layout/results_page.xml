@@ -18,40 +18,40 @@
   -->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:layout_editor_absoluteY="81dp">
-
-    <ImageView
-        android:id="@+id/date_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/date_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_baseline_date_range_24" />
-
-    <TextView
-        android:id="@+id/date_contents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/date_image"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="02/02/2020, 20:19:10 PM" />
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"	    	  	     
+    xmlns:tools="http://schemas.android.com/tools"    	  	     	   
+    android:layout_width="match_parent"   	  	  	       	      
+    android:layout_height="match_parent"    	  	 	     	     
+    android:orientation="vertical"	  	     	      	     	     
+    tools:layout_editor_absoluteY="81dp">      	    	 	     	 
+     	  	  	   	 	    	      	  	      	    
+    <ImageView    	  	      	    	    	  	  	   
+        android:id="@+id/date_image"     	    	  	      	     
+        android:layout_width="wrap_content"  	    	  	     	  
+        android:layout_height="wrap_content"  	   	  	 
+        android:layout_marginStart="20dp"	  		     	       
+        android:layout_marginTop="16dp"      	   	   	      	    
+        android:contentDescription="@string/date_icon"     	 	  
+        app:layout_constraintBottom_toBottomOf="parent"     	      	      
+        app:layout_constraintEnd_toEndOf="parent"    	 	     	  
+        app:layout_constraintHorizontal_bias="0.0"  	  	 	   
+        app:layout_constraintStart_toStartOf="parent" 	   	  	 
+        app:layout_constraintTop_toTopOf="parent"     	 	 
+        app:layout_constraintVertical_bias="0.0"	  	 	    
+        app:srcCompat="@drawable/ic_baseline_date_range_24" />      	    
+ 	  	 	     	  	 	 	   	     
+    <TextView	     	  	 	     		  	       	     
+        android:id="@+id/date_contents"   	  	  	  
+        android:layout_width="wrap_content"	     	 	   	  
+        android:layout_height="wrap_content"   	      		  	     
+        android:layout_marginStart="16dp"  	  		    	    
+        android:layout_marginTop="18dp"    	  	      	  	  
+        app:layout_constraintEnd_toEndOf="parent" 	 	 	   
+        app:layout_constraintHorizontal_bias="0.0" 	   	      	      
+        app:layout_constraintStart_toEndOf="@+id/date_image"   	       	     
+        app:layout_constraintTop_toTopOf="parent"       	      	 
+        tools:text="02/02/2020, 20:19:10 PM" /> 	       		 
+     	     		  	  	   	  	 		
     <ImageView
         android:id="@+id/type_image"
         android:layout_width="wrap_content"
@@ -114,7 +114,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/code_contents_holder"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="16dp"
         app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
@@ -126,9 +126,9 @@
             android:id="@+id/code_contents_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:autoLink="all"
-            tools:text="person@example.com" />
+            android:textIsSelectable="true"
+            tools:text="person@example.com"/>
     </androidx.core.widget.NestedScrollView>
 
     <HorizontalScrollView
