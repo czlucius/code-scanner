@@ -19,6 +19,7 @@
 package com.czlucius.scan.ui;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -52,6 +53,7 @@ import com.czlucius.scan.R;
 import com.czlucius.scan.callbacks.CameraFailureCallback;
 import com.czlucius.scan.callbacks.CameraShutdownCallback;
 import com.czlucius.scan.callbacks.Consumer;
+import com.czlucius.scan.callbacks.SetTouchListenerCallback;
 import com.czlucius.scan.callbacks.UseCaseCreator;
 import com.czlucius.scan.databinding.FragmentScannerBinding;
 import com.czlucius.scan.exceptions.NoCameraException;
@@ -388,10 +390,15 @@ public class ScannerFragment extends Fragment {
     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     public void startCamera() {
         CameraFailureCallback cameraFailureCallback = cameraFailureDialog();
+        // Al‌‍‌‌‍‍‌‌‍‍‌‌‍‍‌‌‍‍‌‍‍‌‌‌‍‍‌‌‍‍‌‌‌‍‌‌‍‍‌‌‍‌‌‌‍‍‌‌‌‍‌‍‍‌‌‍‌‌‌‍‍‌‌‌‌‍‌‍‍‌‌‌‌‍‌‍‍‌‌‌‍‍‌‌‍‍‌‍‍‌‌‌‍‍‌‌‍‌‌‌‍‍‌‌‌‍‌‍‍‌‌‍‌‌‌‍‍‌‌‌‌‍‌‌‍‍‍‌‌‌‌‌‍‍‌‍‌‌‌‍‍‌‌‌‍‌‌‌‍‍‌‌‌‍‌‍‍‌‌‌‌‍‌‌‍‍‌‍‌‌‌‍‍‌‌‍‍‌‌‌‍‍‌‌‍‍‌‌‍‍‌‌‌‍‌‌‍‍‍‌‌‍‌‌‍‍‌‌‌‌‌‌‍‍‌‍‌‍‌‌‍‍‌‍‍‌‌‍‍‌‌‌‍‍‌‌‍‍‌‌‍‍‌‌‍‍‌‍‍‌‌‍‍‌‌‍‍‌‌‌‍‍‌‍‍‍‌‌‍‍‍‌‌‌‌‌‍‍‌‌‌‍‌‌‍‍‌‌‌‌‌‌‍‍‍‌‌‍‌‌‍‍‌‍‍‌‌‍‍‌‌‌‌‍‌‌‍‍‌‌‍‍‌‍‍‌‌‌‍‌‌‍‍‌‌‍‍‌‌‌‍‍‌‌‍‍‌‌‍‍‍‌‌‍‌‌‍‍‌‍‌‍‌‍‍‌‌‌‍‌‌‌‍‍‌‌‌‌‌‌‍‍‌‍‍‌‌‌‍‍‌‍‍‌‌‌‍‍‌‌‍‍‌‌‍‍‌‌‌‌‌‍‍‌‌‌‍‌‌‌‍‍‌‍‌‌‌‌‍‍‌‍‍‍‌‍‍‌‌‌‍‌‌‌‍‍‍‌‌‌‌‌‍‍‌‍‌‍‌‌‍‍‌‍‌‍‌‍‍‌‌‌‍‌‌‍‍‌‌‍‌‍‌‌‍‍‌‌‌‍‌‍‍‌‌‍‌‌‌‌‍‍‌‌‌‍‌‌‍‍‍‌‌‍low the class to modify the touch listener to accept zoom (on touches in the second future) in the first future. (async is complicated)
+        SetTouchListenerCallback touchListenerCallback = listener -> binding.previewView.setOnTouchListener(listener);
+
         try {
-            cameraShutdownCallback = camAccessObj.startCamera(getViewLifecycleOwner(), cameraFailureCallback);
+            cameraShutdownCallback = camAccessObj.startCamera(getViewLifecycleOwner(), cameraFailureCallback, touchListenerCallback);
+
         } catch (ReferenceInvalidException e) {
             Log.e(TAG, "Context invalid.");
         }
