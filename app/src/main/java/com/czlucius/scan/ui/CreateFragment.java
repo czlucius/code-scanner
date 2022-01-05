@@ -281,13 +281,14 @@ public class CreateFragment extends Fragment {
     }
 
     private void displayForegroundDialog() {
-
+        Log.i(TAG, "foregnd = "+ vm.getForegroundColor());
         displayColorPicker(vm.getForegroundColor(),
                 (color, hexVal) -> vm.setForegroundColor(color));
     }
 
 
     private void displayBackgroundDialog() {
+        Log.i(TAG, "backgnd = "+ vm.getBackgroundColor());
         displayColorPicker(vm.getBackgroundColor(),
                 (color, hexVal) -> vm.setBackgroundColor(color));
     }
@@ -296,7 +297,7 @@ public class CreateFragment extends Fragment {
     private void displayColorPicker(Integer initialColor, ColorPickerDialog.OnColorPickedListener listener) {
         ColorPickerDialog colorPickerDialog = ColorPickerDialog.createColorPickerDialog(requireContext());
         if (initialColor != null) {
-            colorPickerDialog.setInitialColor(initialColor);
+            colorPickerDialog.setLastColor(initialColor);
         }
         colorPickerDialog.setPositiveActionText(getString(R.string.ok));
         colorPickerDialog.setNegativeActionText(getString(R.string.cancel));
