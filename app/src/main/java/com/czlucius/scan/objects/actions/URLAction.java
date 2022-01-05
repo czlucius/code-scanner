@@ -47,7 +47,16 @@ public class URLAction extends Action {
     public void performAction(Context context, Data data) {
         //data is a url object
         URL url = (URL) data;
-        Uri webpage = Uri.parse(url.getUrlAddress());
+        Uri rawWebAddress = Uri.parse(url.getUrlAddress());
+
+        // Prepend a http schema in front if url comes without schema.
+        // See https://github.com/czlucius/code-scanner/issues/20
+        Uri.Builder builder = rawWebAddress.buildUpon();
+        if (rawWebAddress.getScheme() == null || rawWebAddress.getScheme().isEmpty()) {
+            builder.scheme("http");
+        }
+        Uri webpage = builder.build();
+
         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
         if (!Utils.launchIntentCheckAvailable(intent, context)) {
             // Browser unavailable.
