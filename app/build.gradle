@@ -47,6 +47,20 @@ android {
         }
 
     }
+
+    // Add Product Flavors for Google Play, F-Droid, and general release versions.
+    flavorDimensions "standard"
+    productFlavors {
+        play {
+            dimension "standard"
+        }
+        general {
+            dimension "standard"
+        }
+        foss {
+            dimension "standard"
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -112,6 +126,21 @@ dependencies {
 
     // VCard creator:
     implementation 'com.googlecode.ez-vcard:ez-vcard:0.11.2'
+
+
+    // region Google Play specific libraries
+    playImplementation 'com.google.android.gms:play-services-ads:20.5.0'
+
+    // For apps targeting Android 12, add WorkManager dependency.
+    constraints {
+        playImplementation('androidx.work:work-runtime:2.7.0') {
+            because '''androidx.work:work-runtime:2.1.0 pulled from play-services-ads
+                   has a bug using PendingIntent without FLAG_IMMUTABLE or
+                   FLAG_MUTABLE and will fail in apps targeting S+.'''
+        }
+    }
+
+    // endregion
 
 
 }
