@@ -188,7 +188,7 @@ public class CreateFragment extends Fragment {
 
         // Use current date/time as name of image.
         String fileName = "qr_image_" + System.currentTimeMillis() + ".png";
-        File bmpFile = new File(requireContext().getCacheDir(), fileName);
+        File bmpFile = new File(requireContext().getExternalCacheDir(), fileName);
         OutputStream os = null;
         try {
             os = new FileOutputStream(bmpFile);
@@ -281,14 +281,12 @@ public class CreateFragment extends Fragment {
     }
 
     private void displayForegroundDialog() {
-        Log.i(TAG, "foregnd = "+ vm.getForegroundColor());
         displayColorPicker(vm.getForegroundColor(),
                 (color, hexVal) -> vm.setForegroundColor(color));
     }
 
 
     private void displayBackgroundDialog() {
-        Log.i(TAG, "backgnd = "+ vm.getBackgroundColor());
         displayColorPicker(vm.getBackgroundColor(),
                 (color, hexVal) -> vm.setBackgroundColor(color));
     }

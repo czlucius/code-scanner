@@ -18,5 +18,5 @@
   -->
 
 <paths>
-    <external-files-path name="code_images" path="Pictures/" />
+    <external-cache-path name="code_images" path="/" />
 </paths>
