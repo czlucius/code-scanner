@@ -32,7 +32,7 @@ import com.czlucius.scan.objects.data.WiFi;
 
 public class AddWiFiAction extends Action {
     private static Action INSTANCE;
-    public AddWiFiAction() {
+    private AddWiFiAction() {
         super(App.getStringGlobal(R.string.connect_wifi, "Connect"), R.drawable.ic_baseline_signal_wifi_4_bar_24);
     }
 
