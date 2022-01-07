@@ -114,7 +114,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/code_contents_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
