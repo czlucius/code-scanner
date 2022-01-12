@@ -23,6 +23,9 @@ Download it through these platforms (or share it with others):
 -  Uptodown: https://code-scanner.en.uptodown.com/android
 -  Amazon Appstore: http://www.amazon.com/gp/mas/dl/android?p=com.czlucius.scan
 
+
+If you'd like to be notified about updates through GitHub Releases, you can watch this repository(releases only) by clicking Watch -> Custom -> Releases and then saving your preferences. 
+
 A Google Play version is coming soon, and you can keep track at https://github.com/czlucius/code-scanner/tree/play.
 
 You may also run this code on your machine by opening this project in Android Studio, and compiling it to your Android device.
