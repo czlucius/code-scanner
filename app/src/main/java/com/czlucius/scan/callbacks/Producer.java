@@ -18,12 +18,17 @@
 
 package com.czlucius.scan.callbacks;
 
-
-import android.view.View;
-
 /**
- * Callback for setting touch listeners.
+ * A Producer that produces a value given an input using the specified definition implemented in the interface.
+ * @param <O> Output type
+ * @param <I> Input type
  */
-public interface SetTouchListenerCallback {
-    void setTouchListener (View.OnTouchListener listener);
+@FunctionalInterface
+public interface Producer<O, I> {
+    O produce(I input);
 }
+
+
+
+
+

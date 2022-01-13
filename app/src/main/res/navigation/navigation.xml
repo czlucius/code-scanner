@@ -28,6 +28,9 @@
         android:name="com.czlucius.scan.ui.ScannerFragment"
         android:label="@string/scan"
         tools:layout="@layout/fragment_scanner" >
+        <action
+            android:id="@+id/action_scannerFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -45,5 +48,9 @@
         android:name="com.czlucius.scan.ui.InfoFragment"
         android:label="@string/info"
         tools:layout="@layout/fragment_info"/>
+    <fragment
+        android:id="@+id/preferencesFragment"
+        android:name="com.czlucius.scan.ui.PreferencesFragment"
+        android:label="PreferencesFragment" />
 
 </navigation>

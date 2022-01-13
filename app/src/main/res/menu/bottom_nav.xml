@@ -37,10 +37,10 @@
         android:icon="@drawable/ic_baseline_add_circle_24"
         android:title="@string/create" />
     <item
-        android:id="@+id/infoFragment"
+        android:id="@+id/preferencesFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_info_24"
-        android:title="@string/info"/>
+        android:icon="@drawable/ic_round_build_24"
+        android:title="@string/preferences"/>
 
 
     

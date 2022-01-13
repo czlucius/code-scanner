@@ -80,6 +80,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "androidx.annotation:annotation:1.3.0"
+    implementation 'androidx.preference:preference:1.1.1'
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -108,7 +109,7 @@ dependencies {
 
 
     // ML Kit on GMS:
-    implementation 'com.google.mlkit:barcode-scanning:17.0.1'
+    implementation 'com.google.mlkit:barcode-scanning:16.0.3'
 
     // Room:
     implementation "androidx.room:room-runtime:2.4.0"

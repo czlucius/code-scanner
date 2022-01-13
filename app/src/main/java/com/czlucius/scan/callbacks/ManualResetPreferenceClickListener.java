@@ -18,12 +18,31 @@
 
 package com.czlucius.scan.callbacks;
 
-
 import android.view.View;
 
-/**
- * Callback for setting touch listeners.
- */
-public interface SetTouchListenerCallback {
-    void setTouchListener (View.OnTouchListener listener);
+import androidx.preference.Preference;
+
+public abstract class ManualResetPreferenceClickListener implements Preference.OnPreferenceClickListener {
+    private boolean enabled = true;
+
+
+    @Override
+    public final boolean onPreferenceClick(Preference preference) {
+        if (!enabled) {
+            return true;
+        }
+        enabled = false;
+
+        return onSingleClick(preference);
+    }
+
+    public abstract boolean onSingleClick(Preference p);
+
+    public final void resetListener() {
+        enabled = true;
+    }
+
+    public final Callback getResetCallback() {
+        return this::resetListener;
+    }
 }

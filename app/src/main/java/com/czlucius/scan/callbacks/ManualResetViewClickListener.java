@@ -18,12 +18,29 @@
 
 package com.czlucius.scan.callbacks;
 
-
 import android.view.View;
 
-/**
- * Callback for setting touch listeners.
- */
-public interface SetTouchListenerCallback {
-    void setTouchListener (View.OnTouchListener listener);
+public abstract class ManualResetViewClickListener implements View.OnClickListener {
+    private boolean enabled = true;
+
+    @Override
+    public final void onClick(View v) {
+        // Manual enabled switch to prevent double clicks until reset
+        if (!enabled) {
+            return;
+        }
+        enabled = false;
+
+        onSingleClick(v);
+    }
+
+    public abstract void onSingleClick(View v);
+
+    public final void resetListener() {
+        enabled = true;
+    }
+
+    public final Callback getResetCallback() {
+        return this::resetListener;
+    }
 }

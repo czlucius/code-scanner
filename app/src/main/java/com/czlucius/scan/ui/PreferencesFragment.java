@@ -27,38 +27,75 @@ import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.Utils;
-import com.czlucius.scan.callbacks.Producer;
-import com.czlucius.scan.databinding.FragmentInfoBinding;
+import com.czlucius.scan.callbacks.ManualResetPreferenceClickListener;
 import com.czlucius.scan.misc.monetization.AdStrategy2;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-
-/**
- *
- * @deprecated Switching over to preferences fragment so can set some settings
- *
- */
-@Deprecated
-public class InfoFragment extends Fragment {
-    private FragmentInfoBinding binding;
+public class PreferencesFragment extends PreferenceFragmentCompat {
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.root_preferences, rootKey);
+    }
 
-        binding = FragmentInfoBinding.inflate(inflater, container, false);
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+
+        // Instantiate ads if on play flavour.
+        View v = super.onCreateView(inflater, container, savedInstanceState);
+        ViewGroup vg = (ViewGroup) v;
+        if (vg != null) {
+            AdStrategy2.getInstance(getContext())
+                    .addAdViewTo(vg);
+        }
 
 
+        Preference oss_link = findPreference("open_source");
+        if (oss_link != null) {
+            oss_link.setOnPreferenceClickListener(preference -> {
+                Intent urlIntent = new Intent(Intent.ACTION_VIEW);
+                Uri url = Uri.parse(getString(R.string.oss_link));
+                urlIntent.setData(url);
+                boolean appAvailable = Utils.launchIntentCheckAvailable(urlIntent, requireContext());
+                if (!appAvailable) {
+                    Toast.makeText(getContext(), R.string.no_browsers, Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            });
+        }
+
+        Preference oss_licenses = findPreference("oss_licenses");
+        if (oss_licenses != null) {
+            setupOSSLicensesDialog(oss_licenses);
+        }
+
+        if (findPreference("watch_ads_prefbtn") != null) {
+            findPreference("watch_ads_prefbtn").setOnPreferenceClickListener(new ManualResetPreferenceClickListener() {
+                @Override
+                public boolean onSingleClick(Preference p) {
+                    AdStrategy2.getInstance(getContext())
+                            .loadRewardedAdVideo(getActivity(), getView(), getResetCallback());
+                    return true;
+                }
+            });
+        }
+
+        return v;
+    }
+
+    private void setupOSSLicensesDialog(Preference preferenceToBeClicked) {
         // WebView for displaying open-source licenses
         WebView webView = new WebView(requireContext());
         webView.setWebViewClient(new WebViewClient() {
@@ -83,29 +120,16 @@ public class InfoFragment extends Fragment {
                 return true;
             }
         });
-        webView.zoomBy(0.8F);
+        webView.zoomBy(0.5F);
 
         MaterialAlertDialogBuilder ossDialog = new MaterialAlertDialogBuilder(requireContext());
         ossDialog.setView(webView);
         AlertDialog finalDialog = ossDialog.create();
 
-        binding.openSourceButton.setOnClickListener(v -> {
+        preferenceToBeClicked.setOnPreferenceClickListener(preference -> {
             webView.loadUrl("file:///android_asset/licenses.html"); // Load from app's asset folder
             finalDialog.show();
+            return true;
         });
-
-
-
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        // AdMob SDK, will not display (or even connect to internet) on F-Droid and Galaxy versions
-        AdStrategy2 adStrategy = AdStrategy2.getInstance(requireContext().getApplicationContext());
-        adStrategy.loadAdView(view::findViewById);
-        adStrategy.initialiseRewardedAds(getActivity(), view);
     }
 }
