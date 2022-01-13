@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
+  ~ Copyright (C) 2021 Lucius Chee Zihan
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published
+  ~ by the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="rewarded_ad_not_ready">The video ad isn\'t ready yet.</string>
+    <string name="ad_failed_to_load">Ad failed to load.</string>
+    <string name="watch_ads_description">Watch video to remove ads for the current session of this app</string>
+    <string name="ad_watched">You have already watched an ad in the current session.</string>
+
+    <string name="oss_link">https://gitlab.com/czlucius/code-scanner-play/-/blob/main/README-PLAY.md</string>
+    <string name="open_source_view_or_contribute">View or contribute on GitLab. Open sourced under AGPL.</string>
+
+</resources>

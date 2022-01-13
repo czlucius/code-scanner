@@ -20,6 +20,10 @@
     <string name="app_name">Code Scanner</string>
     <string name="simple_description">A simple app to scan codes(QR codes, barcodes, etc.)</string>
     <string name="open_source_link">This app is open source.\nContribute or view the source code at <a href="https://github.com/czlucius/code-scanner">https://github.com/czlucius/code-scanner</a></string>
+    <string name="source_code">Open Source</string>
+    <string name="open_source_view_or_contribute">View or contribute on GitHub. Open sourced under AGPL.</string>
+    <string name="oss_link">https://github.com/czlucius/code-scanner/</string>
+
 
     <string name="description_permission">Allow scanning of codes(barcode, QR code, etc.) with the camera.</string>
     <string name="add">Add</string>
@@ -83,6 +87,7 @@
 
 
     <string name="position_code">Position code in viewfinder</string>
+    <string name="codes_scanned">%1$d codes scanned</string>
     <string name="date_icon">Date icon</string>
     <string name="data_type_code">Data type of code scanned</string>
     <string name="format_code">Format of code scanned</string>
@@ -153,8 +158,11 @@
     <string name="copy_sms_recipient">Copy recipient</string>
     <string name="recipient">Recipient</string>
     <string name="copy_sms_contents">Copy SMS contents</string>
-
-
+    <string name="batch_scan">Batch scan</string>
+    <string name="toggle_dialogs">Toggle dialogs shown after scanning. Codes will be saved to history.</string>
+    <string name="about">About</string>
+    <string name="support">Support</string>
+    <string name="preferences">Preferences</string>
 
 
 </resources>
