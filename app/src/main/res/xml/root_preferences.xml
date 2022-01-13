@@ -1,0 +1,52 @@
+<!--
+  ~ Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
+  ~ Copyright (C) 2021 Lucius Chee Zihan
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published
+  ~ by the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory>
+        <SwitchPreferenceCompat
+            app:key="batch_scan"
+            app:title="@string/batch_scan"
+            app:summary="@string/toggle_dialogs"
+            app:icon="@drawable/ic_round_scanner_24"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/about">
+
+        <Preference
+            app:key="about_app"
+            app:summary="@string/simple_description"
+            app:title="@string/app_name" />
+
+        <Preference
+            app:icon="@drawable/ic_baseline_copyright_24"
+            app:key="oss_licenses"
+            app:title="@string/open_source_licenses"/>
+
+
+        <!-- TODO: PLAY: state image source and file request with Google Play team so that app does not get accused for intellectual property violations. -->
+        <Preference
+            app:icon="@drawable/ic_baseline_code_24"
+            app:key="open_source"
+            app:summary="@string/open_source_view_or_contribute"
+            app:title="@string/source_code" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
