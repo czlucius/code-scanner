@@ -40,6 +40,9 @@ public class ScanViewModel extends AndroidViewModel {
 
 
     private final MutableLiveData<Set<ScanningWrapper>> codes;
+    private MutableLiveData<Boolean> batchScanEnabled;
+    private MutableLiveData<Integer> numberOfCodesScanned;
+
 
 
     public ScanViewModel(Application app) {
@@ -50,6 +53,12 @@ public class ScanViewModel extends AndroidViewModel {
 
         codes = new MutableLiveData<>();
         codes.setValue(Collections.synchronizedSet(new HashSet<>()));
+
+        batchScanEnabled = new MutableLiveData<>();
+        batchScanEnabled.setValue(false);
+
+        numberOfCodesScanned = new MutableLiveData<>();
+        numberOfCodesScanned.setValue(0);
 
         codeAnalyser = new CodeAnalyser(
                 barcodes -> {
@@ -79,9 +88,25 @@ public class ScanViewModel extends AndroidViewModel {
         return codeAnalyser;
     }
 
+    public LiveData<Boolean> getBatchScanEnabledLiveData() {
+        return batchScanEnabled;
+    }
 
+    public boolean getBatchScanEnabled() {
+        return batchScanEnabled.getValue();
+    }
 
+    public void setBatchScanEnabled(boolean batchScanEnabled) {
+        this.batchScanEnabled.setValue(batchScanEnabled);
+    }
 
+    public LiveData<Integer> getNumberOfCodesScannedLiveData() {
+        return numberOfCodesScanned;
+    }
+
+    public int getNumberOfCodesScanned() {
+        return numberOfCodesScanned.getValue();
+    }
 
     public void scanBarcodes(Iterable<Barcode> barcodes) {
         boolean changed = false;
@@ -97,7 +122,9 @@ public class ScanViewModel extends AndroidViewModel {
         }
 
         if (changed) {
+            // More codes detected
             codes.setValue(codes.getValue());
+            numberOfCodesScanned.setValue(codes.getValue().size());
         }
     }
 

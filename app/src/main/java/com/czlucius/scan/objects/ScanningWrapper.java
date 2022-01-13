@@ -67,11 +67,13 @@ public class ScanningWrapper {
 
     }
 
-    public void display(Context ctx) {
+    public void display(Context ctx, boolean showDialog) {
         if (!scanned) {
-            dialog = new ResultDisplayDialog(ctx, code);
-            dialog.setOnDismissListener(__ -> release());
-            dialog.show();
+            if (showDialog) {
+                dialog = new ResultDisplayDialog(ctx, code);
+                dialog.setOnDismissListener(__ -> release());
+                dialog.show();
+            }
             scanned = true;
 
             // Add to history

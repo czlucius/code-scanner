@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -48,6 +49,9 @@ import androidx.camera.core.UseCase;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.callbacks.CameraFailureCallback;
@@ -184,7 +188,7 @@ public class ScannerFragment extends Fragment {
 
         vm.getCodes().observe(getViewLifecycleOwner(), scanningWrappers -> {
             for (ScanningWrapper s : scanningWrappers) {
-                s.display(getContext());
+                s.display(getContext(), !vm.getBatchScanEnabled());
             }
         });
 
@@ -195,6 +199,35 @@ public class ScannerFragment extends Fragment {
                 Snackbar.make(view, R.string.no_model, Snackbar.LENGTH_LONG).show();
             }
         });
+
+        // Check if batch scan has been activated.
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
+        if (prefs.contains("batch_scan")) {
+            vm.setBatchScanEnabled(prefs.getBoolean("batch_scan", false));
+        }
+        vm.getBatchScanEnabledLiveData().observe(getViewLifecycleOwner(), enabled -> {
+            binding.floatingTooltip.floatingTooltipRoot.setClickable(enabled);
+        });
+
+        vm.getNumberOfCodesScannedLiveData().observe(getViewLifecycleOwner(), num -> {
+            if (vm.getBatchScanEnabled()) {
+                binding.floatingTooltip.batchScanProceed.setVisibility(num > 0 ? View.VISIBLE : View.GONE);
+
+                String tooltipText = num > 0 ? getString(R.string.codes_scanned, num) : getString(R.string.position_code);
+                binding.floatingTooltip.floatingTooltipDescription.setText(tooltipText);
+            }
+        });
+        binding.floatingTooltip.floatingTooltipRoot.setOnClickListener(v -> {
+            // Batch scan
+            if (vm.getBatchScanEnabled() && vm.getNumberOfCodesScanned() > 0) {
+                // Navigate to History
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.action_scannerFragment_to_historyFragment);
+            }
+        });
+
+
+
 
 
         // Request for permission
