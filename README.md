@@ -1,5 +1,4 @@
 # code-scanner
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c5bbd14d952d462c95e6177aea893056)](https://www.codacy.com/gh/czlucius/code-scanner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=czlucius/code-scanner&amp;utm_campaign=Badge_Grade)
 [![GitHub license](https://img.shields.io/github/license/czlucius/code-scanner)](https://github.com/czlucius/code-scanner/blob/main/LICENSE.txt)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/czlucius/code-scanner)](https://github.com/czlucius/code-scanner/releases)
 [![Lines of code](https://tokei.rs/b1/github/czlucius/code-scanner?category=code)](https://github.com/czlucius/code-scanner)
