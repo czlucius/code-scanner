@@ -42,7 +42,7 @@ public class NetworkInvalidException extends Exception {
     @ErrorCode
     private final int type;
 
-    public NetworkInvalidException(@ErrorCode int type) {
+    public NetworkInvalidException(int type) {
         super();
         this.type = type;
 
