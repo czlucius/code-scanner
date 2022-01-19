@@ -163,6 +163,12 @@
     <string name="about">About</string>
     <string name="support">Support</string>
     <string name="preferences">Preferences</string>
+    <string name="call_number">Call number</string>
+    <string name="copy_phone_number">Copy phone number</string>
+
+    <string name="geo_template">Latitude: %1$f\nLongitude: %2$f</string>
+    <string name="view_location">View location in maps application</string>
+    <string name="geolocation">Geolocation</string>
 
 
 </resources>
