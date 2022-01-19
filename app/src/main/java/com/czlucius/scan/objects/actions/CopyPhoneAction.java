@@ -31,13 +31,12 @@ import com.czlucius.scan.objects.data.Phone;
 
 public class CopyPhoneAction extends PhoneAction{
     public CopyPhoneAction(Function<Data, Phone> phoneRetrievalMethod) {
-        this(phoneRetrievalMethod, App.getStringGlobal(R.string.call_number, "Call number"));
+        this(phoneRetrievalMethod, App.getStringGlobal(R.string.copy_phone_number, " Copy phone number"));
     }
 
     public CopyPhoneAction(Function<Data, Phone> phoneRetrievalMethod, String chipText) {
         super(chipText, null, phoneRetrievalMethod);
     }
-
 
     @Override
     public void performAction(Context context, Data data) {
