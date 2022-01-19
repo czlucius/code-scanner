@@ -43,11 +43,7 @@
         android:name="com.czlucius.scan.ui.CreateFragment"
         android:label="@string/create"
         tools:layout="@layout/create" />
-    <fragment
-        android:id="@+id/infoFragment"
-        android:name="com.czlucius.scan.ui.InfoFragment"
-        android:label="@string/info"
-        tools:layout="@layout/fragment_info"/>
+
     <fragment
         android:id="@+id/preferencesFragment"
         android:name="com.czlucius.scan.ui.PreferencesFragment"
