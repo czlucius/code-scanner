@@ -73,6 +73,7 @@ public abstract class Data {
         }
 
         // TODO
+        // If you add here, also add in Type.java
         public Data create(Barcode barcode) {
             switch (barcode.getValueType()) {
                 case Barcode.TYPE_EMAIL:
@@ -89,6 +90,12 @@ public abstract class Data {
                     return new WiFi(barcode.getWifi());
                 case Barcode.TYPE_SMS:
                     return new SMS(Objects.requireNonNull(barcode.getSms()));
+                case Barcode.TYPE_PHONE:
+                    return new Phone(Objects.requireNonNull(barcode.getPhone()));
+                case Barcode.TYPE_GEO: {
+                    Barcode.GeoPoint geoPoint = Objects.requireNonNull(barcode.getGeoPoint());
+                    return new GeoLocation(geoPoint.getLat(), geoPoint.getLng());
+                }
                 default:
                     return new Text(barcode.getDisplayValue());
             }

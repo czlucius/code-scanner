@@ -27,12 +27,17 @@ import com.czlucius.scan.objects.actions.AddContactAction;
 import com.czlucius.scan.objects.actions.AddWiFiAction;
 import com.czlucius.scan.objects.actions.CopyAction;
 import com.czlucius.scan.objects.actions.CopyPasskeyAction;
+import com.czlucius.scan.objects.actions.CopyPhoneAction;
 import com.czlucius.scan.objects.actions.CopySMSContentsAction;
 import com.czlucius.scan.objects.actions.CopySMSRecipientAction;
 import com.czlucius.scan.objects.actions.CopySSIDAction;
 import com.czlucius.scan.objects.actions.EmailAction;
+import com.czlucius.scan.objects.actions.CallPhoneAction;
 import com.czlucius.scan.objects.actions.SMSAction;
 import com.czlucius.scan.objects.actions.URLAction;
+import com.czlucius.scan.objects.actions.ViewLocationAction;
+import com.czlucius.scan.objects.data.Contact;
+import com.czlucius.scan.objects.data.Phone;
 import com.google.mlkit.vision.barcode.Barcode;
 
 import java.util.ArrayList;
@@ -52,6 +57,8 @@ public class Type {
     public static Type UNKNOWN_OR_TEXT;
     public static Type WIFI;
     public static Type SMS;
+    public static Type PHONE;
+    public static Type GEOLOCATION;
 
     private Type(List<Action> actions, String typeName, int typeInt) {
         actions.add(0, CopyAction.getInstance());
@@ -74,7 +81,7 @@ public class Type {
 
     public static Type getTypeFromCode(int barcodeValueType) {
 
-        // TODO if add more types here, also add @ IData.java
+        // TODO if add more types here, also add @ Data.java
         switch (barcodeValueType) {
             case Barcode.TYPE_EMAIL:
                 return Type.EMAIL;
@@ -86,6 +93,10 @@ public class Type {
                 return Type.WIFI;
             case Barcode.TYPE_SMS:
                 return Type.SMS;
+            case Barcode.TYPE_PHONE:
+                return Type.PHONE;
+            case Barcode.TYPE_GEO:
+                return Type.GEOLOCATION;
             default:
                 return Type.UNKNOWN_OR_TEXT;
         }
@@ -127,6 +138,18 @@ public class Type {
         smsActions.add(CopySMSContentsAction.getInstance());
         smsActions.add(SMSAction.getInstance());
         SMS = new Type(smsActions, App.getStringGlobal(R.string.sms, "SMS"), Barcode.TYPE_SMS);
+
+        // Phone
+        ArrayList<Action> phoneActions = new ArrayList<>();
+        phoneActions.add(new CopyPhoneAction(data -> (Phone) data));
+        phoneActions.add(new CallPhoneAction(data -> (Phone) data));
+        PHONE = new Type(phoneActions, App.getStringGlobal(R.string.phone_number, "Phone number"), Barcode.TYPE_PHONE);
+
+        // Geolocation
+        ArrayList<Action> locationActions = new ArrayList<>();
+        locationActions.add(ViewLocationAction.getInstance());
+        GEOLOCATION = new Type(locationActions, App.getStringGlobal(R.string.geolocation, "Geolocation"), Barcode.TYPE_GEO);
+
 
         //unknown, same as text
         UNKNOWN_OR_TEXT = new Type(new ArrayList<>(), App.getStringGlobal(R.string.text, "Text"), Barcode.TYPE_TEXT);
