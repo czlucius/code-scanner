@@ -18,12 +18,11 @@
 
 package com.czlucius.scan.objects.actions;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 
 import com.czlucius.scan.App;
 import com.czlucius.scan.R;
+import com.czlucius.scan.Utils;
 import com.czlucius.scan.objects.data.Data;
 
 public class CopyAction extends Action {
@@ -41,11 +40,8 @@ public class CopyAction extends Action {
 
     @Override
     public void performAction(Context context, Data data) {
-        ClipData clipData = ClipData.newPlainText(
-                context.getString(R.string.text),
-                data.getStringRepresentation()
-        );
-        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        clipboard.setPrimaryClip(clipData);
+        Utils.copyToClipboard(context, data.getStringRepresentation());
     }
+
+
 }

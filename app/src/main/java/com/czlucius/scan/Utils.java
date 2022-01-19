@@ -19,6 +19,8 @@
 package com.czlucius.scan;
 
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiConfiguration;
@@ -48,6 +50,15 @@ public class Utils {
         }
         return false;
 
+    }
+
+    public static void copyToClipboard(Context context, String textToCopy) {
+        ClipData clipData = ClipData.newPlainText(
+                context.getString(R.string.text),
+                textToCopy
+        );
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        clipboard.setPrimaryClip(clipData);
     }
 
     public static int convertPhoneType(@Barcode.Phone.FormatType int barcodePhoneType) {
