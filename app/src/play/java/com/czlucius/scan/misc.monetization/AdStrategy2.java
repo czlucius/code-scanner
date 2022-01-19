@@ -161,24 +161,4 @@ public class AdStrategy2 {
 
 
 
-    /**
-     * Method to initialise rewarded ads.
-     */
-    @Deprecated
-    public void initialiseRewardedAds(Activity activity, View root) {
-        View watchAdsButton = root.findViewById(R.id.watchAdsButton);
-//        ManualResetViewClickListener listener = new ManualResetViewClickListener() {
-//            @Override
-//            public void onSingleClick(View v) {
-//                loadRewardedAdVideo(activity, root);
-//
-//            }
-////        };
-//        resetCallback = listener.getResetCallback();
-//        watchAdsButton.setOnClickListener(listener);
-    }
-
-
-
-
 }
