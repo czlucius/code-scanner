@@ -18,6 +18,8 @@
 
 package com.czlucius.scan.objects.data;
 
+import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -30,6 +32,16 @@ public abstract class Data {
     public abstract String getStringRepresentation();
 
     public abstract boolean isEmpty();
+
+    public Intent constructShareIntent()
+    {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getStringRepresentation());
+        sendIntent.setType("text/plain");
+
+        return sendIntent;
+    }
 
 
     public String getSummary() {

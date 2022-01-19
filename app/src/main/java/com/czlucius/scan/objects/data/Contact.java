@@ -19,6 +19,8 @@
 package com.czlucius.scan.objects.data;
 
 
+import android.content.Intent;
+
 import androidx.annotation.NonNull;
 
 import com.czlucius.scan.App;
@@ -196,6 +198,16 @@ public class Contact extends Data {
         return addresses.length == 0 && emails.length == 0 && phones.length == 0
                 && name.isEmpty() && organization.isEmpty() && title.isEmpty()
                 && urls.length == 0;
+    }
+
+    @Override
+    public Intent constructShareIntent() {
+        // TODO ----------------------------------------------------------
+        // The standard way to share this is just by sharing the VCF(VCard contact) file
+        // A lot of contact apps (Google Contacts, Samsung Contacts, Simple Contacts from F-Droid do this
+        // Just create the VCard from the data, then write it to a file (.vcf), then share it like how you share the QR code image
+
+        return super.constructShareIntent();
     }
 
 
