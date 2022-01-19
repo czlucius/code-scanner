@@ -24,8 +24,10 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
+
+import androidx.arch.core.util.Function;
+
 import com.czlucius.scan.callbacks.Callback;
-import com.czlucius.scan.callbacks.Producer;
 
 public class AdStrategy2 {
 
@@ -37,7 +39,7 @@ public class AdStrategy2 {
 
     public void initialize() { /* stub */ }
 
-    public void loadAdView(Producer<View, Integer> findViewByIdProducer) { /* stub */ }
+    public void loadAdView(Function<View, Integer> findViewByIdProducer) { /* stub */ }
 
     public void addAdViewTo(ViewGroup parent) {}
 

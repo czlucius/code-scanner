@@ -26,11 +26,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.arch.core.util.Function;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.callbacks.Callback;
-import com.czlucius.scan.callbacks.ManualResetViewClickListener;
-import com.czlucius.scan.callbacks.Producer;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
@@ -95,7 +94,7 @@ public class AdStrategy2 {
 
 
 
-    public void loadAdView(Producer<View, Integer> findViewByIdProducer) {
+    public void loadAdView(Function<Integer, View> findViewByIdProducer) {
         if (!shouldShowAds) {
             // If we should not show ads, we do not load them in the first place.
             // Best possible method to disable them (other than removing the views)
@@ -104,7 +103,7 @@ public class AdStrategy2 {
         }
 
         // Get AdView
-        View view = findViewByIdProducer.produce(R.id.banner);
+        View view = findViewByIdProducer.apply(R.id.banner);
 
         if (view instanceof AdView) {
             AdView adView = (AdView) view;
