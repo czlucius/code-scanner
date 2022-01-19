@@ -84,6 +84,15 @@ public class App extends Application {
         }
     }
 
+    public static String getStringGlobalWithArgs(@StringRes int resId, Object... formatArgs) {
+        if (res != null && res.get() != null) {
+            return res.get().getString(resId, formatArgs);
+        } else {
+            throw new IllegalAccessError("App context not available!!!!!");
+        }
+    }
+
+
 
 
     /***
