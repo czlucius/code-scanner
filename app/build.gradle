@@ -56,6 +56,7 @@ android {
         }
         general {
             dimension "standard"
+            getIsDefault().set(true)
         }
         foss {
             dimension "standard"
