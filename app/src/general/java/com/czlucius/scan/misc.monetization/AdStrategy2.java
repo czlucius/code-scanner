@@ -38,7 +38,7 @@ public class AdStrategy2 {
 
     public void initialize() { /* stub */ }
 
-    public void loadAdView(Function<View, Integer> findViewByIdProducer) { /* stub */ }
+    public void loadAdView(Function<Integer, View> findViewByIdProducer) { /* stub */ }
 
     public void addAdViewTo(ViewGroup parent) {}
 
