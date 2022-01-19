@@ -32,13 +32,6 @@ public abstract class Data {
     public abstract boolean isEmpty();
 
 
-
-
-    @Deprecated
-    public String getDescription() {
-        return getStringRepresentation();
-    }
-
     public String getSummary() {
         return getStringRepresentation();
     }
@@ -55,13 +48,12 @@ public abstract class Data {
         if (obj == this) return true;
         if (!(obj instanceof Data)) return false;
         Data that = (Data) obj;
-        return getStringRepresentation().equals(that.getStringRepresentation())
-                && getDescription().equals(that.getDescription());
+        return getStringRepresentation().equals(that.getStringRepresentation());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStringRepresentation(), getDescription());
+        return Objects.hash(getStringRepresentation());
     }
 
     @NonNull
