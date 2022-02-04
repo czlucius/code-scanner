@@ -62,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             handleIntent(getIntent(), navController); // First launch
         }
+
+
+        // TODO For testing only
+        Intent in = new Intent(this, CSOnboarding.class);
+        startActivity(in);
     }
 
 

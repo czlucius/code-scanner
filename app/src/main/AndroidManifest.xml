@@ -74,6 +74,12 @@
         </activity>
 
 
+        <activity android:name=".ui.CSOnboarding"
+            android:label="Code Scanner App On-boarding"
+            android:exported="false">
+        </activity>
+
+
         <provider
             android:authorities="com.czlucius.scan.provider"
             android:name="androidx.core.content.FileProvider"
