@@ -72,23 +72,23 @@ public class App extends Application {
                 .initialize();
 
 
-        // ACRA Crash Reporting
-        CoreConfigurationBuilder builder = new CoreConfigurationBuilder();
-        //core configuration:
-        builder
-                .withBuildConfigClass(BuildConfig.class)
-                .withReportFormat(StringFormat.JSON);
-
-        // Plugin configs
-        ArrayList<Configuration> acraConfigs = new ArrayList<>();
-        MailSenderConfigurationBuilder mailSenderConfig = 
-        builder.setPluginConfigurations();
-
-        builder.getPluginConfigurationBuilder(ToastConfigurationBuilder.class)
-                .withResText(R.string.acra_toast_text)
-                //make sure to enable all plugins you want to use:
-                .withEnabled(true);
-        ACRA.init(this, builder);
+//        // ACRA Crash Reporting
+//        CoreConfigurationBuilder builder = new CoreConfigurationBuilder();
+//        //core configuration:
+//        builder
+//                .withBuildConfigClass(BuildConfig.class)
+//                .withReportFormat(StringFormat.JSON);
+//
+//        // Plugin configs
+//        ArrayList<Configuration> acraConfigs = new ArrayList<>();
+//        MailSenderConfigurationBuilder mailSenderConfig =
+//        builder.setPluginConfigurations();
+//
+//        builder.getPluginConfigurationBuilder(ToastConfigurationBuilder.class)
+//                .withResText(R.string.acra_toast_text)
+//                //make sure to enable all plugins you want to use:
+//                .withEnabled(true);
+//        ACRA.init(this, builder);
 
         res = new WeakReference<>(getResources());
     }
