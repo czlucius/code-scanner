@@ -1,7 +1,9 @@
 # code-scanner
 [![GitHub license](https://img.shields.io/github/license/czlucius/code-scanner)](https://github.com/czlucius/code-scanner/blob/main/LICENSE.txt)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/czlucius/code-scanner)](https://github.com/czlucius/code-scanner/releases)
-[![Lines of code](https://tokei.rs/b1/github/czlucius/code-scanner?category=code)](https://github.com/czlucius/code-scanner)
+[![Lines of code](https://tokei.rs/b1/github/czlucius/code-scanner?category=code)](https://github.com/czlucius/code-scanner)'
+
+This branch is for testing for the AppIntro intro library.
 
 An Android app to scan and generate codes(barcodes/QR codes)
 
