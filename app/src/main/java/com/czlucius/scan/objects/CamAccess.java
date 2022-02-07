@@ -55,7 +55,7 @@ public class CamAccess {
         this.wctx = wctx;
         assert wctx.get() != null;
 
-        if (!wctx.get().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
+        if (!wctx.get().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)){
             mHasCamera = false;
             throw new NoCameraException("No camera available");
         } else {
