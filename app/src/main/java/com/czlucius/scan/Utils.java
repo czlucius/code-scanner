@@ -23,6 +23,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiNetworkSuggestion;
@@ -30,6 +31,7 @@ import android.os.Build;
 import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.widget.Toast;
 
 import com.czlucius.scan.database.CodeMemento;
 import com.czlucius.scan.exceptions.NetworkInvalidException;
@@ -161,16 +163,21 @@ public class Utils {
      * @return Whether an app to launch the intent exists on the device
      */
     public static boolean launchIntentCheckAvailable(Intent intent, Context context) {
-        /*
-         TODO/GPV: This may violate Google Play policies (may provide a way for broad scanning) -> have to check w Google Play staff
-         TODO/GPV: Use queries instead of trying and catching exceptions.
-         */
+
         try {
             context.startActivity(intent);
             return true;
         } catch (ActivityNotFoundException e) {
             // There are no apps that support this intent
             return false;
+        }
+    }
+
+    public static void launchWebPageExternally(Context context, Uri webpage) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        if (!Utils.launchIntentCheckAvailable(intent, context)) {
+            // Browser unavailable.
+            Toast.makeText(context, R.string.no_browsers, Toast.LENGTH_SHORT).show();
         }
     }
 

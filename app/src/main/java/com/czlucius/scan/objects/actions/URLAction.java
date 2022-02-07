@@ -57,10 +57,8 @@ public class URLAction extends Action {
         }
         Uri webpage = builder.build();
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        if (!Utils.launchIntentCheckAvailable(intent, context)) {
-            // Browser unavailable.
-            Toast.makeText(context, R.string.no_browsers, Toast.LENGTH_SHORT).show();
-        }
+        Utils.launchWebPageExternally(context, webpage);
     }
+
+
 }

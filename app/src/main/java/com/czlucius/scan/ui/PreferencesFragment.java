@@ -111,12 +111,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             }
 
             private boolean shouldOverrideUrlLoading(Uri url) {
-                Intent urlIntent = new Intent(Intent.ACTION_VIEW);
-                urlIntent.setData(url);
-                boolean appAvailable = Utils.launchIntentCheckAvailable(urlIntent, requireContext());
-                if (!appAvailable) {
-                    Toast.makeText(getContext(), R.string.no_browsers, Toast.LENGTH_SHORT).show();
-                }
+                Utils.launchWebPageExternally(getContext(), url);
                 return true;
             }
         });
