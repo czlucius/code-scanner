@@ -18,6 +18,11 @@
 
 package com.czlucius.scan.ui;
 
+import static com.czlucius.scan.ui.CreateViewModel.EditState.BACKGROUND;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.CONTENTS;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.FOREGROUND;
+import static com.czlucius.scan.ui.CreateViewModel.EditState.NONE;
+
 import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -32,11 +37,6 @@ import com.czlucius.scan.objects.data.created.ICreatedData;
 import com.google.zxing.WriterException;
 
 import java.util.Objects;
-
-import static com.czlucius.scan.ui.CreateViewModel.EditState.BACKGROUND;
-import static com.czlucius.scan.ui.CreateViewModel.EditState.CONTENTS;
-import static com.czlucius.scan.ui.CreateViewModel.EditState.FOREGROUND;
-import static com.czlucius.scan.ui.CreateViewModel.EditState.NONE;
 
 
 public class CreateViewModel extends AndroidViewModel {

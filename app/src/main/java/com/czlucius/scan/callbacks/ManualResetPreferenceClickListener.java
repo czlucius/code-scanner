@@ -18,8 +18,6 @@
 
 package com.czlucius.scan.callbacks;
 
-import android.view.View;
-
 import androidx.preference.Preference;
 
 public abstract class ManualResetPreferenceClickListener implements Preference.OnPreferenceClickListener {

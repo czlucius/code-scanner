@@ -19,9 +19,7 @@
 package com.czlucius.scan.objects.actions;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.widget.Toast;
 
 import com.czlucius.scan.App;
 import com.czlucius.scan.R;

@@ -18,11 +18,11 @@
 
 package com.czlucius.scan.objects;
 
-import androidx.annotation.IntDef;
-
 import static com.czlucius.scan.objects.Availability.OFF;
 import static com.czlucius.scan.objects.Availability.ON;
 import static com.czlucius.scan.objects.Availability.UNAVAILABLE;
+
+import androidx.annotation.IntDef;
 
 @IntDef({ON, OFF, UNAVAILABLE})
 public @interface Availability {

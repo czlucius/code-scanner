@@ -21,13 +21,9 @@ package com.czlucius.scan.objects.data;
 import android.net.Uri;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.czlucius.scan.App;
 import com.czlucius.scan.R;
-import com.google.android.gms.vision.barcode.Barcode;
-
-import java.util.Locale;
 
 public class GeoLocation extends Data {
 

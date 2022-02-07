@@ -20,7 +20,6 @@ package com.czlucius.scan.objects.actions;
 
 import android.content.Context;
 
-import androidx.annotation.Nullable;
 import androidx.arch.core.util.Function;
 
 import com.czlucius.scan.App;

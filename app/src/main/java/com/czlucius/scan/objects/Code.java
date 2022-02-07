@@ -19,17 +19,6 @@
 package com.czlucius.scan.objects;
 
 
-import android.content.Context;
-
-import com.czlucius.scan.R;
-import com.czlucius.scan.database.CodeMemento;
-import com.czlucius.scan.objects.data.Data;
-import com.google.mlkit.vision.barcode.Barcode;
-import com.google.mlkit.vision.barcode.Barcode.BarcodeFormat;
-
-import java.util.Date;
-import java.util.Objects;
-
 import static com.google.mlkit.vision.barcode.Barcode.FORMAT_AZTEC;
 import static com.google.mlkit.vision.barcode.Barcode.FORMAT_CODABAR;
 import static com.google.mlkit.vision.barcode.Barcode.FORMAT_CODE_128;
@@ -43,6 +32,17 @@ import static com.google.mlkit.vision.barcode.Barcode.FORMAT_PDF417;
 import static com.google.mlkit.vision.barcode.Barcode.FORMAT_QR_CODE;
 import static com.google.mlkit.vision.barcode.Barcode.FORMAT_UPC_A;
 import static com.google.mlkit.vision.barcode.Barcode.FORMAT_UPC_E;
+
+import android.content.Context;
+
+import com.czlucius.scan.R;
+import com.czlucius.scan.database.CodeMemento;
+import com.czlucius.scan.objects.data.Data;
+import com.google.mlkit.vision.barcode.Barcode;
+import com.google.mlkit.vision.barcode.Barcode.BarcodeFormat;
+
+import java.util.Date;
+import java.util.Objects;
 
 
 public class Code {

@@ -25,6 +25,7 @@ import com.czlucius.scan.R;
 import com.czlucius.scan.objects.actions.Action;
 import com.czlucius.scan.objects.actions.AddContactAction;
 import com.czlucius.scan.objects.actions.AddWiFiAction;
+import com.czlucius.scan.objects.actions.CallPhoneAction;
 import com.czlucius.scan.objects.actions.CopyAction;
 import com.czlucius.scan.objects.actions.CopyPasskeyAction;
 import com.czlucius.scan.objects.actions.CopyPhoneAction;
@@ -32,12 +33,9 @@ import com.czlucius.scan.objects.actions.CopySMSContentsAction;
 import com.czlucius.scan.objects.actions.CopySMSRecipientAction;
 import com.czlucius.scan.objects.actions.CopySSIDAction;
 import com.czlucius.scan.objects.actions.EmailAction;
-import com.czlucius.scan.objects.actions.CallPhoneAction;
 import com.czlucius.scan.objects.actions.SMSAction;
-import com.czlucius.scan.objects.actions.ShareAction;
 import com.czlucius.scan.objects.actions.URLAction;
 import com.czlucius.scan.objects.actions.ViewLocationAction;
-import com.czlucius.scan.objects.data.Contact;
 import com.czlucius.scan.objects.data.Phone;
 import com.google.mlkit.vision.barcode.Barcode;
 
@@ -63,7 +61,7 @@ public class Type {
 
     private Type(List<Action> actions, String typeName, int typeInt) {
         actions.add(0, CopyAction.getInstance());
-        actions.add(1, ShareAction.getInstance());
+        //actions.add(1, ShareAction.getInstance());
         this.actions = actions;
         this.typeName = typeName;
         this.typeInt = typeInt;

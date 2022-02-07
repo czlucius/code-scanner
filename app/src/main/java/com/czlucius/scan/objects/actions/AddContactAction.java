@@ -18,6 +18,8 @@
 
 package com.czlucius.scan.objects.actions;
 
+import static android.provider.ContactsContract.Intents.Insert.DATA;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -32,11 +34,8 @@ import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.Email;
 import com.czlucius.scan.objects.data.Name;
 import com.czlucius.scan.objects.data.Phone;
-import com.google.mlkit.vision.barcode.Barcode;
 
 import java.util.ArrayList;
-
-import static android.provider.ContactsContract.Intents.Insert.DATA;
 
 public class AddContactAction extends Action {
     private static AddContactAction INSTANCE;

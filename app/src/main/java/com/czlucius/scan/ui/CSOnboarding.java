@@ -18,23 +18,17 @@
 
 package com.czlucius.scan.ui;
 
-import android.Manifest;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Spanned;
 
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.Utils;
-
 import com.czlucius.scan.preferences.Settings;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
-import com.heinrichreimersoftware.materialintro.slide.Slide;
-
-import java.util.List;
 
 public class CSOnboarding extends IntroActivity {
 

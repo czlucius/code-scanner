@@ -18,6 +18,8 @@
 
 package com.czlucius.scan.ui;
 
+import static android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -78,8 +80,6 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import static android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
 
 
 public class ScannerFragment extends Fragment {

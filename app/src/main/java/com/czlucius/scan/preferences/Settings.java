@@ -21,8 +21,6 @@ package com.czlucius.scan.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.czlucius.scan.misc.monetization.AdStrategy2;
-
 /**
  * Wrapper class for SharedPreferences to make interacting with it easier.
  */
