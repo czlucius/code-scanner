@@ -20,16 +20,12 @@
 
 package com.czlucius.scan;
 
-import android.Manifest;
 import android.app.Application;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.util.Log;
 
 import androidx.annotation.StringRes;
 
-import com.czlucius.scan.exceptions.IllegalPermissionsException;
 import com.czlucius.scan.misc.monetization.AdStrategy2;
 
 import org.acra.ACRA;
@@ -41,9 +37,6 @@ import org.acra.data.StringFormat;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -81,13 +74,15 @@ public class App extends Application {
 
         // Plugin configs
         ArrayList<Configuration> acraConfigs = new ArrayList<>();
-        MailSenderConfigurationBuilder mailSenderConfig = 
-        builder.setPluginConfigurations();
+        MailSenderConfiguration mailSenderConfig = new MailSenderConfigurationBuilder()
+                .withMailTo(getString(R.string.contact_email))
+                .withSubject("Bug report for Code Scanner")
+                .withBody("Hi!\nI've found a bug in Code Scanner, here are the crash logs. Thanks!")
+                .withEnabled(true)
+                .build();
+        acraConfigs.add(mailSenderConfig);
+        builder.setPluginConfigurations(acraConfigs);
 
-        builder.getPluginConfigurationBuilder(ToastConfigurationBuilder.class)
-                .withResText(R.string.acra_toast_text)
-                //make sure to enable all plugins you want to use:
-                .withEnabled(true);
         ACRA.init(this, builder);
 
         res = new WeakReference<>(getResources());
