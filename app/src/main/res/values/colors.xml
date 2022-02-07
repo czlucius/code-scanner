@@ -27,12 +27,16 @@
     <color name="white_smoke">#EDEDED</color>
 
     <color name="pure_white">#ffffff</color>
-    <color name="light_grey"></color>
     <color name="mist">#D4D4D4</color>
     <color name="moderate_grey">#acacac</color>
     <color name="jungle_green">#26a69a</color>
     <color name="downy_green">#64d8cb</color>
     <color name="pine_green">#00766c</color>
     <color name="pure_black">#000000</color>
+
+
+    <!-- App Onboarding colors -->
+    <color name="onboarding_background">@color/pure_white</color>
+    <color name="onboarding_background_dark">@color/white_smoke</color>
 
 </resources>

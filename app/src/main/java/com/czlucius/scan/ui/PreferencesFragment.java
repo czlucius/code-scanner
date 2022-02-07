@@ -92,6 +92,19 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             });
         }
 
+        if (findPreference("privacy_policy") != null) {
+            findPreference("privacy_policy").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Utils.launchWebPageExternally(
+                            getContext(),
+                            Uri.parse(getString(R.string.privacy_policy_url))
+                    );
+                    return true;
+                }
+            });
+        }
+
         return v;
     }
 

@@ -129,11 +129,12 @@ dependencies {
     // VCard creator:
     implementation 'com.googlecode.ez-vcard:ez-vcard:0.11.2'
 
+    // App Onboarding:
+    implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     // ACRA crash reporting:
     implementation "ch.acra:acra-mail:5.9.0-rc2"
 
-    // App Onboarding:
-    implementation 'com.github.AppIntro:AppIntro:6.2.0'
+
 
     // region Google Play specific libraries
     playImplementation 'com.google.android.gms:play-services-ads:20.5.0'

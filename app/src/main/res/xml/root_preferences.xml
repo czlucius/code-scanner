@@ -39,6 +39,11 @@
             app:key="oss_licenses"
             app:title="@string/open_source_licenses"/>
 
+        <Preference
+            app:icon="@drawable/ic_baseline_police_24"
+            app:key="privacy_policy"
+            app:title="@string/privacy_policy"/>
+
 
         <!-- TODO: PLAY: state image source and file request with Google Play team so that app does not get accused for intellectual property violations. -->
         <Preference

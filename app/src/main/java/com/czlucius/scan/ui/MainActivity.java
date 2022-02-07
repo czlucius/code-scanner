@@ -19,6 +19,7 @@
 package com.czlucius.scan.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -29,6 +30,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ActivityMainBinding;
+import com.czlucius.scan.preferences.Settings;
 import com.google.android.material.navigation.NavigationBarMenu;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -58,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         binding.bottomNav.setOnNavigationItemReselectedListener(item -> {});
+
+        Settings s = Settings.getInstance(this);
+        if (s.getShouldShowOnboarding()) {
+            Intent i = new Intent(this, CSOnboarding.class);
+            startActivity(i);
+        }
 
         if (savedInstanceState == null) {
             handleIntent(getIntent(), navController); // First launch

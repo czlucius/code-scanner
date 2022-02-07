@@ -73,6 +73,11 @@
 
         </activity>
 
+        <activity android:name=".ui.CSOnboarding"
+            android:label="@string/intro"
+            android:exported="false">
+        </activity>
+
 
         <provider
             android:authorities="com.czlucius.scan.provider"
