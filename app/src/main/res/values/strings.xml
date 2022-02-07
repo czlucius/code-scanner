@@ -23,6 +23,7 @@
     <string name="source_code">Open Source</string>
     <string name="open_source_view_or_contribute">View or contribute on GitHub. Open sourced under AGPL.</string>
     <string name="oss_link">https://github.com/czlucius/code-scanner/</string>
+    <string name="privacy_policy_url">https://github.com/czlucius/code-scanner/blob/main/privacy_policy.md</string>
 
 
     <string name="description_permission">Allow scanning of codes(barcode, QR code, etc.) with the camera.</string>
@@ -169,6 +170,14 @@
     <string name="geo_template">Latitude: %1$f\nLongitude: %2$f</string>
     <string name="view_location">View location in maps application</string>
     <string name="geolocation">Geolocation</string>
+
+    <string name="onboarding_welcome">Welcome to Code Scanner!</string>
+    <string name="onboarding_welcome_summary">Thank you for using Code Scanner!\nThis on-boarding will guide you through the application and it\'s features.\nIf you have recently updated and see this screen, you may skip this and your data will still be intact.</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="intro">Introduction</string>
+    <string name="privacy_policy_description">Please read the privacy policy below to learn more about how we handle your data.\nBy continuing, you accept the terms stated in the privacy policy.\nAn Internet connection is required to view it.\nThanks!</string>
+    <string name="click_privacy_policy">View privacy policy</string>
+    <string name="contact_email">czl.apps@icloud.com</string>
 
 
 </resources>

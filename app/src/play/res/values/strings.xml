@@ -19,10 +19,11 @@
 <resources>
     <string name="rewarded_ad_not_ready">The video ad isn\'t ready yet.</string>
     <string name="ad_failed_to_load">Ad failed to load.</string>
-    <string name="watch_ads_description">Watch video to remove ads for the current session of this app</string>
+    <string name="watch_ads_description">Watch video to remove ads for the current session</string>
     <string name="ad_watched">You have already watched an ad in the current session.</string>
 
     <string name="oss_link">https://gitlab.com/czlucius/code-scanner-play/-/blob/main/README-PLAY.md</string>
     <string name="open_source_view_or_contribute">View or contribute on GitLab. Open sourced under AGPL.</string>
+    <string name="privacy_policy_url">https://gitlab.com/czlucius/code-scanner-play/-/wikis/Privacy-Policy-(Google-Play)</string>
 
 </resources>
