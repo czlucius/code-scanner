@@ -1,7 +1,6 @@
 # code-scanner (Google Play)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c5bbd14d952d462c95e6177aea893056)](https://www.codacy.com/gh/czlucius/code-scanner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=czlucius/code-scanner&amp;utm_campaign=Badge_Grade)
+
 [![GitHub license](https://img.shields.io/github/license/czlucius/code-scanner)](https://gitlab.com/czlucius/code-scanner-play/-/blob/main/LICENSE.txt)
-[![Lines of code](https://tokei.rs/b1/github/czlucius/code-scanner?category=code)](https://gitlab.com/czlucius/code-scanner-play)
 
 An Android app to scan and generate codes(barcodes/QR codes)
 
@@ -17,6 +16,9 @@ Clone this repo using
 
 You may also run this code on your machine by opening this project in Android Studio, and compiling it to your Android device.
 Do note that this project is protected by the GNU Affero General Public License version 3, hence usage of this project **would have to be compliant to the GNU AGPL.**
+
+Issues are not filed in the GitLab site, they are available here: https://github.com/czlucius/code-scanner/issues.
+If you'd like to contribute, please file an issue on the above link, or submit a pull/merge request. Thanks!
 
 ## License
 This project is licensed with the GNU Affero General Public License. View [the license file](LICENSE.txt) for more info.
