@@ -8,7 +8,7 @@ An Android app to scan and generate codes(barcodes/QR codes)
 [<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" 
       alt="Available on Galaxy Store" 
       height="80">](https://galaxy.store/codescan)
-)      
+
 
 
 ## Using this project
