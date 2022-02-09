@@ -76,6 +76,7 @@ public class AdStrategy2 {
 
         Bundle extras = new Bundle();
         extras.putString("max_ad_content_rating", "G");
+        extras.putString("npa", "1"); // Request Non-Personalised Ads
 
         // PLAY: How to request for child directed ads?
 //        AdRequest request = new AdRequest.Builder()
