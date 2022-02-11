@@ -22,7 +22,7 @@ If you'd like to contribute, please file an issue on the above link, or submit a
 
 ## License
 This project is licensed with the GNU Affero General Public License. View [the license file](LICENSE.txt) for more info.
-Do note that **any non-compliance to the license can result in legal action.** Contact me at czlucius.dev@gmail.com if you need help in complying to the license.
+Do note that **any non-compliance to the license can result in legal action.** Contact me at czl.apps@icloud.com if you need help in complying to the license.
 Thank you.
 
 ## Open-source dependencies
