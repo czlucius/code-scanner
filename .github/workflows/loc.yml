@@ -1,4 +1,4 @@
- - name: Lines of Code Badge
+ - name: Make Code Badge
    uses: shadowmoose/GHA-LoC-Badge@1.0.0
    id: badge
    with:
