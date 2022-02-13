@@ -1,7 +1,7 @@
-      - name: Lines of Code Badge
-        uses: shadowmoose/GHA-LoC-Badge@1.0.0
-        id: badge
-        with:
+ - name: Lines of Code Badge
+   uses: shadowmoose/GHA-LoC-Badge@1.0.0
+   id: badge
+   with:
           debug: true
           directory: ./
           badge: ./graphic_assets/badge.svg
