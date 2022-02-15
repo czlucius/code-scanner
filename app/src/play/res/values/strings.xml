@@ -26,4 +26,6 @@
     <string name="open_source_view_or_contribute">View or contribute on GitLab. Open sourced under AGPL.</string>
     <string name="privacy_policy_url">https://gitlab.com/czlucius/code-scanner-play/-/wikis/Privacy-Policy-(Google-Play)</string>
 
+    <string name="store_url">https://play.google.com/store/apps/details?id=com.czlucius.scan</string>
+
 </resources>

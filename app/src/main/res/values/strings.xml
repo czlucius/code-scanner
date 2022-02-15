@@ -18,7 +18,7 @@
 
 <resources>
     <string name="app_name">Code Scanner</string>
-    <string name="simple_description">A simple app to scan codes(QR codes, barcodes, etc.)</string>
+    <string name="simple_description">An app to scan and create codes</string>
     <string name="open_source_link">This app is open source.\nContribute or view the source code at <a href="https://github.com/czlucius/code-scanner">https://github.com/czlucius/code-scanner</a></string>
     <string name="source_code">Open Source</string>
     <string name="open_source_view_or_contribute">View or contribute on GitHub. Open sourced under AGPL.</string>
@@ -172,12 +172,14 @@
     <string name="geolocation">Geolocation</string>
 
     <string name="onboarding_welcome">Welcome to Code Scanner!</string>
-    <string name="onboarding_welcome_summary">Thank you for using Code Scanner!\nThis on-boarding will guide you through the application and it\'s features.\nIf you have recently updated and see this screen, you may skip this and your data will still be intact.</string>
+    <string name="onboarding_welcome_summary">Thank you for using Code Scanner!\nThis on-boarding will guide you through the application and it\'s features.</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="intro">Introduction</string>
-    <string name="privacy_policy_description">Please read the privacy policy below to learn more about how we handle your data.\nBy continuing, you accept the terms stated in the privacy policy.\nAn Internet connection is required to view it.\nThanks!</string>
+    <string name="privacy_policy_description">Please read the privacy policy below to learn more about how we handle your data. Thanks!</string>
     <string name="click_privacy_policy">View privacy policy</string>
     <string name="contact_email">czl.apps@icloud.com</string>
+    <string name="share_with_others">Share this app with others.</string>
+    <string name="promo_share_description">Code Scanner - Scan and Create codes\nInstall now for free!\n%1$s</string>
 
 
 </resources>
