@@ -8,12 +8,13 @@ width="200"
 <br>
 An Android app to scan and generate codes(barcodes/QR codes)
 
-Get it on the Galaxy Store, or on GitHub Releases (Google Play coming soon):
+Get it on the Galaxy Store, F-Droid or on GitHub Releases (Google Play coming soon):
 
-[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" 
-      alt="Available on Galaxy Store" 
-      height="80">](https://galaxy.store/codescan)
-      <br><br><br>
+Galaxy Store|F-Droid|GitHub Releases
+---|---|---
+[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" alt="Available on Galaxy Store" height="55">](https://galaxy.store/codescan) | [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://gitlab.com/czlucius/czlucius-fdroid-repo)|[<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" height="85">](https://github.com/czlucius/code-scanner/releases)|
+      
+
 
 ## Using this project
 This project is stable for release.
