@@ -227,19 +227,20 @@ public class ScannerFragment extends Fragment {
         });
 
 
+        com.czlucius.scan.preferences.Settings globalSettings = com.czlucius.scan.preferences.Settings.getInstance(getContext());
 
+        // Request for permission only if the on-boarding is cleared.
+        if (globalSettings.getShouldShowOnboarding()) {
+            int permissionStatus = requireContext().checkSelfPermission(cameraPermission);
+            if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
 
+                startCamera();
 
-        // Request for permission
-        int permissionStatus = requireContext().checkSelfPermission(cameraPermission);
-        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
-
-            startCamera();
-
-        } else if (shouldShowRequestPermissionRationale(cameraPermission)) {
-            displayRationale();
-        } else {
-            requestPm();
+            } else if (shouldShowRequestPermissionRationale(cameraPermission)) {
+                displayRationale();
+            } else {
+                requestPm();
+            }
         }
 
 
@@ -418,7 +419,9 @@ public class ScannerFragment extends Fragment {
 
     private void setMargins(Snackbar snack) {
         CoordinatorLayout.LayoutParams params = ((CoordinatorLayout.LayoutParams) snack.getView().getLayoutParams());
-        params.bottomMargin = requireActivity().findViewById(R.id.bottomNav).getHeight();
+        if (requireActivity().findViewById(R.id.bottomNav) != null) {
+            params.bottomMargin = requireActivity().findViewById(R.id.bottomNav).getHeight();
+        }
         snack.getView().setLayoutParams(params);
     }
 
