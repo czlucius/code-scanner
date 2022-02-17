@@ -2,7 +2,7 @@
 [![GitHub license](https://img.shields.io/github/license/czlucius/code-scanner)](https://github.com/czlucius/code-scanner/blob/main/LICENSE.txt)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/czlucius/code-scanner)](https://github.com/czlucius/code-scanner/releases)
 <!-- Error in badge [![Lines of code](https://tokei.rs/b1/github/czlucius/code-scanner?category=code)](https://github.com/czlucius/code-scanner) -->
-<img src="app/src/main/res/mipmap-xxxhdpi/ic_code_scanner.png" align="left"
+<img src="app/src/main/res/mipmap-xxxhdpi/ic_code_scanner.png" align="right"
 width="200"
     hspace="10" vspace="1">
 <br>
