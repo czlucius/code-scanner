@@ -33,6 +33,13 @@
             app:title="Remove ads temporarily"
             app:summary="@string/watch_ads_description"
             app:icon="@drawable/ic_round_movie_24"/>
+
+        <Preference
+            app:key="share_app"
+            app:title="@string/share"
+            app:defaultValue="@string/promo_share_description"
+            app:summary="@string/share_with_others"
+            app:icon="@drawable/ic_round_share_24"/>
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/about">

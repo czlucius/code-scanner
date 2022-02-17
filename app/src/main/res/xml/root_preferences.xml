@@ -27,6 +27,15 @@
             app:icon="@drawable/ic_round_scanner_24"/>
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="@string/support">
+        <Preference
+            app:key="share_app"
+            app:title="@string/share"
+            app:defaultValue="@string/promo_share_description"
+            app:summary="@string/share_with_others"
+            app:icon="@drawable/ic_round_share_24"/>
+    </PreferenceCategory>
+
     <PreferenceCategory app:title="@string/about">
 
         <Preference
@@ -51,6 +60,8 @@
             app:key="open_source"
             app:summary="@string/open_source_view_or_contribute"
             app:title="@string/source_code" />
+
+
 
     </PreferenceCategory>
 

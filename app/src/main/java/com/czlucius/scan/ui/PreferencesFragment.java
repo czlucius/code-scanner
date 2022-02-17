@@ -103,6 +103,20 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             });
         }
 
+        if (findPreference("share_app") != null) {
+            findPreference("share_app").setOnPreferenceClickListener(preference -> {
+                // TODO this only links to Google Play, link to other stores soon!
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.promo_share_description, getString(R.string.store_url)));
+                sendIntent.setType("text/plain");
+
+                startActivity(sendIntent);
+
+                return true;
+            });
+        }
+
         return v;
     }
 
