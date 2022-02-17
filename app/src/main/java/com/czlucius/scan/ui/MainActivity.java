@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.bottomNav, navController);
 
 
-        binding.bottomNav.setOnNavigationItemReselectedListener(item -> {});
+        binding.bottomNav.setOnNavigationItemReselectedListener(item -> {
+        });
 
         Settings s = Settings.getInstance(this);
         if (s.getShouldShowOnboarding()) {
