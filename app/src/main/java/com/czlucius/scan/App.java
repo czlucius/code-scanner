@@ -74,10 +74,18 @@ public class App extends Application {
 
         // Plugin configs
         ArrayList<Configuration> acraConfigs = new ArrayList<>();
+        String emailBody = "Crash report for Code Scanner\n\n" +
+                "Code Scanner just crashed. Send this email with the log files attached to the developers for diagnosis.\n" +
+                "This will help us improve the app and make it better!\n" +
+                "Sending the log files is entirely at your discretion, if you don't feel comfortable sharing them, you can choose to discard this email draft.\n" +
+                "If you don't wish to use your email address, you can email this to yourself, and upload the attached file here: https://forms.gle/2oHZ17SNaYWmzRXTA\n" +
+                "Alternatively, if you know how to use GitHub to report issues, you may file an issue here: https://github.com/czlucius/code-scanner/issues (with the log file). \n" +
+                "Thanks!\n";
+
         MailSenderConfiguration mailSenderConfig = new MailSenderConfigurationBuilder()
                 .withMailTo(getString(R.string.contact_email))
                 .withSubject("Bug report for Code Scanner")
-                .withBody("Hi!\nI've found a bug in Code Scanner, here are the crash logs. Thanks!")
+                .withBody(emailBody)
                 .withEnabled(true)
                 .build();
         acraConfigs.add(mailSenderConfig);
