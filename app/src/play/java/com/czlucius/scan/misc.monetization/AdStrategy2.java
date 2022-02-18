@@ -21,6 +21,7 @@ package com.czlucius.scan.misc.monetization;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,12 +44,11 @@ import java.lang.ref.WeakReference;
 
 /** Singleton for managing ads. */
 public class AdStrategy2 {
-    // TODO EXPM this is just a test id, replace it with actual id on release.
-    private static final String ADMOB_REWARDED_AD_ID = "ca-app-pub-3940256099942544/5224354917";
 
 
     private final WeakReference<Context> contextWeakReference;
     private boolean shouldShowAds = true; // Used for rewarded ads or IAP (todo)
+    private boolean adIdRegistered = false;
 
 
     private static AdStrategy2 INSTANCE;
@@ -108,6 +108,14 @@ public class AdStrategy2 {
 
         if (view instanceof AdView) {
             AdView adView = (AdView) view;
+            if (!adIdRegistered) {
+                try {
+                    adView.setAdUnitId(AdIdRetriever.retrieveBannerId());
+                } catch (IllegalStateException duplicateException) {
+                    // Ad ID already set
+                    adIdRegistered = true;
+                }
+            }
             AdRequest adRequest = new AdRequest.Builder().build();
             adView.loadAd(adRequest);
         } else {
@@ -128,7 +136,7 @@ public class AdStrategy2 {
     public void loadRewardedAdVideo(Activity activity, View root, Callback resetCallback) {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        RewardedAd.load(contextWeakReference.get(), ADMOB_REWARDED_AD_ID,
+        RewardedAd.load(contextWeakReference.get(), AdIdRetriever.retrieveRewardedId(),
                 adRequest, new RewardedAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
