@@ -230,7 +230,7 @@ public class ScannerFragment extends Fragment {
         com.czlucius.scan.preferences.Settings globalSettings = com.czlucius.scan.preferences.Settings.getInstance(getContext());
 
         // Request for permission only if the on-boarding is cleared.
-        if (globalSettings.getShouldShowOnboarding()) {
+        if (!globalSettings.getShouldShowOnboarding()) {
             int permissionStatus = requireContext().checkSelfPermission(cameraPermission);
             if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
 
