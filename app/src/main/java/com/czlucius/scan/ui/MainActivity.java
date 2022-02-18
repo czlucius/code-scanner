@@ -18,9 +18,11 @@
 
 package com.czlucius.scan.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -39,6 +41,8 @@ import com.czlucius.scan.preferences.Settings;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private static final int REQUEST_CODE_INTRO = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         Settings s = Settings.getInstance(this);
         if (s.getShouldShowOnboarding()) {
             Intent i = new Intent(this, CSOnboarding.class);
-            startActivity(i);
+            startActivityForResult(i, REQUEST_CODE_INTRO
+            );
         }
 
         if (savedInstanceState == null) {
@@ -69,6 +74,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_INTRO) {
+            if (resultCode == Activity.RESULT_OK) {
+                recreate(); // Previous changes no longer applicable
+            } else {
+                finish();
+            }
+        }
+    }
 
     private void handleIntent(Intent intent, NavController navController)  {
         if (intent == null || intent.getType() == null) return;
