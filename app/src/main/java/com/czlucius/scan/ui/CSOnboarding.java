@@ -40,6 +40,7 @@ public class CSOnboarding extends IntroActivity {
 
         addSlide(
                 new SimpleSlide.Builder()
+                        .layout(R.layout.mi_fragment_simple_slide_scrollable)
                         .title(R.string.onboarding_welcome)
                         .description(R.string.onboarding_welcome_summary)
                         .background(R.color.onboarding_background)
@@ -50,6 +51,7 @@ public class CSOnboarding extends IntroActivity {
 
         addSlide(
                 new SimpleSlide.Builder()
+                        .layout(R.layout.mi_fragment_simple_slide_scrollable)
                         .title(R.string.scan)
                         .description("Scan supported codes whenever, wherever you go.")
                         .image(R.mipmap.onboarding_scan)
@@ -61,6 +63,7 @@ public class CSOnboarding extends IntroActivity {
 
         addSlide(
                 new SimpleSlide.Builder()
+                        .layout(R.layout.mi_fragment_simple_slide_scrollable)
                         .title(R.string.history)
                         .description("View history of previously scanned codes.")
                         .image(R.mipmap.onboarding_history)
@@ -71,6 +74,7 @@ public class CSOnboarding extends IntroActivity {
 
         addSlide(
                 new SimpleSlide.Builder()
+                        .layout(R.layout.mi_fragment_simple_slide_scrollable)
                         .title(R.string.create)
                         .description("Create QR codes and style it with different colors.")
                         .image(R.mipmap.onboarding_create)
@@ -83,6 +87,7 @@ public class CSOnboarding extends IntroActivity {
 
         addSlide(
                 new SimpleSlide.Builder()
+                        .layout(R.layout.mi_fragment_simple_slide_scrollable)
                         .title(R.string.batch_scan)
                         .description("Scan unlimited codes at once, and save it to history.")
                         .image(R.mipmap.onboarding_batch)
@@ -94,6 +99,7 @@ public class CSOnboarding extends IntroActivity {
 
         addSlide(
                 new SimpleSlide.Builder()
+                        .layout(R.layout.mi_fragment_simple_slide_scrollable)
                         .title(R.string.privacy_policy)
                         .description(R.string.privacy_policy_description)
                         .background(R.color.onboarding_background)
