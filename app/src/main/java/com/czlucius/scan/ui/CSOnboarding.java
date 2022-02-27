@@ -138,12 +138,5 @@ public class CSOnboarding extends IntroActivity {
 
 
 
-//
-//        setImmersive(false);
-//        setIndicatorColor(
-//                getColor(R.color.onboarding_indicator_selected),
-//                getColor(R.color.onboarding_indicator_unselected)
-//        );
-//        showStatusBar(true);
     }
 }
