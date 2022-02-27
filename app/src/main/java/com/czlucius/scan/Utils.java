@@ -41,6 +41,7 @@ import com.czlucius.scan.objects.data.WiFi;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.mlkit.vision.barcode.Barcode;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -183,5 +184,11 @@ public class Utils {
 
     public static boolean availabilityToBoolean(@Availability int availability) {
         return availability == Availability.ON;
+    }
+
+    public static byte[] byteBufferToArray(ByteBuffer buffer) {
+        byte[] array = new byte[buffer.capacity()];
+        buffer.get(array);
+        return array;
     }
 }
