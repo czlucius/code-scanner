@@ -64,7 +64,7 @@ public class Code {
         timeScanned = new Date();
     }
 
-    private Code(Type dataType, int format, Data data) {
+    public Code(Type dataType, int format, Data data) {
         this.dataType = dataType;
         this.format = format;
         this.data = data;

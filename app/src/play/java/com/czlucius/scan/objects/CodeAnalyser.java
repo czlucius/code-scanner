@@ -32,6 +32,9 @@ import com.google.mlkit.vision.common.InputImage;
 
 import java.util.List;
 
+/**
+ * Main analysing is done here.
+ */
 public class CodeAnalyser implements ImageAnalysis.Analyzer {
 
     private SuccessCallback mCallBack;
@@ -57,7 +60,7 @@ public class CodeAnalyser implements ImageAnalysis.Analyzer {
         Image barcodeImage = imageProxy.getImage();
         if (barcodeImage != null) {
             InputImage inputImage = InputImage.fromMediaImage(barcodeImage, imageProxy.getImageInfo().getRotationDegrees());
-            //Pass to ML Kit API
+            //Pass to  API
 
             BarcodeScanner barcodeScanner = BarcodeScanning.getClient();
             Task<List<Barcode>> result = barcodeScanner.process(inputImage)
