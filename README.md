@@ -49,12 +49,17 @@ This app uses the following open-source libraries:
 -  Moshi - https://github.com/square/moshi - https://github.com/square/moshi/blob/master/LICENSE.txt (Apache License 2.0)
 -  AndroidPhotoshopColorPicker - https://github.com/aziztitu/AndroidPhotoshopColorPicker - https://github.com/aziztitu/AndroidPhotoshopColorPicker/blob/master/LICENSE (Artistic License 2.0)
 -  Material Components - https://github.com/material-components/material-components-android - https://github.com/material-components/material-components-android/blob/master/LICENSE (Apache License 2.0)
+-  ACRA - https://github.com/ACRA/acra/
+-  Material Intro - https://github.com/heinrichreimer/material-intro/
 
 
 ## Notes
 1.  Tag EXPM is used for experimental features.                       
     Use Ctrl+Shift+F to perform project-wide search in Android Studio.
-    
+2.  See foss branch for development for a build free of ML Kit, a proprietary Google library.
+3.  Crash reporting is optional.
+4.  For security vulnerabilities, send an email to czl.apps@icloud.com to arrange for encrypted communication before disclosing the vulnerability.
+
 Please feel free to file an issue if you notice any bugs while using the app.
 Pull Requests for current issues are also welcome.
 
