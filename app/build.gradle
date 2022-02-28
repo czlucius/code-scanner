@@ -28,8 +28,8 @@ android {
         applicationId "com.czlucius.scan"
         minSdkVersion 23
         targetSdkVersion 31
-        versionCode 8
-        versionName "1.7"
+        versionCode 10
+        versionName "1.82.alpha"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -109,8 +109,11 @@ dependencies {
     implementation "androidx.camera:camera-view:1.0.0-alpha32"
 
 
-    // ML Kit on GMS:
-    implementation 'com.google.mlkit:barcode-scanning:16.0.3'
+    // ML Kit on GMS: (not for foss builds)
+    def mlKitVersion = '16.0.3'
+    playImplementation "com.google.mlkit:barcode-scanning:$mlKitVersion"
+    generalImplementation "com.google.mlkit:barcode-scanning:$mlKitVersion"
+
 
     // Room:
     implementation "androidx.room:room-runtime:2.4.0"
