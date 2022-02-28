@@ -49,8 +49,8 @@ This app uses the following open-source libraries:
 -  Moshi - https://github.com/square/moshi - https://github.com/square/moshi/blob/master/LICENSE.txt (Apache License 2.0)
 -  AndroidPhotoshopColorPicker - https://github.com/aziztitu/AndroidPhotoshopColorPicker - https://github.com/aziztitu/AndroidPhotoshopColorPicker/blob/master/LICENSE (Artistic License 2.0)
 -  Material Components - https://github.com/material-components/material-components-android - https://github.com/material-components/material-components-android/blob/master/LICENSE (Apache License 2.0)
--  ACRA - https://github.com/ACRA/acra/
--  Material Intro - https://github.com/heinrichreimer/material-intro/
+-  ACRA - https://github.com/ACRA/acra/ (Apache License 2.0)
+-  Material Intro - https://github.com/heinrichreimer/material-intro/ (MIT License)
 
 
 ## Notes
