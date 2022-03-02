@@ -8,6 +8,10 @@ width="200"
 <br>
 An Android app to scan and generate codes(barcodes/QR codes)
 
+**UPDATE**  
+Code Scanner will be released to the Google Play Store shortly.
+Register here: https://play.google.com/store/apps/details?id=com.czlucius.scan
+
 Get it on the Galaxy Store, F-Droid or on GitHub Releases (Google Play coming soon):
 
 Galaxy Store|F-Droid|GitHub Releases
