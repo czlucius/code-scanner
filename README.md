@@ -15,10 +15,13 @@ Early access: https://play.google.com/apps/testing/com.czlucius.scan
 
 Get it on the Galaxy Store, F-Droid or on GitHub Releases (Google Play coming soon):
 
-Play Store (Pre-register now!)|Galaxy Store|F-Droid|GitHub Releases
----|---|---|---
-<a href='https://play.google.com/store/apps/details?id=com.czlucius.scan&utm_source=badge&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="80"/></a>|[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" alt="Available on Galaxy Store" height="55">](https://galaxy.store/codescan) | [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://gitlab.com/czlucius/czlucius-fdroid-repo)|[<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" height="85">](https://github.com/czlucius/code-scanner/releases)|
-      
+Play Store (Pre-register now!)|Galaxy Store
+---|---
+<a href='https://play.google.com/store/apps/details?id=com.czlucius.scan&utm_source=badge&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="80"/></a>|[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" alt="Available on Galaxy Store" height="55">](https://galaxy.store/codescan)
+
+F-Droid|GitHub Releases
+---|---
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://gitlab.com/czlucius/czlucius-fdroid-repo)|[<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" height="85">](https://github.com/czlucius/code-scanner/releases)|      
 
 
 ## Using this project
