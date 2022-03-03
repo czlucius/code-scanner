@@ -28,8 +28,8 @@ android {
         applicationId "com.czlucius.scan"
         minSdkVersion 23
         targetSdkVersion 31
-        versionCode 8
-        versionName "1.7"
+        versionCode 12
+        versionName "1.84"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
