@@ -48,7 +48,7 @@ public class AdStrategy2 {
 
     private final WeakReference<Context> contextWeakReference;
     private boolean shouldShowAds = true; // Used for rewarded ads or IAP (todo)
-    private boolean adIdRegistered = false;
+
 
 
     private static AdStrategy2 INSTANCE;
@@ -108,14 +108,6 @@ public class AdStrategy2 {
 
         if (view instanceof AdView) {
             AdView adView = (AdView) view;
-            if (!adIdRegistered) {
-                try {
-                    adView.setAdUnitId(AdIdRetriever.retrieveBannerId());
-                } catch (IllegalStateException duplicateException) {
-                    // Ad ID already set
-                    adIdRegistered = true;
-                }
-            }
             AdRequest adRequest = new AdRequest.Builder().build();
             adView.loadAd(adRequest);
         } else {
