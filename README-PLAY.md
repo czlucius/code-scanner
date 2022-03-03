@@ -6,8 +6,8 @@ An Android app to scan and generate codes(barcodes/QR codes)
 
 
 ## Using this project
-This project is stable for release.
-Google Play availability is expected to ship by end of Q4 2021.
+Register your interest here: https://play.google.com/store/apps/details?id=com.czlucius.scan  
+Early access here: https://play.google.com/apps/testing/com.czlucius.scan  
 The Google Play version is hosted on a GitLab mirror (https://gitlab.com/czlucius/code-scanner-play).
 
 Downloading the source code:
