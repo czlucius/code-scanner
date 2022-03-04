@@ -180,6 +180,8 @@
     <string name="contact_email">czl.apps@icloud.com</string>
     <string name="share_with_others">Share this app with others.</string>
     <string name="promo_share_description">Code Scanner - Scan and Create codes\nInstall now for free!\n%1$s</string>
+    <string name="store_url">https://github.com/czlucius/code-scanner</string>
+    <string name="next">Next</string>
 
 
 </resources>
