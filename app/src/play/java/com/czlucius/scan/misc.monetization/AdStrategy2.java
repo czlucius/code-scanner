@@ -20,11 +20,14 @@ package com.czlucius.scan.misc.monetization;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.arch.core.util.Function;
@@ -38,6 +41,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.lang.ref.WeakReference;
@@ -96,7 +100,12 @@ public class AdStrategy2 {
 
 
     public void loadAdView(Function<Integer, View> findViewByIdProducer) {
+
         if (!shouldShowAds) {
+            View bannerLayout = findViewByIdProducer.apply(R.id.banner_layout);
+            if (bannerLayout != null) {
+                bannerLayout.setVisibility(View.GONE);
+            }
             // If we should not show ads, we do not load them in the first place.
             // Best possible method to disable them (other than removing the views)
             // https://stackoverflow.com/questions/13323097/in-app-purchase-remove-ads
@@ -105,6 +114,7 @@ public class AdStrategy2 {
 
         // Get AdView
         View view = findViewByIdProducer.apply(R.id.banner);
+
 
         if (view instanceof AdView) {
             AdView adView = (AdView) view;
@@ -126,35 +136,50 @@ public class AdStrategy2 {
     }
 
     public void loadRewardedAdVideo(Activity activity, View root, Callback resetCallback) {
-        AdRequest adRequest = new AdRequest.Builder().build();
+        new MaterialAlertDialogBuilder(root.getContext(), R.style.Theme_App_AlertDialogTheme)
+                .setBackground(new ColorDrawable(Color.YELLOW))
+                .setTitle("This is not part of the app's content. This is an advertisement by Google AdMob")
+                .setMessage("This will take you to watch an advertisement from AdMob by Google Inc.\nBy pressing \"Next\", you agree the following screens are not part of this app, Code Scanner, and are NOT SUPPLIED BY THE DEVELOPER.\nThis dialog is to inform you that the content that you will see is from AdMob by Google.\nAdvertisements would be shown in accordance to our Privacy Policy.")
+                .setNegativeButton(R.string.cancel, null)
+                .setPositiveButton(R.string.next, (dialog, which) -> {
+                    Toast.makeText(activity, "This is NOT part of the app content.", Toast.LENGTH_LONG).show();
 
-        RewardedAd.load(contextWeakReference.get(), AdIdRetriever.retrieveRewardedId(),
-                adRequest, new RewardedAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                        super.onAdLoaded(rewardedAd);
-                        // Rewarded ad loaded, pass on to RewardedAdsHelper.
-                        RewardedAdsHelper helper = new RewardedAdsHelper(rewardedAd, root, activity);
-                        helper.startRewardedAds(resetCallback);
-                        helper.setRewardObserver(newValue -> {
-                            // Reward is obtained.
-                            shouldShowAds = false;
-                            // Remove current ad in the Info Fragment so user won't be confused.
-                            ((ViewGroup) root).removeView(root.findViewById(R.id.banner));
 
-                        });
 
-                    }
+                    AdRequest adRequest = new AdRequest.Builder().build();
 
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        super.onAdFailedToLoad(loadAdError);
-                        // Ad failed to load.
-                        Snackbar.make(root, R.string.ad_failed_to_load, Snackbar.LENGTH_SHORT).show();
-                        resetCallback.doAction();
-                    }
+                    RewardedAd.load(contextWeakReference.get(), AdIdRetriever.retrieveRewardedId(),
+                            adRequest, new RewardedAdLoadCallback() {
+                                @Override
+                                public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+                                    super.onAdLoaded(rewardedAd);
+                                    // Rewarded ad loaded, pass on to RewardedAdsHelper.
+                                    RewardedAdsHelper helper = new RewardedAdsHelper(rewardedAd, root, activity);
+                                    helper.startRewardedAds(resetCallback);
+                                    helper.setRewardObserver(newValue -> {
+                                        // Reward is obtained.
+                                        shouldShowAds = false;
+                                        // Remove current ad in the Info Fragment so user won't be confused.
+                                        ((ViewGroup) root).removeView(root.findViewById(R.id.banner));
+                                        activity.recreate();
 
-                });
+                                    });
+
+                                }
+
+                                @Override
+                                public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                                    super.onAdFailedToLoad(loadAdError);
+                                    // Ad failed to load.
+                                    Snackbar.make(root, R.string.ad_failed_to_load, Snackbar.LENGTH_SHORT).show();
+                                    resetCallback.doAction();
+                                }
+
+                            });
+                })
+                .setOnCancelListener(dialog -> resetCallback.doAction())
+                .show();
+
 
     }
 

@@ -79,7 +79,9 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             setupOSSLicensesDialog(oss_licenses);
         }
 
+
         if (findPreference("watch_ads_prefbtn") != null) {
+
             findPreference("watch_ads_prefbtn").setOnPreferenceClickListener(new ManualResetPreferenceClickListener() {
                 @Override
                 public boolean onSingleClick(Preference p) {
