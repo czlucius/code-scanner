@@ -65,13 +65,13 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Advertising">
-        <Preference
-            android:layout="@layout/warning_pref"
-            app:icon="@drawable/ic_advertisement_fill"
-            app:key="watch_ads_prefbtn"
-            app:summary="@string/watch_ads_description"
-            app:title="[ADS] Remove ads temporarily by watching a video" />
-    </PreferenceCategory>
+<!--    <PreferenceCategory app:title="Advertising">-->
+<!--        <Preference-->
+<!--            android:layout="@layout/warning_pref"-->
+<!--            app:icon="@drawable/ic_advertisement_fill"-->
+<!--            app:key="watch_ads_prefbtn"-->
+<!--            app:summary="@string/watch_ads_description"-->
+<!--            app:title="[ADS] Remove ads temporarily by watching a video" />-->
+<!--    </PreferenceCategory>-->
 
 </PreferenceScreen>
