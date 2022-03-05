@@ -136,19 +136,19 @@ dependencies {
 
 
 
-//    // region Google Play specific libraries
-//    playImplementation 'com.google.android.gms:play-services-ads:20.5.0'
-//
-//    // For apps targeting Android 12, add WorkManager dependency.
-//    constraints {
-//        playImplementation('androidx.work:work-runtime:2.7.0') {
-//            because '''androidx.work:work-runtime:2.1.0 pulled from play-services-ads
-//                   has a bug using PendingIntent without FLAG_IMMUTABLE or
-//                   FLAG_MUTABLE and will fail in apps targeting S+.'''
-//        }
-//    }
-//
-//    // endregion
+    // region Google Play specific libraries
+    playImplementation 'com.google.android.gms:play-services-ads:20.5.0'
+
+    // For apps targeting Android 12, add WorkManager dependency.
+    constraints {
+        playImplementation('androidx.work:work-runtime:2.7.0') {
+            because '''androidx.work:work-runtime:2.1.0 pulled from play-services-ads
+                   has a bug using PendingIntent without FLAG_IMMUTABLE or
+                   FLAG_MUTABLE and will fail in apps targeting S+.'''
+        }
+    }
+
+    // endregion
 
 
 }

@@ -54,10 +54,10 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
         // Instantiate ads if on play flavour.
         View v = super.onCreateView(inflater, container, savedInstanceState);
         ViewGroup vg = (ViewGroup) v;
-//        if (vg != null) {
-//            AdStrategy2.getInstance(getContext())
-//                    .addAdViewTo(vg);
-//        }
+        if (vg != null) {
+            AdStrategy2.getInstance(getContext())
+                    .addAdViewTo(vg);
+        }
 
 
         Preference oss_link = findPreference("open_source");
@@ -80,17 +80,17 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
         }
 
 
-//        if (findPreference("watch_ads_prefbtn") != null) {
-//
-//            findPreference("watch_ads_prefbtn").setOnPreferenceClickListener(new ManualResetPreferenceClickListener() {
-//                @Override
-//                public boolean onSingleClick(Preference p) {
-//                    AdStrategy2.getInstance(getContext())
-//                            .loadRewardedAdVideo(getActivity(), getView(), getResetCallback());
-//                    return true;
-//                }
-//            });
-//        }
+        if (findPreference("watch_ads_prefbtn") != null) {
+
+            findPreference("watch_ads_prefbtn").setOnPreferenceClickListener(new ManualResetPreferenceClickListener() {
+                @Override
+                public boolean onSingleClick(Preference p) {
+                    AdStrategy2.getInstance(getContext())
+                            .loadRewardedAdVideo(getActivity(), getView(), getResetCallback());
+                    return true;
+                }
+            });
+        }
 
         if (findPreference("privacy_policy") != null) {
             findPreference("privacy_policy").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
