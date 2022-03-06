@@ -17,15 +17,22 @@
   -->
 
 <resources>
-    <string name="rewarded_ad_not_ready">The video ad isn\'t ready yet.</string>
-    <string name="ad_failed_to_load">Ad failed to load.</string>
-    <string name="watch_ads_description">Watch video to remove ads for the current session</string>
-    <string name="ad_watched">You have already watched an ad in the current session.</string>
+
 
     <string name="oss_link">https://gitlab.com/czlucius/code-scanner-play/-/blob/main/README-PLAY.md</string>
     <string name="open_source_view_or_contribute">View or contribute on GitLab. Open sourced under AGPL.</string>
     <string name="privacy_policy_url">https://gitlab.com/czlucius/code-scanner-play/-/wikis/Privacy-Policy-(Google-Play)</string>
 
     <string name="store_url">https://play.google.com/store/apps/details?id=com.czlucius.scan</string>
+
+    <string name="rewarded_ad_not_ready">The video ad isn\'t ready yet.</string>
+    <string name="ad_failed_to_load">Ad failed to load.</string>
+    <string name="watch_ads_description">Watch video to remove ads for the current session</string>
+    <string name="ad_watched">You have already watched an ad in the current session.</string>
+
+    <string name="rewarded_admob">Rewarded video ads by Google AdMob</string>
+    <string name="not_app_content">This is NOT part of the app content.</string>
+    <string name="rewarded_dialog_prompt">If you watch this video ad, banner ads will be disabled until you close this app.\n\nThis will take you to watch an advertisement from AdMob by Google Inc.\nThe following screens are not part of this app, Code Scanner, and are NOT SUPPLIED BY THE DEVELOPER.\nAdvertisements would be shown in accordance to our Privacy Policy.\nThanks!</string>
+    <string name="this_is_an_advertisement">Advertisement</string>
 
 </resources>
