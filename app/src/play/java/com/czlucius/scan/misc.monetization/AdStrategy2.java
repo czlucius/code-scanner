@@ -23,7 +23,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,6 +104,9 @@ public class AdStrategy2 {
             View bannerLayout = findViewByIdProducer.apply(R.id.banner_layout);
             if (bannerLayout != null) {
                 bannerLayout.setVisibility(View.GONE);
+                if (bannerLayout instanceof ViewGroup) {
+                    ((ViewGroup) bannerLayout).removeView(findViewByIdProducer.apply(R.id.banner));
+                }
             }
             // If we should not show ads, we do not load them in the first place.
             // Best possible method to disable them (other than removing the views)
@@ -138,13 +140,11 @@ public class AdStrategy2 {
     public void loadRewardedAdVideo(Activity activity, View root, Callback resetCallback) {
         new MaterialAlertDialogBuilder(root.getContext(), R.style.Theme_App_AlertDialogTheme)
                 .setBackground(new ColorDrawable(Color.YELLOW))
-                .setTitle("This is not part of the app's content. This is an advertisement by Google AdMob")
-                .setMessage("This will take you to watch an advertisement from AdMob by Google Inc.\nBy pressing \"Next\", you agree the following screens are not part of this app, Code Scanner, and are NOT SUPPLIED BY THE DEVELOPER.\nThis dialog is to inform you that the content that you will see is from AdMob by Google.\nAdvertisements would be shown in accordance to our Privacy Policy.")
+                .setTitle(R.string.rewarded_admob)
+                .setMessage(R.string.rewarded_dialog_prompt)
                 .setNegativeButton(R.string.cancel, null)
                 .setPositiveButton(R.string.next, (dialog, which) -> {
-                    Toast.makeText(activity, "This is NOT part of the app content.", Toast.LENGTH_LONG).show();
-
-
+                    Toast.makeText(activity, R.string.not_app_content, Toast.LENGTH_LONG).show();
 
                     AdRequest adRequest = new AdRequest.Builder().build();
 
