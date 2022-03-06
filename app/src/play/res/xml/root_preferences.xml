@@ -71,7 +71,7 @@
             app:icon="@drawable/ic_advertisement_fill"
             app:key="watch_ads_prefbtn"
             app:summary="@string/watch_ads_description"
-            app:title="[ADS] Remove ads temporarily by watching a video" />
+            app:title="[ADS] Watch ad video to remove banner ads" />
     </PreferenceCategory>
 
 </PreferenceScreen>

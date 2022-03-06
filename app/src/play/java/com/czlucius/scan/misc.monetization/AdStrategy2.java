@@ -45,21 +45,25 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.lang.ref.WeakReference;
 
-/** Singleton for managing ads. */
+/**
+ * Singleton for managing ads.
+ */
 public class AdStrategy2 {
 
 
     private final WeakReference<Context> contextWeakReference;
-    private boolean shouldShowAds = true; // Used for rewarded ads or IAP (todo)
-
+    private boolean shouldShowAds = true; // Used for rewarded ads, will not do IAP due to address concerns
 
 
     private static AdStrategy2 INSTANCE;
+
     private AdStrategy2(Context appCtx) {
         contextWeakReference = new WeakReference<>(appCtx);
     }
+
     /**
      * Get an instance of {@link AdStrategy2}
+     *
      * @param appCtx Application context. Do not pass in other contexts
      */
     public static AdStrategy2 getInstance(Context appCtx) {
@@ -68,7 +72,6 @@ public class AdStrategy2 {
         }
         return INSTANCE;
     }
-
 
 
     /**
@@ -95,7 +98,6 @@ public class AdStrategy2 {
 
         MobileAds.initialize(contextWeakReference.get());
     }
-
 
 
     public void loadAdView(Function<Integer, View> findViewByIdProducer) {
@@ -138,52 +140,41 @@ public class AdStrategy2 {
     }
 
     public void loadRewardedAdVideo(Activity activity, View root, Callback resetCallback) {
-        new MaterialAlertDialogBuilder(root.getContext(), R.style.Theme_App_AlertDialogTheme)
-                .setBackground(new ColorDrawable(Color.YELLOW))
-                .setTitle(R.string.rewarded_admob)
-                .setMessage(R.string.rewarded_dialog_prompt)
-                .setNegativeButton(R.string.cancel, null)
-                .setPositiveButton(R.string.next, (dialog, which) -> {
-                    Toast.makeText(activity, R.string.not_app_content, Toast.LENGTH_LONG).show();
 
-                    AdRequest adRequest = new AdRequest.Builder().build();
 
-                    RewardedAd.load(contextWeakReference.get(), AdIdRetriever.retrieveRewardedId(),
-                            adRequest, new RewardedAdLoadCallback() {
-                                @Override
-                                public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                                    super.onAdLoaded(rewardedAd);
-                                    // Rewarded ad loaded, pass on to RewardedAdsHelper.
-                                    RewardedAdsHelper helper = new RewardedAdsHelper(rewardedAd, root, activity);
-                                    helper.startRewardedAds(resetCallback);
-                                    helper.setRewardObserver(newValue -> {
-                                        // Reward is obtained.
-                                        shouldShowAds = false;
-                                        // Remove current ad in the Info Fragment so user won't be confused.
-                                        ((ViewGroup) root).removeView(root.findViewById(R.id.banner));
-                                        activity.recreate();
+        AdRequest adRequest = new AdRequest.Builder().build();
 
-                                    });
+        RewardedAd.load(contextWeakReference.get(), AdIdRetriever.retrieveRewardedId(),
+                adRequest, new RewardedAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+                        super.onAdLoaded(rewardedAd);
+                        // Rewarded ad loaded, pass on to RewardedAdsHelper.
+                        RewardedAdsHelper helper = new RewardedAdsHelper(rewardedAd, root, activity);
+                        helper.startRewardedAds(resetCallback);
+                        helper.setRewardObserver(newValue -> {
+                            // Reward is obtained.
+                            shouldShowAds = false;
+                            // Remove current ad in the Info Fragment so user won't be confused.
+                            ((ViewGroup) root).removeView(root.findViewById(R.id.banner));
+                            activity.recreate();
 
-                                }
+                        });
 
-                                @Override
-                                public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                                    super.onAdFailedToLoad(loadAdError);
-                                    // Ad failed to load.
-                                    Snackbar.make(root, R.string.ad_failed_to_load, Snackbar.LENGTH_SHORT).show();
-                                    resetCallback.doAction();
-                                }
+                    }
 
-                            });
-                })
-                .setOnCancelListener(dialog -> resetCallback.doAction())
-                .show();
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        super.onAdFailedToLoad(loadAdError);
+                        // Ad failed to load.
+                        Snackbar.make(root, R.string.ad_failed_to_load, Snackbar.LENGTH_SHORT).show();
+                        resetCallback.doAction();
+                    }
+
+                });
 
 
     }
-
-
 
 
 }

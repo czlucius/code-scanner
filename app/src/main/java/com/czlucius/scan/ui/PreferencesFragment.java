@@ -19,6 +19,8 @@
 package com.czlucius.scan.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -85,8 +87,19 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             findPreference("watch_ads_prefbtn").setOnPreferenceClickListener(new ManualResetPreferenceClickListener() {
                 @Override
                 public boolean onSingleClick(Preference p) {
-                    AdStrategy2.getInstance(getContext())
-                            .loadRewardedAdVideo(getActivity(), getView(), getResetCallback());
+                    new MaterialAlertDialogBuilder(requireContext(), R.style.Theme_App_AlertDialogTheme)
+                            .setBackground(new ColorDrawable(Color.YELLOW))
+                            .setTitle(R.string.rewarded_admob)
+                            .setMessage(R.string.rewarded_dialog_prompt)
+                            .setNegativeButton(R.string.cancel, (dialog, which) -> resetListener())
+                            .setPositiveButton(R.string.next, (dialog, which) -> {
+                                Toast.makeText(getActivity(), R.string.not_app_content, Toast.LENGTH_LONG).show();
+
+                                AdStrategy2.getInstance(getContext())
+                                        .loadRewardedAdVideo(getActivity(), getView(), getResetCallback());
+                            })
+                            .setOnCancelListener(dialog -> resetListener())
+                            .show();
                     return true;
                 }
             });
