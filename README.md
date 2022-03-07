@@ -25,7 +25,9 @@ F-Droid|GitHub Releases
 
 
 ## Using this project
-This project is stable for release.
+This project is stable for release.  
+Star/watch this repo!
+
 Download it through these platforms (or share it with others):
 
 -  GitHub Releases: https://github.com/czlucius/code-scanner/releases (APK file for all devices)
