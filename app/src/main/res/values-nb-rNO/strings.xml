@@ -60,7 +60,6 @@
     <string name="connection_error_simple">Kan ikke koble til nettverket.</string>
     <string name="connection_ntwk_invalid">Kan ikke koble til. Nettverket er ugyldig.</string>
     <string name="password">Wi-Fi-passord</string>
-    <string name="qr_code">QR-kode</string>
     <string name="grant">Innvilg</string>
     <string name="edit_contents">Rediger innhold</string>
     <string name="cancel">Avbryt</string>
