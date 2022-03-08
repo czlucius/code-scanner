@@ -107,7 +107,6 @@
     <string name="wifi_enctype_hint">Encryption type:</string>
     <string name="wep">WEP</string>
     <string name="wpa">WPA</string>
-    <string name="info">Info</string>
     <string name="open_source_licenses">Open-source licenses</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
