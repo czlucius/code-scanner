@@ -87,4 +87,21 @@
     <string name="open_network">开放</string>
     <string name="wifi_enctype_hint">网络安全性：</string>
     <string name="connection_app_disallowed">应用没有适当的权限，不能增加网络。请去手机设置给予权限。</string>
+    <string name="open_source_licenses">开源许可证</string>
+    <string name="first_name">名字</string>
+    <string name="last_name">姓氏</string>
+    <string name="prefix">前缀</string>
+    <string name="suffix">后缀</string>
+    <string name="company">公司</string>
+    <string name="job">职位</string>
+    <string name="sms_recipients_phone_number">收件人电话号码</string>
+    <string name="start_sms">发送信息</string>
+    <string name="no_msg_app_found">您的手机没有简讯应用程序。</string>
+    <string name="street">街道</string>
+    <string name="region">地区</string>
+    <string name="country">国家</string>
+    <string name="additional_notes">附加注释</string>
+    <string name="sms">短讯</string>
+    <string name="phone_number">电话号码</string>
+    <string name="zip_code">邮编</string>
 </resources>
