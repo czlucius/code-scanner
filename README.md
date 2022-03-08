@@ -6,7 +6,8 @@
 width="200"
     hspace="10" vspace="1">
 <br>
-An Android app to scan and generate codes(barcodes/QR codes)
+An Android app to scan and generate codes(barcodes/QR codes)  
+🌟Star/watch this repo!🌟
 
 **UPDATE**  
 Code Scanner has been released to the Google Play Store!
@@ -24,7 +25,6 @@ F-Droid|GitHub Releases
 
 ## Using this project
 This project is stable for release.  
-Star/watch this repo!
 
 Download it through these platforms (or share it with others):
 
