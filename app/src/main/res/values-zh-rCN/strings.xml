@@ -26,8 +26,7 @@
     <string name="img_not_found">找不到照片。</string>
     <string name="error">错误！</string>
     <string name="no_cam">您的手机没有相机</string>
-    <string name="no_model">扫码程序库未下载。
-\n请查看并更新Google Play 服务再尝试。</string>
+    <string name="no_model">扫码程序库未下载。\n请查看并更新Google Play 服务再尝试。</string>
     <string name="cam_unavailable">暂时无法使用相机</string>
     <string name="name">姓名</string>
     <string name="title">工作职位</string>
@@ -56,7 +55,6 @@
     <string name="background_color">背景色</string>
     <string name="scan_from_image">从照片扫描</string>
     <string name="flash">闪光</string>
-    <string name="qr_code">二维码</string>
     <string name="edit_contents">编辑内容</string>
     <string name="enter_contents_here">输入内容</string>
     <string name="enter_url_here">输入网址</string>
