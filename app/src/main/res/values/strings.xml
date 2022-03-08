@@ -22,7 +22,7 @@
     <string name="open_source_view_or_contribute">View or contribute on GitHub. Open sourced under AGPL.</string>
     <string name="oss_link" translatable="false">https://github.com/czlucius/code-scanner/</string>
     <string name="privacy_policy_url" translatable="false">https://github.com/czlucius/code-scanner/blob/main/privacy_policy.md</string>
-    <string name="description_permission">Allow scanning of codes(barcode, QR code, etc.) with the camera.</string>
+    <string name="description_permission">Allow scanning of codes (barcode, QR code, etc.) with the camera.</string>
     <string name="intent1_name">Scan code</string>
     <string name="intent2_name">Create code from data</string>
     <string name="scan">Scan</string>
@@ -101,7 +101,7 @@
     <string name="wifi">Wi-Fi</string>
     <string name="encryption_type">Encryption type</string>
     <string name="open_network">Open</string>
-    <string name="wifi_password_hint">Password(leave blank if open)</string>
+    <string name="wifi_password_hint">Password (leave blank if open)</string>
     <string name="wifi_ssid_hint">Name/SSID</string>
     <string name="wifi_enctype_hint">Encryption type:</string>
     <string name="wep">WEP</string>
