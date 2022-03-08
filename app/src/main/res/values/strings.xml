@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
   ~ Copyright (C) 2021 Lucius Chee Zihan
@@ -14,9 +15,7 @@
   ~
   ~ You should have received a copy of the GNU Affero General Public License
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  -->
-
-<resources>
+  --><resources>
     <string name="app_name">Code Scanner</string>
     <string name="simple_description">An app to scan and create codes</string>
     <string name="source_code">Open Source</string>
@@ -29,27 +28,19 @@
     <string name="add">Add</string>
     <string name="intent1_name">Scan code</string>
     <string name="intent2_name">Create code from data</string>
-
     <string name="scan">Scan</string>
     <string name="history">History</string>
     <string name="create">Create</string>
-
-
     <string name="unknown">Unknown</string>
-
     <string name="add_contact">Add Contact</string>
     <string name="copy">Copy</string>
     <string name="send_email">Send email</string>
     <string name="open_url">Open URL</string>
-
-
     <string name="home">Home</string>
     <string name="mobile">Mobile</string>
     <string name="fax">Fax</string>
     <string name="work">Work</string>
-
-
-    <string name="data_invalid">Data invalid.</string>
+    <string name="data_invalid">Invalid data.</string>
     <string name="no_email_providers">No email providers found</string>
     <string name="no_browsers">No browsers found</string>
     <string name="img_not_found">Image not found.</string>
@@ -58,7 +49,6 @@
     <string name="no_cam_msg">Device does not have a hardware camera, hence no codes can be scanned.\nTry using an external camera to add camera functionality to your device.</string>
     <string name="no_model">QR/Barcode reading model not available.\nCheck/Update Google Play Services and try again.</string>
     <string name="cam_unavailable">Camera unavailable at the moment</string>
-
     <string name="title">Job Title</string>
     <string name="name">Name</string>
     <string name="phones">Phones</string>
@@ -66,25 +56,18 @@
     <string name="emails">Emails</string>
     <string name="addresses">Addresses</string>
     <string name="websites">Websites</string>
-
     <string name="email">E-mail</string>
     <string name="contact">Contact</string>
     <string name="url">URL</string>
     <string name="text">Text</string>
-
     <string name="to">To</string>
     <string name="subject">Subject</string>
-
     <string name="contents">Contents</string>
-
     <string name="qr">QR Code</string>
-
     <string name="cam_pm">Camera permission</string>
     <string name="grant_pm_rationale">Please grant camera permission.\nThis is for this app to scan codes(barcode/QR code).</string>
     <string name="pm_denial">Camera permission has been denied.</string>
     <string name="pm_denial_permanant">Camera permission has been denied permanently. Please go to system settings.</string>
-
-
     <string name="position_code">Position code in viewfinder</string>
     <string name="codes_scanned">%1$d codes scanned</string>
     <string name="date_icon">Date icon</string>
@@ -95,7 +78,6 @@
     <string name="scan_from_image">Scan from image</string>
     <string name="flash">Flash</string>
     <string name="edit_contents">Edit Contents</string>
-
     <string name="enter_contents_here">Enter contents here</string>
     <string name="enter_url_here">Enter URL here</string>
     <string name="generated_qr_image">Generated QR Image</string>
@@ -103,14 +85,10 @@
     <string name="save">Save</string>
     <string name="clear_all">Clear all</string>
     <string name="image_saved">Image saved</string>
-
     <string name="no_codes_detected">No codes detected.</string>
-
     <string name="grant">Grant</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
-
-
     <string name="connect_wifi">Connect</string>
     <string name="connection_error_simple">Can\'t connect to network.</string>
     <string name="connection_internal_error">Can\'t connect: Internal Error!</string>
@@ -133,8 +111,6 @@
     <string name="wpa">WPA</string>
     <string name="info">Info</string>
     <string name="open_source_licenses">Open-source licenses</string>
-
-
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="prefix">Prefix</string>
@@ -147,8 +123,6 @@
     <string name="region">Region</string>
     <string name="country">Country</string>
     <string name="additional_notes">Additional notes</string>
-
-
     <string name="sms">SMS</string>
     <string name="sms_recipients_phone_number">Recipient\'s phone number</string>
     <string name="start_sms">Start message</string>
@@ -163,11 +137,9 @@
     <string name="preferences">Preferences</string>
     <string name="call_number">Call number</string>
     <string name="copy_phone_number">Copy phone number</string>
-
     <string name="geo_template">Latitude: %1$f\nLongitude: %2$f</string>
     <string name="view_location">View location in maps application</string>
     <string name="geolocation">Geolocation</string>
-
     <string name="onboarding_welcome">Welcome to Code Scanner!</string>
     <string name="onboarding_welcome_summary">Thank you for using Code Scanner!\nThis on-boarding will guide you through the application and it\'s features.</string>
     <string name="privacy_policy">Privacy Policy</string>
@@ -183,6 +155,5 @@
     <string name="onboarding_history_summary">View history of previously scanned codes.</string>
     <string name="onboarding_create_summary">Create QR codes and style it with different colors.</string>
     <string name="onboarding_batch_summary">Scan unlimited codes at once, and save it to history.</string>
-
 
 </resources>

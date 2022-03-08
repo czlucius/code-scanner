@@ -1,8 +1,8 @@
 ## Definitions
-Service (capitalized): this app, Code Scanner, created by Lucius Chee Zihan.
+Service (capitalized): this app, Code Scanner, which is hosted on GitHub at https://github.com/czlucius/code-scanner/edit/main/privacy_policy.md.
 
 ## Privacy Policy
-Lucius Chee Zihan built the Code Scanner app as an Open Source app. This Service is provided by Lucius Chee Zihan at no cost and is intended for use as is.
+Code Scanner was built as an Open Source app. This Service is provided by the developer at no cost and is intended for use as is.
 
 This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use the Service.
 
