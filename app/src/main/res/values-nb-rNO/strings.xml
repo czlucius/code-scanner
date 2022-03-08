@@ -67,7 +67,6 @@
     <string name="connection_internal_error">Kan ikke koble til. Intern feil.</string>
     <string name="ssid">Wi-Fi-SSID</string>
     <string name="copy_ssid">Kopier SSID</string>
-    <string name="info">Info</string>
     <string name="copy_sms_recipient">Kopier mottager</string>
     <string name="wifi">Wi-Fi</string>
     <string name="open_network">Åpne</string>
