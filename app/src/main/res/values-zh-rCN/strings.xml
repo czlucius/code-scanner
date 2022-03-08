@@ -65,4 +65,26 @@
     <string name="image_saved">图片已保存</string>
     <string name="work">工作</string>
     <string name="create">创建</string>
+    <string name="no_codes_detected">未检测到任何代码。</string>
+    <string name="grant">授予</string>
+    <string name="cancel">取消</string>
+    <string name="wifi_password_hint">密码（若开放，请留着空白）</string>
+    <string name="wifi_ssid_hint">网络名称</string>
+    <string name="ok">确定</string>
+    <string name="connect_wifi">连接到网络</string>
+    <string name="connection_error_simple">连接不到网络。</string>
+    <string name="connection_internal_error">连接不到：发生内部故障！</string>
+    <string name="connection_duplicate">无法连接：找到重复的网络。</string>
+    <string name="connection_app_exceed_limit">应用已经超出了网络建议限制。请重新安装应用以重置限制。</string>
+    <string name="connection_ntwk_invalid">无法连接：网络无效。</string>
+    <string name="connection_ntwk_disallowed">无法连接：网络被禁止。</string>
+    <string name="ssid">网络名称</string>
+    <string name="password">网络密码</string>
+    <string name="copy_ssid">复制网络名称</string>
+    <string name="copy_password">复制网络密码</string>
+    <string name="wifi">网络</string>
+    <string name="encryption_type">网络安全性</string>
+    <string name="open_network">开放</string>
+    <string name="wifi_enctype_hint">网络安全性：</string>
+    <string name="connection_app_disallowed">应用没有适当的权限，不能增加网络。请去手机设置给予权限。</string>
 </resources>
