@@ -23,7 +23,6 @@
     <string name="oss_link" translatable="false">https://github.com/czlucius/code-scanner/</string>
     <string name="privacy_policy_url" translatable="false">https://github.com/czlucius/code-scanner/blob/main/privacy_policy.md</string>
     <string name="description_permission">Allow scanning of codes(barcode, QR code, etc.) with the camera.</string>
-    <string name="add">Add</string>
     <string name="intent1_name">Scan code</string>
     <string name="intent2_name">Create code from data</string>
     <string name="scan">Scan</string>
