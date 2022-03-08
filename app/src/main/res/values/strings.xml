@@ -19,11 +19,10 @@
 <resources>
     <string name="app_name">Code Scanner</string>
     <string name="simple_description">An app to scan and create codes</string>
-    <string name="open_source_link">This app is open source.\nContribute or view the source code at <a href="https://github.com/czlucius/code-scanner">https://github.com/czlucius/code-scanner</a></string>
     <string name="source_code">Open Source</string>
     <string name="open_source_view_or_contribute">View or contribute on GitHub. Open sourced under AGPL.</string>
-    <string name="oss_link">https://github.com/czlucius/code-scanner/</string>
-    <string name="privacy_policy_url">https://github.com/czlucius/code-scanner/blob/main/privacy_policy.md</string>
+    <string name="oss_link" translatable="false">https://github.com/czlucius/code-scanner/</string>
+    <string name="privacy_policy_url" translatable="false">https://github.com/czlucius/code-scanner/blob/main/privacy_policy.md</string>
 
 
     <string name="description_permission">Allow scanning of codes(barcode, QR code, etc.) with the camera.</string>
@@ -54,7 +53,6 @@
     <string name="no_email_providers">No email providers found</string>
     <string name="no_browsers">No browsers found</string>
     <string name="img_not_found">Image not found.</string>
-    <string name="no_contents">No contents!</string>
     <string name="error">Error!</string>
     <string name="no_cam">No Camera found</string>
     <string name="no_cam_msg">Device does not have a hardware camera, hence no codes can be scanned.\nTry using an external camera to add camera functionality to your device.</string>
@@ -96,7 +94,6 @@
     <string name="background_color">Background color</string>
     <string name="scan_from_image">Scan from image</string>
     <string name="flash">Flash</string>
-    <string name="qr_code">QR Code</string>
     <string name="edit_contents">Edit Contents</string>
 
     <string name="enter_contents_here">Enter contents here</string>
@@ -182,6 +179,10 @@
     <string name="promo_share_description">Code Scanner - Scan and Create codes\nInstall now for free!\n%1$s</string>
     <string name="store_url">https://github.com/czlucius/code-scanner</string>
     <string name="next">Next</string>
+    <string name="onboarding_scan_summary">Scan supported codes whenever, wherever you go.</string>
+    <string name="onboarding_history_summary">View history of previously scanned codes.</string>
+    <string name="onboarding_create_summary">Create QR codes and style it with different colors.</string>
+    <string name="onboarding_batch_summary">Scan unlimited codes at once, and save it to history.</string>
 
 
 </resources>
