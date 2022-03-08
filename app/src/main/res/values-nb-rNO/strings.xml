@@ -26,8 +26,6 @@
     <string name="street">Gate</string>
     <string name="privacy_policy">Personvernspraksis</string>
     <string name="next">Neste</string>
-    <string name="open_source_link">Dette programmet er fri programvare.
-\nBidra eller sjekk kildekoden på <a href="https://github.com/czlucius/code-scanner">https://github.com/czlucius/code-scanner</a></string>
     <string name="intent2_name">Opprett kode fra dataen</string>
     <string name="mobile">Mobil</string>
     <string name="url">Nettadresse</string>
