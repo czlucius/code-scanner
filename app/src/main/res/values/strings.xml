@@ -22,8 +22,6 @@
     <string name="open_source_view_or_contribute">View or contribute on GitHub. Open sourced under AGPL.</string>
     <string name="oss_link" translatable="false">https://github.com/czlucius/code-scanner/</string>
     <string name="privacy_policy_url" translatable="false">https://github.com/czlucius/code-scanner/blob/main/privacy_policy.md</string>
-
-
     <string name="description_permission">Allow scanning of codes(barcode, QR code, etc.) with the camera.</string>
     <string name="add">Add</string>
     <string name="intent1_name">Scan code</string>
@@ -96,7 +94,7 @@
     <string name="connection_duplicate">Can\'t connect: Duplicate network found.</string>
     <string name="connection_app_exceed_limit">App exceeded maximum Wi-Fi suggestion limit. Re-install app to reset.</string>
     <string name="connection_ntwk_invalid">Can\'t connect: Network invalid.</string>
-    <string name="connection_ntwk_disallowed">Can\'t connect. Network disallowed.</string>
+    <string name="connection_ntwk_disallowed">Can\'t connect: Network disallowed.</string>
     <string name="ssid">Wi-Fi SSID</string>
     <string name="password">Wi-Fi Password</string>
     <string name="copy_ssid">Copy SSID</string>
@@ -155,5 +153,4 @@
     <string name="onboarding_history_summary">View history of previously scanned codes.</string>
     <string name="onboarding_create_summary">Create QR codes and style it with different colors.</string>
     <string name="onboarding_batch_summary">Scan unlimited codes at once, and save it to history.</string>
-
 </resources>
