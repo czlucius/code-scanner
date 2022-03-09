@@ -8,7 +8,7 @@
     <string name="simple_description">扫码和创建二维码的应用</string>
     <string name="source_code">开源代码</string>
     <string name="open_source_view_or_contribute">在GitHub查看或贡献。该应用使用GNU AGPL通用公共许可证。</string>
-    <string name="description_permission">使用相机扫描条形码或二维码。</string>
+    <string name="description_permission">允许用摄像头扫描条形码或二维码。</string>
     <string name="intent1_name">扫描图片</string>
     <string name="intent2_name">创建二维码</string>
     <string name="scan">扫描</string>
@@ -21,7 +21,7 @@
     <string name="home">住宅</string>
     <string name="mobile">手机</string>
     <string name="fax">传真</string>
-    <string name="data_invalid">数据被损坏。</string>
+    <string name="data_invalid">损坏的数据。</string>
     <string name="no_email_providers">您的手机没有电子邮件应用程序</string>
     <string name="img_not_found">找不到照片。</string>
     <string name="error">错误！</string>
