@@ -37,10 +37,13 @@ The following platforms will not be updated:
 
 If you'd like to be notified about updates through GitHub Releases, you can watch this repository(releases only) by clicking Watch -> Custom -> Releases and then saving your preferences. 
 
-A Google Play version is coming soon, and you can keep track at https://github.com/czlucius/code-scanner/tree/play.
-
 You may also run this code on your machine by opening this project in Android Studio, and compiling it to your Android device.
 Do note that this project is protected by the GNU Affero General Public License, hence usage of this project would have to be compliant to the GNU AGPL.
+
+## Translations
+Feel free to contribute/translate this project!  
+Translations are done on [Weblate](https://weblate.org), translate the project here: https://hosted.weblate.org/projects/code-scanner/  
+Thanks!  
 
 ## License
 This project is licensed with the GNU Affero General Public License. View [the license file](LICENSE.txt) for more info.
