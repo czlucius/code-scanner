@@ -42,7 +42,7 @@ Do note that this project is protected by the GNU Affero General Public License,
 
 ## Translations
 Feel free to contribute/translate this project!  
-Translations are done on [Weblate](https://weblate.org), translate the project here: https://hosted.weblate.org/projects/code-scanner/  
+Translations are done on [Weblate](https://weblate.org), translate the project here: https://hosted.weblate.org/engage/code-scanner/
 Thanks!  
 
 ## License
