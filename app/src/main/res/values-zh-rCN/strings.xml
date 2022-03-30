@@ -134,4 +134,7 @@
     <string name="recipient">收件人</string>
     <string name="copy_sms_contents">复制简讯内容</string>
     <string name="batch_scan">连续扫描</string>
+    <string name="wpa">WPA</string>
+    <string name="wep">WEP</string>
+    <string name="store_url">https://github.com/czlucius/code-scanner</string>
 </resources>
