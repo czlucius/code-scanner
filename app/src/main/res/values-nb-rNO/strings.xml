@@ -79,4 +79,64 @@
     <string name="support">Støtte</string>
     <string name="preferences">Innstillinger</string>
     <string name="click_privacy_policy">Vis personvernspraksis</string>
+    <string name="connection_app_disallowed">Programmet tillates ikke å legge til Wi-Fi-nettverk. Innvilg tilgang i innstillingene.</string>
+    <string name="onboarding_welcome_summary">Takk for at du bruker Kodeskanner.
+\nDenne veiledningen geleider deg gjennom programmet og dets funksjoner.</string>
+    <string name="promo_share_description">Kodeskanner. Skan og opprett koder
+\nInstaller gratis nå.
+\n%1$s</string>
+    <string name="privacy_policy_description">Les personvernspraksisen nedenfor for å lære mer om hvordan din data håndteres. Takk.</string>
+    <string name="description_permission">Tillat skanning av koder (strekkoder, QR-koder, osv.) med kameraet.</string>
+    <string name="no_email_providers">Fant ingen e-posttilbydere</string>
+    <string name="no_browsers">Fant ingen nettlesere</string>
+    <string name="img_not_found">Fant ikke bilde.</string>
+    <string name="error">Feil!</string>
+    <string name="no_cam">Fant ikke noe kamera</string>
+    <string name="no_cam_msg">Enheten har ikke et maskinvarekamera, og derfor kan ingen koder skannes.
+\nPrøv å bruke et eksternt kamera for å kamerafunksjonalitet på enheten din.</string>
+    <string name="cam_pm">Kameratilgang</string>
+    <string name="grant_pm_rationale">Innvilg kameratilgang.
+\nDette lar programmet skanne koder (strekkoder/QR-koder).</string>
+    <string name="pm_denial">Kameretilgang ble ikke innvilget.</string>
+    <string name="pm_denial_permanant">Kameratilgang har blitt avslått permanent. Gå til systeminnstillingene.</string>
+    <string name="codes_scanned">%1$d koder skannet</string>
+    <string name="data_type_code">Datatypen for skannede koder</string>
+    <string name="position_code">Posisjoner kode i søkeren</string>
+    <string name="no_codes_detected">Fant ingen koder.</string>
+    <string name="connection_app_exceed_limit">Programmet har overskredet sin maksimale Wi-Fi-forslagsliste. Re-installer programmet for å tilbakestille.</string>
+    <string name="connection_ntwk_disallowed">Kan ikke koble til: Nettverk tillates ikke.</string>
+    <string name="wifi_password_hint">Passord (la stå tomt hvis åpent)</string>
+    <string name="open_source_licenses">Frie lisenser</string>
+    <string name="suffix">Endelse</string>
+    <string name="zip_code">Postnummer</string>
+    <string name="region">Sted</string>
+    <string name="additional_notes">Ytterliere notiser</string>
+    <string name="sms_recipients_phone_number">Mottagerens telefonnummer</string>
+    <string name="start_sms">Send melding</string>
+    <string name="no_msg_app_found">Fant ingen meldingsprogrammer.</string>
+    <string name="batch_scan">Knippe-skanning</string>
+    <string name="toggle_dialogs">Veksler dialoger vist etter skanning. Koder vil bli lagret i historikk.</string>
+    <string name="call_number">Ring nummer</string>
+    <string name="geo_template">Breddegrad: %1$f
+\nLengdegrad: %2$f</string>
+    <string name="intent1_name">Skann kode</string>
+    <string name="no_model">QR/strekkodelesingsmodell er ikke tilgjengelig.
+\nSjekk/oppgrader Google Play-tjenester og prøv igjen.</string>
+    <string name="cam_unavailable">Kameraet er utilgjengelig for øyeblikket</string>
+    <string name="title">Arbeidstittel</string>
+    <string name="phones">Telefoner</string>
+    <string name="emails">E-postadresser</string>
+    <string name="prefix">Prefiks</string>
+    <string name="format_code">Format for skannede koder</string>
+    <string name="flash">Blitz</string>
+    <string name="enter_contents_here">Skriv inn innhold her</string>
+    <string name="connection_duplicate">Kan ikke koble til: Fant et duplisert nettverk.</string>
+    <string name="view_location">Vis posisjon i kartprogram</string>
+    <string name="geolocation">Geoposisjon</string>
+    <string name="onboarding_welcome">Velkommen til Kodeskanner.</string>
+    <string name="onboarding_scan_summary">Skann støttede koder når som helst, hvorhen du er.</string>
+    <string name="onboarding_history_summary">Vis historikk for tidligere skannede koder.</string>
+    <string name="onboarding_create_summary">Opprett QR-koder og gi dem egen stil med forskjellige farger.</string>
+    <string name="onboarding_batch_summary">Skann så mange koder du vil samtidig, og lagre dem i historikk.</string>
+    <string name="store_url">https://github.com/czlucius/code-scanner</string>
 </resources>

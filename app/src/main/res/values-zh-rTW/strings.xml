@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">掃碼器</string>
+    <string name="simple_description">掃碼和創建代碼的應用</string>
+</resources>
