@@ -93,7 +93,7 @@
     <string name="connection_duplicate">Can\'t connect because a duplicate network was found.</string>
     <string name="connection_app_exceed_limit">The app has exceeded the maximum Wi-Fi suggestion limit. Re-install it to reset the limit.</string>
     <string name="connection_ntwk_invalid">Can\'t connect to an invalid network.</string>
-    <string name="connection_ntwk_disallowed">Can\'t connect since this is not an allowed network.</string>
+    <string name="connection_ntwk_disallowed">Can\'t connect since this network is not allowed.</string>
     <string name="ssid">Wi-Fi network name</string>
     <string name="password">Wi-Fi Password</string>
     <string name="copy_ssid">Copy Wi-Fi network name</string>
