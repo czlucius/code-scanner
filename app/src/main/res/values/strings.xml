@@ -68,7 +68,7 @@
     <string name="position_code">Position the code in the square</string>
     <string name="codes_scanned">%1$d codes scanned</string>
     <string name="date_icon">Date icon</string>
-    <string name="data_type_code">Datatype of the scanned code</string>
+    <string name="data_type_code">Data type of the scanned code</string>
     <string name="format_code">Format of the scanned code</string>
     <string name="qr_color">Colour</string>
     <string name="background_color">Background colour</string>
@@ -134,7 +134,7 @@
     <string name="call_number">Call number</string>
     <string name="copy_phone_number">Copy phone number</string>
     <string name="geo_template">Latitude: %1$f\nLongitude: %2$f</string>
-    <string name="view_location">View location in map app</string>
+    <string name="view_location">View location in a map app</string>
     <string name="geolocation">Geolocation</string>
     <string name="onboarding_welcome">Welcome</string>
     <string name="onboarding_welcome_summary">Thank you for using Code Scanner.\nThis is the app and its features.</string>
