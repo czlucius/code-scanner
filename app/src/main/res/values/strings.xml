@@ -150,5 +150,5 @@
     <string name="onboarding_scan_summary">Scan and create codes everywhere.</string>
     <string name="onboarding_history_summary">View history of previously scanned codes.</string>
     <string name="onboarding_create_summary">Create QR codes and apply colours.</string>
-    <string name="onboarding_batch_summary">Scan all the codes you want, and find them in the history.</string>
+    <string name="onboarding_batch_summary">Scan all the codes you want, and find them in the history tab.</string>
 </resources>
