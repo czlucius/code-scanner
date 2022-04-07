@@ -18,7 +18,7 @@
   --><resources>
     <string name="app_name">Code Scanner</string>
     <string name="simple_description">Scan and create codes</string>
-    <string name="source_code">Copylefted Libre Software</string>
+    <string name="source_code">Open Source</string>
     <string name="open_source_view_or_contribute">Contribute on GitHub. AGPL+.</string>
     <string name="oss_link" translatable="false">https://github.com/czlucius/code-scanner/</string>
     <string name="privacy_policy_url" translatable="false">https://github.com/czlucius/code-scanner/blob/main/privacy_policy.md</string>
@@ -39,7 +39,7 @@
     <string name="work">Work</string>
     <string name="data_invalid">Invalid data.</string>
     <string name="no_email_providers">Could not find any e-mail providers</string>
-    <string name="no_browsers">Could not find any file browsers.</string>
+    <string name="no_browsers">Could not find any web browsers.</string>
     <string name="img_not_found">Could not find the image</string>
     <string name="error">Error!</string>
     <string name="no_cam">Could not find any cameras</string>
