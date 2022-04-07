@@ -75,7 +75,7 @@
     <string name="scan_from_image">Scan from image</string>
     <string name="flash">Flash</string>
     <string name="edit_contents">Edit Content</string>
-    <string name="enter_contents_here">Enter content…</string>
+    <string name="enter_contents_here">Enter contents…</string>
     <string name="enter_url_here">Enter URL…</string>
     <string name="generated_qr_image">Generated QR Image</string>
     <string name="share">Share</string>
