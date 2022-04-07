@@ -137,7 +137,7 @@
     <string name="view_location">View location in a map app</string>
     <string name="geolocation">Geolocation</string>
     <string name="onboarding_welcome">Welcome</string>
-    <string name="onboarding_welcome_summary">Thank you for using Code Scanner.\nThis is the app and its features.</string>
+    <string name="onboarding_welcome_summary">Thank you for using Code Scanner.\nClick next to learn more about the app and its features.</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="intro">Introduction</string>
     <string name="privacy_policy_description">Please this to learn how your data is handled. Thanks.</string>
