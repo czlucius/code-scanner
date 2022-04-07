@@ -39,7 +39,7 @@
     <string name="work">Work</string>
     <string name="data_invalid">Invalid data.</string>
     <string name="no_email_providers">Could not find any e-mail providers</string>
-    <string name="no_browsers">Could not find any web browsers.</string>
+    <string name="no_browsers">Could not find any web browsers</string>
     <string name="img_not_found">Could not find the image</string>
     <string name="error">Error!</string>
     <string name="no_cam">Could not find any cameras</string>
