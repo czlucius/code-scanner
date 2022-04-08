@@ -2,7 +2,7 @@
 <resources>
     <string name="unknown">Ukjent</string>
     <string name="app_name">Kodeskanner</string>
-    <string name="simple_description">Et program for å skanne og opprette koder</string>
+    <string name="simple_description">Skann og opprett koder</string>
     <string name="name">Navn</string>
     <string name="org">Organisasjon</string>
     <string name="date_icon">Dato-ikon</string>
@@ -36,7 +36,7 @@
     <string name="home">Hjem</string>
     <string name="source_code">Fri programvare</string>
     <string name="fax">Faks</string>
-    <string name="open_source_view_or_contribute">Utforsk den AGPLv3+lisensierte kildekoden eller bidra på GitHub.</string>
+    <string name="open_source_view_or_contribute">Bidra på GitHub. AGPLv3+</string>
     <string name="create">Opprett</string>
     <string name="email">E-post</string>
     <string name="scan">Skann</string>
@@ -58,15 +58,15 @@
     <string name="contents">Innhold</string>
     <string name="ok">OK</string>
     <string name="connection_error_simple">Kan ikke koble til nettverket.</string>
-    <string name="connection_ntwk_invalid">Kan ikke koble til. Nettverket er ugyldig.</string>
+    <string name="connection_ntwk_invalid">Kan ikke koble til et ugyldig nettverk.</string>
     <string name="password">Wi-Fi-passord</string>
     <string name="grant">Innvilg</string>
     <string name="edit_contents">Rediger innhold</string>
     <string name="cancel">Avbryt</string>
     <string name="connect_wifi">Koble til</string>
     <string name="connection_internal_error">Kan ikke koble til. Intern feil.</string>
-    <string name="ssid">Wi-Fi-SSID</string>
-    <string name="copy_ssid">Kopier SSID</string>
+    <string name="ssid">Wi-Fi-nettverksnavn</string>
+    <string name="copy_ssid">Kopier Wi-Fi-nettverksnavn</string>
     <string name="copy_sms_recipient">Kopier mottager</string>
     <string name="wifi">Wi-Fi</string>
     <string name="open_network">Åpne</string>
@@ -104,7 +104,7 @@
     <string name="position_code">Posisjoner kode i søkeren</string>
     <string name="no_codes_detected">Fant ingen koder.</string>
     <string name="connection_app_exceed_limit">Programmet har overskredet sin maksimale Wi-Fi-forslagsliste. Re-installer programmet for å tilbakestille.</string>
-    <string name="connection_ntwk_disallowed">Kan ikke koble til: Nettverk tillates ikke.</string>
+    <string name="connection_ntwk_disallowed">Kan ikke koble til siden dette nettverket ikke tillates.</string>
     <string name="wifi_password_hint">Passord (la stå tomt hvis åpent)</string>
     <string name="open_source_licenses">Frie lisenser</string>
     <string name="suffix">Endelse</string>
@@ -134,7 +134,7 @@
     <string name="view_location">Vis posisjon i kartprogram</string>
     <string name="geolocation">Geoposisjon</string>
     <string name="onboarding_welcome">Velkommen til Kodeskanner.</string>
-    <string name="onboarding_scan_summary">Skann støttede koder når som helst, hvorhen du er.</string>
+    <string name="onboarding_scan_summary">Skann og opprett koder hvor som helst.</string>
     <string name="onboarding_history_summary">Vis historikk for tidligere skannede koder.</string>
     <string name="onboarding_create_summary">Opprett QR-koder og gi dem egen stil med forskjellige farger.</string>
     <string name="onboarding_batch_summary">Skann så mange koder du vil samtidig, og lagre dem i historikk.</string>
