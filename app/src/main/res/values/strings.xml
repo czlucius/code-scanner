@@ -19,7 +19,7 @@
     <string name="app_name">Code Scanner</string>
     <string name="simple_description">Scan and create codes</string>
     <string name="source_code">Open Source</string>
-    <string name="open_source_view_or_contribute">Contribute on GitHub. AGPL+.</string>
+    <string name="open_source_view_or_contribute">Contribute on GitHub. AGPLv3+.</string>
     <string name="oss_link" translatable="false">https://github.com/czlucius/code-scanner/</string>
     <string name="privacy_policy_url" translatable="false">https://github.com/czlucius/code-scanner/blob/main/privacy_policy.md</string>
     <string name="description_permission">Allow scanning codes (barcodes, QR codes, etc.) with the camera.</string>
