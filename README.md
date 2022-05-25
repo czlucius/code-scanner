@@ -10,9 +10,6 @@ width="200"
 An Android app to scan and generate codes(barcodes/QR codes)  
 **🌟Star/watch this repo!🌟**
 
-**UPDATE**  
-Code Scanner has been released to the Google Play Store!
-
 Get it on the Google Play Store, Galaxy Store, F-Droid or on GitHub Releases.
 
 Play Store|Galaxy Store
