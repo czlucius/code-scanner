@@ -29,6 +29,7 @@ import androidx.annotation.StringRes;
 import com.czlucius.scan.misc.monetization.AdStrategy2;
 
 import org.acra.ACRA;
+import org.acra.BuildConfig;
 import org.acra.config.Configuration;
 import org.acra.config.CoreConfigurationBuilder;
 import org.acra.config.MailSenderConfiguration;
