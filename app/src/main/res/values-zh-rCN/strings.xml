@@ -23,7 +23,7 @@
     <string name="fax">传真</string>
     <string name="data_invalid">损坏的数据。</string>
     <string name="no_email_providers">您的手机没有电子邮件应用程序</string>
-    <string name="img_not_found">找不到照片。</string>
+    <string name="img_not_found">找不到照片</string>
     <string name="error">错误！</string>
     <string name="no_cam">您的手机没有相机</string>
     <string name="no_model">扫码程序库未下载。\n请查看并更新Google Play 服务再尝试。</string>
@@ -56,8 +56,8 @@
     <string name="scan_from_image">从照片扫描</string>
     <string name="flash">闪光</string>
     <string name="edit_contents">编辑内容</string>
-    <string name="enter_contents_here">输入内容</string>
-    <string name="enter_url_here">输入网址</string>
+    <string name="enter_contents_here">输入内容…</string>
+    <string name="enter_url_here">输入网址…</string>
     <string name="generated_qr_image">您创建的二维码</string>
     <string name="share">分享</string>
     <string name="save">保存</string>
@@ -105,20 +105,19 @@
     <string name="phone_number">电话号码</string>
     <string name="zip_code">邮编</string>
     <string name="click_privacy_policy">查看隐私政策</string>
-    <string name="share_with_others">与好友分享应用</string>
+    <string name="share_with_others">与他人分享应用。</string>
     <string name="geo_template">纬度：%1$f
 \n经度：%2$f</string>
     <string name="view_location">在地图应用中查看</string>
     <string name="geolocation">位置</string>
-    <string name="onboarding_welcome">欢迎使用扫码器！</string>
+    <string name="onboarding_welcome">欢迎使用</string>
     <string name="onboarding_welcome_summary">谢谢您使用扫码器。
 \n这介绍过程将引导您了解应用程序及其功能。</string>
     <string name="privacy_policy">隐私政策</string>
     <string name="intro">介绍</string>
-    <string name="privacy_policy_description">请阅读下面的隐私政策，了解我们如何处理您的数据。谢谢！</string>
+    <string name="privacy_policy_description">请阅读下面的隐私政策，了解我们如何处理您的数据。谢谢。</string>
     <string name="next">下一步</string>
-    <string name="promo_share_description">扫码器 - 扫描和创建代码
-\n现在免费按转！
+    <string name="promo_share_description">扫码器 - 扫描和创建二维码和条形码。
 \n%1$s</string>
     <string name="toggle_dialogs">开关扫码后显示的对话框。代码会被加入历史记录。</string>
     <string name="about">关于</string>

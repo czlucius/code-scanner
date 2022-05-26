@@ -14,13 +14,13 @@
     <string name="fax">Факс</string>
     <string name="data_invalid">Неверные данные.</string>
     <string name="no_email_providers">Провайдеры электронной почты не найдены</string>
-    <string name="no_browsers">Браузеры не найдены</string>
-    <string name="img_not_found">Изображение не найдено.</string>
+    <string name="no_browsers">Не удалось найти браузеры</string>
+    <string name="img_not_found">Не удалось найти изображение</string>
     <string name="error">Ошибка!</string>
-    <string name="no_cam">Камера не найдена</string>
+    <string name="no_cam">Не удалось найти камеры</string>
     <string name="no_model">Модель считывания QR/штрихкодов недоступна.
-\nПроверьте/обновите Службы Google Play и повторите попытку.</string>
-    <string name="cam_unavailable">Камера временно недоступна</string>
+\nПроверьте/обновите Службы MicroG или Google Play и повторите попытку.</string>
+    <string name="cam_unavailable">Камера недоступна в данный момент</string>
     <string name="title">Должность</string>
     <string name="name">Имя</string>
     <string name="phones">Телефоны</string>
@@ -43,8 +43,8 @@
     <string name="data_type_code">Тип данных отсканированного кода</string>
     <string name="format_code">Формат отсканированного кода</string>
     <string name="qr_color">Цвет</string>
-    <string name="enter_contents_here">Введите содержимое сюда</string>
-    <string name="enter_url_here">Введите здесь ссылку</string>
+    <string name="enter_contents_here">Введите содержимое…</string>
+    <string name="enter_url_here">Введите ссылку…</string>
     <string name="generated_qr_image">Созданный QR код</string>
     <string name="share">Поделиться</string>
     <string name="save">Сохранить</string>
@@ -90,9 +90,9 @@
     <string name="call_number">Номер телефона</string>
     <string name="copy_phone_number">Скопировать номер телефона</string>
     <string name="geolocation">Геолокация</string>
-    <string name="description_permission">Разрешить сканирование кодов (штрих-код, QR-код и т.д.) с помощью камеры.</string>
+    <string name="description_permission">Разрешить сканирование кодов (штрих-кодов, QR-кодов, и т.д.) с помощью камеры.</string>
     <string name="share_with_others">Поделиться этим приложением с другими.</string>
-    <string name="promo_share_description">Code Scanner - Сканируйте и Создавайте коды
+    <string name="promo_share_description">Code Scanner - Сканируйте и создавайте коды
 \nУстановите сейчас бесплатно!
 \n%1$s</string>
     <string name="store_url">https://github.com/czlucius/code-scanner</string>
@@ -105,23 +105,22 @@
     <string name="open_url">Открыть ссылку</string>
     <string name="mobile">Мобильный</string>
     <string name="add_contact">Добавить контакт</string>
-    <string name="no_cam_msg">Устройство не имеет аппаратной камерой, поэтому коды не могут быть отсканированы.
-\nПопробуйте использовать внешнюю камеру, чтобы добавить функцию камеры в устройство.</string>
+    <string name="no_cam_msg">Устройство не имеет камерЫ, и коды не могут быть отсканированы.
+\nПопробуйте использовать внешнюю камеру, чтобы добавить эту функцию в ваше устройство.</string>
     <string name="scan_from_image">Сканировать с изображения</string>
-    <string name="connection_internal_error">Не удается подключиться: Внутренняя ошибка!</string>
+    <string name="connection_internal_error">Не удается подключиться из-за внутренней ошибки!</string>
     <string name="click_privacy_policy">Посмотреть политику конфиденциальности</string>
     <string name="copy">Копировать</string>
     <string name="qr">QR-код</string>
     <string name="codes_scanned">%1$d кодов отсканировано</string>
-    <string name="grant_pm_rationale">Пожалуйста, разрешите доступ к камере.
-\nЭто необходимо для сканирования кодов (штрих-код / QR-код).</string>
+    <string name="grant_pm_rationale">Пожалуйста, разрешите доступ к камере для сканирован QR и штрих кодов.</string>
     <string name="background_color">Фоновый цвет</string>
-    <string name="pm_denial_permanant">Доступ к камере был отклонён навсегда. Пожалуйста, перейдите в настройки системы.</string>
+    <string name="pm_denial_permanant">Доступ к камере был отклонён навсегда. Исправьте в настройках системы.</string>
     <string name="flash">Вспышка</string>
     <string name="edit_contents">Редактировать содержимое</string>
     <string name="connection_app_exceed_limit">Приложение превысило лимит предложений Wi-Fi. Переустановите приложение для сброса.</string>
     <string name="encryption_type">Тип шифрования</string>
-    <string name="connection_app_disallowed">Этому приложению не разрешено добавлять сети Wi-Fi. Включите разрешение в Настройках.</string>
+    <string name="connection_app_disallowed">Предоставьте этому приложению разрешение на добавление сетей Wi-Fi в настройках системы.</string>
     <string name="connection_ntwk_disallowed">Не удается подключиться: Сеть запрещена.</string>
     <string name="wifi_enctype_hint">Тип шифрования:</string>
     <string name="wpa">WPA</string>
