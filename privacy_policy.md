@@ -1,44 +1,67 @@
+
+# Privacy Policy
+
+(General Release version)
+
+Thank you for using Code Scanner! This is an open-source scanner app that can read 1D/2D codes (Barcodes, QR codes respectively)
+
+Before using this app, you should look at the privacy practices below:
+
 ## Definitions
-Service (capitalized): this app, Code Scanner, which is hosted on GitHub at https://github.com/czlucius/code-scanner/edit/main/privacy_policy.md.
 
-## Privacy Policy
-Code Scanner was built as an Open Source app. This Service is provided by the developer at no cost and is intended for use as is.
+`Code Scanner` - a code scanning application developed for Android™, which has a GitLab mirror at https://gitlab.com/czlucius/code-scanner-play.
 
-This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use the Service.
+`code` or `codes` - a 1D or 2D code from the list of supported codes, which can be found in Code Scanner’s app description on its active distribution channels.
 
-This service does not collect data, apart from the data collected by third-party service providers.
+## Data handling
 
-## Third-party service providers
-The Service uses a third-party service, Google ML Kit, which may collect, but not limited to, the following data:
--  Device information (such as manufacturer, model, OS version and build) and available ML hardware accelerators (GPU and DSP). Used for diagnostics and usage analytics.
--  App information (package name / bundle id, app version). Used for diagnostics and usage analytics.
--  API configuration (such as image format and resolution). Used for diagnostics and usage analytics.
--  E-vent type (such as initialize, download model, update, run, detection). Used for diagnostics and usage analytics.
--  Error codes. Used for diagnostics.
--  Performance metrics. Used for diagnostics.
--  Per-installation identifiers that do not uniquely identify a user or physical device. Used for operation of remote configuration and usage analytics.
--  Network request sender IP addresses. Used for remote configuration diagnostics. Collected IP addresses are retained temporarily.
+Code Scanner is open-source, available under the GNU Affero General Public License; the app is released on the Google Play Store.
 
-The developer would like to inform you that the data collected is solely for the usage of the third-party API, and no other data is collected in this app, aside from those collected by ML Kit.
+This application does not collect, nor does it transmit any Personally Identifiable Information from its users. Data processed by libraries used are described below.
 
-The privacy policy of ML Kit can be found here: 
--  https://developers.google.com/ml-kit/terms
-And in Google’s overarching Privacy policy:
--  https://policies.google.com/privacy
+Data stored in the “History” section, preferences in the “Preferences” section, and cache stored from creating QR codes in the “Create” section only resides on the device. 
 
-The Service does not collect these data:
--  Camera feed (they are only sent to an offline API to process, then discarded)
+App data may be transferred to another device through backups in the Android™ operating system by the user, in which the developers has no control of the privacy of the aforementioned Android backups containing this data. 
 
-Please do note that this app does not have any internet permissions, hence any data that is being used in this app cannot be sent to external sources and remains on your device.
+## Log/crash data
+In case of an error or crash in the app, a prompt will be displayed for you to send log/crash data to the developer, for purposes of diagnostics and bug fixing. <be>
 
-If you choose to use my Service, then you agree to the collection and use of information concerning this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.
+This Log Data includes:
 
-## Changes to This Privacy Policy
+This Log Data may include information such as app info, device model and name, operating system version, the configuration of the app when utilizing Code Scanner, the time and date of your use of Code Scanner.<br>
+It will also include logs from Android's log system (specific to Code Scanner only) which may include sensitive information.<br>
 
-I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. Any privacy policy change will be reflected in the version history of the respective release channels.
+You will have a choice on whether to send this crash information to the developer. 
 
-This policy is effective as of 2021-05-18
+Currently, Code Scanner uses e-mail to send such data. If you do not wish to send the crash information, simply discard the e-mail draft and no data will be sent.
 
-## Contact Us
+You are, however, encouraged to send the crash data, as this would help the developer fix relevant bugs in Code Scanner.
 
-If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at czlucius.dev@protonmail.com.
+If you wish to delete any crash logs you have sent, please send an email to czl.apps@icloud.com
+## On the use of third-party libraries
+
+- ML Kit by Google<br>
+Data from scanned codes are processed by Google’s ML Kit, a Software Development Kit for processing of codes in images, ephemerally offline, they are never transmitted to any external party or out of the device.<br>
+Please refer to the privacy policy of ML Kit for more details: https://developers.google.com/ml-kit/terms.
+
+## Contact
+The developer can be contacted at czl.apps@icloud.com .
+
+Do send an email to the developer if you encounter these situations:
+- You wish to enquire on the privacy practices of Code Scanner
+- Bugs/errors in Code Scanner (please use a bug report template, see https://gitlab.com/czlucius/code-scanner-play/-/wikis/Sample-bug-report-template)
+- Security vulnerabilities - please request for encrypted communication first; do not include the details of the vulnerability in an unprotected message.
+- Other queries
+
+## Disclaimers
+
+Android is a trademark of Google LLC.
+
+Code Scanner is not affiliated with DENSO WAVE INCORPORATED. 
+The QR Code is a trademark of DENSO WAVE INCORPORATED.
+
+## Changes
+This privacy policy may change from time to time. You are advised to check it after every app update, and the developers may post updates to the privacy policy in the changelog in the respective store listings.
+
+## Translation
+If there is a version of this privacy policy translated to another language by the author of Code Scanner, and in the event of discrepancies between the translated version and the English version, the English version of the policy will prevail.
