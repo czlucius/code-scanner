@@ -27,8 +27,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:layout_above="@+id/banner">
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -177,9 +176,4 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <include layout="@layout/banner"
-        android:id="@+id/banner_layout"
-        android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
 </RelativeLayout>
