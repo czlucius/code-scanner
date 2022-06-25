@@ -7,7 +7,7 @@
     <string name="app_name">扫码器</string>
     <string name="simple_description">扫描、创建条形码或二维码</string>
     <string name="source_code">开源代码</string>
-    <string name="open_source_view_or_contribute">在GitHub贡献。此应用使用GNU AGPL通用公共许可证版本3+。</string>
+    <string name="open_source_view_or_contribute">在 GitHub 上作贡献。此应用在 AGPLv3+ 许可证下授权。</string>
     <string name="description_permission">允许用摄像头扫描条形码或二维码。</string>
     <string name="intent1_name">扫描图片</string>
     <string name="intent2_name">创建二维码</string>
