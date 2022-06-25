@@ -27,6 +27,7 @@ import android.util.Log;
 import androidx.annotation.StringRes;
 
 import com.czlucius.scan.misc.monetization.AdStrategy2;
+import com.google.android.material.color.DynamicColors;
 
 import org.acra.ACRA;
 import org.acra.BuildConfig;
@@ -58,6 +59,8 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        DynamicColors.applyToActivitiesIfAvailable(this);
+
 
 
 

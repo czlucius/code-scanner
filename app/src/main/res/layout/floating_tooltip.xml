@@ -24,7 +24,7 @@
     android:layout_gravity="bottom|center_horizontal"
     android:layout_margin="8dp"
     android:background="@drawable/rounded_shape"
-    android:backgroundTint="@color/pure_white"
+    android:backgroundTint="?attr/colorSurface"
     android:clickable="false"
     android:orientation="horizontal">
 

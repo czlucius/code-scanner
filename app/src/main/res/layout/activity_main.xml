@@ -36,8 +36,8 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_nav_height"
-        android:background="@color/white_smoke"
-        app:itemTextColor="@color/pure_black"
+        android:background="?attr/colorSurface"
+        app:itemTextColor="?attr/colorOnSurface"
         app:labelVisibilityMode="selected"
         app:menu="@menu/bottom_nav" />
 
