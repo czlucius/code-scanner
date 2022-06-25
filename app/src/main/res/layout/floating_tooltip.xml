@@ -35,7 +35,7 @@
         android:layout_gravity="center"
         android:layout_margin="8dp"
         android:text="@string/position_code"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
 
     <ImageView
         android:id="@+id/batch_scan_proceed"

@@ -18,30 +18,35 @@
 
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.App" parent="Theme.MaterialComponents.Light">
+    <style name="Theme.App" parent="Theme.Material3.DynamicColors.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/pure_white</item>
-        <item name="colorPrimaryVariant">@color/mist</item>
         <item name="colorPrimaryDark">@color/mist</item>
 
         <item name="backgroundColor">@color/pine_green</item>
 
         <item name="colorSecondary">@color/jungle_green</item>
-        <item name="colorSecondaryVariant">@color/downy_green</item>
+        <item name="colorSecondaryContainer">@color/mist</item>
+        <item name="color">@color/pine_green</item>
+
+        <item name="android:textColorLink">@color/pine_green</item>
+        <item name="chipIconTint">@color/moderate_grey</item>
+
+
         <item name="colorOnPrimary">@color/pure_black</item>
         <item name="colorAccent">@color/jungle_green</item>
 
 
         <item name="bottomNavigationStyle">
-            @style/Widget.MaterialComponents.BottomNavigationView2
+            @style/Widget.Material3.BottomNavigationView2
         </item>
 
-<!--        <item name="colorSecondaryContainer">@color/moderate_grey</item>-->
+        <!--        <item name="colorSecondaryContainer">@color/moderate_grey</item>-->
 
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="Widget.MaterialComponents.BottomNavigationView2" parent="Widget.MaterialComponents.BottomNavigationView">
+    <style name="Widget.Material3.BottomNavigationView2" parent="Widget.Material3.BottomNavigationView">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
     </style>
 
@@ -54,18 +59,15 @@
         <item name="colorPrimary">@color/pure_black</item>
     </style>
 
-    <style name="Theme.App.AlertDialogTheme" parent="Theme.MaterialComponents.Light.Dialog">
+    <style name="Theme.App.AlertDialogTheme" parent="Theme.Material3.Light.Dialog">
         <item name="android:textColor">@color/pure_black</item>
         <item name="colorPrimary">@color/pure_white</item>
         <item name="buttonBarButtonStyle">@style/Theme.App.AlertDialogTheme.ButtonStyle</item>
     </style>
 
-    <style name="Theme.App.AlertDialogTheme.ButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <style name="Theme.App.AlertDialogTheme.ButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textColor">@color/pure_black</item>
     </style>
-
-
-
 
 
 </resources>

@@ -20,7 +20,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory>
-        <SwitchPreferenceCompat
+        <SwitchPreference
             app:key="batch_scan"
             app:title="@string/batch_scan"
             app:summary="@string/toggle_dialogs"

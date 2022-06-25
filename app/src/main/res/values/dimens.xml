@@ -18,5 +18,5 @@
   -->
 
 <resources>
-    <dimen name="bottom_nav_height">56dp</dimen>
+    <dimen name="bottom_nav_height">75dp</dimen>
 </resources>
