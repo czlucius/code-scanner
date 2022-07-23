@@ -24,7 +24,7 @@ import android.content.Context;
 import com.czlucius.scan.App;
 import com.czlucius.scan.database.HistoryDatabase;
 import com.czlucius.scan.ui.ResultDisplayDialog;
-import com.google.mlkit.vision.barcode.Barcode;
+import com.google.mlkit.vision.barcode.common.Barcode;
 
 import java.util.Objects;
 
