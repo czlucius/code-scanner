@@ -90,15 +90,15 @@
         <item name="colorPrimary">@color/pure_black</item>
     </style>
 
-    <style name="Theme.App.AlertDialogTheme" parent="Theme.Material3.Light.Dialog">
-        <item name="android:textColor">@color/pure_black</item>
-        <item name="colorPrimary">@color/pure_white</item>
-        <item name="buttonBarButtonStyle">@style/Theme.App.AlertDialogTheme.ButtonStyle</item>
-    </style>
+<!--    <style name="Theme.App.AlertDialogTheme" parent="Theme.Material3.Light.Dialog">-->
+<!--&lt;!&ndash;        <item name="android:textColor">@color/pure_black</item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <item name="colorPrimary">@color/pure_white</item>&ndash;&gt;-->
+<!--        <item name="buttonBarButtonStyle">@style/Theme.App.AlertDialogTheme.ButtonStyle</item>-->
+<!--    </style>-->
 
-    <style name="Theme.App.AlertDialogTheme.ButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
-        <item name="android:textColor">@color/pure_black</item>
-    </style>
+<!--    <style name="Theme.App.AlertDialogTheme.ButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">-->
+<!--        <item name="android:textColor">@color/pure_black</item>-->
+<!--    </style>-->
 
 
 </resources>

@@ -267,7 +267,7 @@ public class CreateFragment extends Fragment {
                 new ArrayAdapter<>(getContext(), android.R.layout.simple_expandable_list_item_1, CreatedWiFi.EncryptionType.values());
         spinner.setAdapter(encryptionTypeAdapter);
 
-        AlertDialog contentsDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.Theme_App_AlertDialogTheme)
+        AlertDialog contentsDialog = new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.contents)
                 .setView(binding.getRoot())
                 .setPositiveButton(R.string.ok, (dialog, which) -> {
