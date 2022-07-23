@@ -96,7 +96,7 @@ dependencies {
 
 
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
-    implementation 'com.google.android.material:material:1.6.0-alpha01'
+    implementation 'com.google.android.material:material:1.6.0'
 
 
     // CameraX:
@@ -110,7 +110,7 @@ dependencies {
 
 
     // ML Kit on GMS:
-    implementation 'com.google.mlkit:barcode-scanning:16.0.3'
+    implementation 'com.google.mlkit:barcode-scanning:17.0.2'
 
     // Room:
     implementation "androidx.room:room-runtime:2.4.0"
