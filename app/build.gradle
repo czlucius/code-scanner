@@ -75,15 +75,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    implementation 'androidx.navigation:navigation-fragment:2.3.5'
-    implementation 'androidx.navigation:navigation-ui:2.3.5'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment:2.5.2'
+    implementation 'androidx.navigation:navigation-ui:2.5.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "androidx.annotation:annotation:1.3.0"
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation "androidx.annotation:annotation:1.5.0"
+    implementation 'androidx.preference:preference:1.2.0'
 
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     testImplementation 'androidx.test:runner:1.4.0'
@@ -95,26 +95,26 @@ dependencies {
 
 
 
-    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
-    implementation 'com.google.android.material:material:1.6.0'
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+    implementation 'com.google.android.material:material:1.6.1'
 
 
     // CameraX:
-    def camerax_version = "1.1.0-alpha12"
+    def camerax_version = "1.2.0-beta02"
     // CameraX core library using camera2 implementation
     implementation "androidx.camera:camera-camera2:$camerax_version"
     // CameraX Lifecycle Library
     implementation "androidx.camera:camera-lifecycle:$camerax_version"
     // CameraX View class
-    implementation "androidx.camera:camera-view:1.0.0-alpha32"
+    implementation "androidx.camera:camera-view:1.2.0-beta02"
 
 
     // ML Kit on GMS:
     implementation 'com.google.mlkit:barcode-scanning:17.0.2'
 
     // Room:
-    implementation "androidx.room:room-runtime:2.4.0"
-    annotationProcessor "androidx.room:room-compiler:2.4.0"
+    implementation "androidx.room:room-runtime:2.4.3"
+    annotationProcessor "androidx.room:room-compiler:2.4.3"
 
 
     // Moshi serialization library:
@@ -137,7 +137,7 @@ dependencies {
 
 
     // region Google Play specific libraries
-    playImplementation 'com.google.android.gms:play-services-ads:20.5.0'
+    playImplementation 'com.google.android.gms:play-services-ads:21.2.0'
 
     // For apps targeting Android 12, add WorkManager dependency.
     constraints {
