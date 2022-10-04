@@ -39,7 +39,7 @@ import com.czlucius.scan.objects.Availability;
 import com.czlucius.scan.objects.Code;
 import com.czlucius.scan.objects.data.WiFi;
 import com.google.android.material.button.MaterialButtonToggleGroup;
-import com.google.mlkit.vision.barcode.Barcode;
+import com.google.mlkit.vision.barcode.common.Barcode;
 
 import java.util.ArrayList;
 import java.util.Collections;

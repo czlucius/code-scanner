@@ -25,7 +25,7 @@ import androidx.room.TypeConverter;
 
 import com.czlucius.scan.Utils;
 import com.czlucius.scan.objects.data.Data;
-import com.google.mlkit.vision.barcode.Barcode;
+import com.google.mlkit.vision.barcode.common.Barcode;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.JsonDataException;
 import com.squareup.moshi.Moshi;

@@ -27,7 +27,8 @@ import androidx.lifecycle.MutableLiveData;
 import com.czlucius.scan.objects.CodeAnalyser;
 import com.czlucius.scan.objects.ScanningWrapper;
 import com.google.mlkit.common.MlKitException;
-import com.google.mlkit.vision.barcode.Barcode;
+
+import com.google.mlkit.vision.barcode.common.Barcode;
 
 import java.util.Collections;
 import java.util.HashSet;

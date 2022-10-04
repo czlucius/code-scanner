@@ -19,27 +19,27 @@
 package com.czlucius.scan.objects;
 
 
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_AZTEC;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_CODABAR;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_CODE_128;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_CODE_39;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_CODE_93;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_DATA_MATRIX;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_EAN_13;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_EAN_8;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_ITF;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_PDF417;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_QR_CODE;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_UPC_A;
-import static com.google.mlkit.vision.barcode.Barcode.FORMAT_UPC_E;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_AZTEC;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_CODABAR;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_CODE_128;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_CODE_39;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_CODE_93;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_DATA_MATRIX;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_EAN_13;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_EAN_8;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_ITF;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_PDF417;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_QR_CODE;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_UPC_A;
+import static com.google.mlkit.vision.barcode.common.Barcode.FORMAT_UPC_E;
 
 import android.content.Context;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.database.CodeMemento;
 import com.czlucius.scan.objects.data.Data;
-import com.google.mlkit.vision.barcode.Barcode;
-import com.google.mlkit.vision.barcode.Barcode.BarcodeFormat;
+import com.google.mlkit.vision.barcode.common.Barcode;
+import com.google.mlkit.vision.barcode.common.Barcode.BarcodeFormat;
 
 import java.util.Date;
 import java.util.Objects;

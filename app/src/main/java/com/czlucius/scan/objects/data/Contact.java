@@ -25,7 +25,7 @@ import androidx.annotation.NonNull;
 
 import com.czlucius.scan.App;
 import com.czlucius.scan.R;
-import com.google.mlkit.vision.barcode.Barcode;
+import com.google.mlkit.vision.barcode.common.Barcode;
 
 import java.util.Arrays;
 import java.util.Objects;

@@ -37,7 +37,7 @@ import com.czlucius.scan.objects.actions.SMSAction;
 import com.czlucius.scan.objects.actions.URLAction;
 import com.czlucius.scan.objects.actions.ViewLocationAction;
 import com.czlucius.scan.objects.data.Phone;
-import com.google.mlkit.vision.barcode.Barcode;
+import com.google.mlkit.vision.barcode.common.Barcode;
 
 import java.util.ArrayList;
 import java.util.List;
