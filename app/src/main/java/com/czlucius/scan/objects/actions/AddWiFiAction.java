@@ -18,8 +18,14 @@
 
 package com.czlucius.scan.objects.actions;
 
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import androidx.annotation.StringRes;
@@ -57,7 +63,26 @@ public class AddWiFiAction extends Action {
                     case NetworkInvalidException.INTERNAL_ERR:
                         errorMsg(context, R.string.connection_internal_error);
                     case NetworkInvalidException.APP_DISALLOWED:
-                        errorMsg(context, R.string.connection_app_disallowed);
+                        // errorMsg(context, R.string.connection_app_disallowed);
+
+                        new AlertDialog.Builder(context)
+                                //.setTitle("")
+                                .setMessage(R.string.wifi_control_error)
+                                .setPositiveButton("Open Settings", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(Settings.ACTION_SETTINGS);
+                                        context.startActivity(intent); } })
+                                .setNegativeButton("Add Manually", new  DialogInterface.OnClickListener(){
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+                                        context.startActivity(intent);
+                                        Toast.makeText(context,"Password copied\n\n"+"Select  "+wifi.getSsid()+"  & Paste password" , Toast.LENGTH_SHORT).show();
+                                        ClipData clipData = ClipData.newPlainText(context.getString(R.string.password), ((WiFi)data).getPassword());
+                                        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                                        clipboard.setPrimaryClip(clipData);
+                                    }})//      .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+
                         break;
                     case NetworkInvalidException.DUPLICATE:
                         errorMsg(context, R.string.connection_duplicate);
