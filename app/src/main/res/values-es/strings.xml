@@ -138,4 +138,6 @@
     <string name="open_source_view_or_contribute">Contribuye en Github. AGPLv3+.</string>
     <string name="description_permission">Permitir escanear códigos (códigos de barras, QR, etc.) con la cámara.</string>
     <string name="wifi_control_error">Tienes que habilitar el permiso de control wifi manualmente ya que lo has negado anteriormente\n\nIr (<b><i>Ajustes > Aplicaciones y notificaciones > Acceso a aplicaciones especiales > Control Wi-Fi > Escáner de códigos</i></b>)\n\nluego habilite (<b><i>Permitir que la aplicación controle Wi-Fi</i></b>)\n\n\nSi desea agregar una red wifi manualmente, también puede hacerlo</string>
+    <string name="open_settings">Configuración abierta</string>
+    <string name="add_manually">Agregar manualmente</string>
 </resources>

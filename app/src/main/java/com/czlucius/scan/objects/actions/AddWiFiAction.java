@@ -35,6 +35,7 @@ import com.czlucius.scan.R;
 import com.czlucius.scan.exceptions.NetworkInvalidException;
 import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.WiFi;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class AddWiFiAction extends Action {
     private static Action INSTANCE;
@@ -65,14 +66,14 @@ public class AddWiFiAction extends Action {
                     case NetworkInvalidException.APP_DISALLOWED:
                         // errorMsg(context, R.string.connection_app_disallowed);
 
-                        new AlertDialog.Builder(context)
+                        new MaterialAlertDialogBuilder.Builder(context)
                                 //.setTitle("")
                                 .setMessage(R.string.wifi_control_error)
-                                .setPositiveButton("Open Settings", new DialogInterface.OnClickListener() {
+                                .setPositiveButton(R.string.open_settings, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         Intent intent = new Intent(Settings.ACTION_SETTINGS);
                                         context.startActivity(intent); } })
-                                .setNegativeButton("Add Manually", new  DialogInterface.OnClickListener(){
+                                .setNegativeButton(R.string.add_manually, new  DialogInterface.OnClickListener(){
                                     public void onClick(DialogInterface dialog, int which) {
                                         Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
                                         context.startActivity(intent);

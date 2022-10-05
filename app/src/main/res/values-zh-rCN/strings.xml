@@ -137,4 +137,6 @@
     <string name="wep">WEP</string>
     <string name="store_url">https://github.com/czlucius/code-scanner</string>
     <string name="wifi_control_error">您必须手动启用 wifi 控制权限，因为您之前已拒绝它\n\n去 (<b><i>设置 > 应用和通知 > 特殊应用访问 > Wi-Fi 控制 > 代码扫描器</i></b>)\n\n然后启用 (<b><i>允许应用控制 Wi-Fi</i></b>)\n\n\n如果您想手动添加 wifi 网络，您也可以这样做</string>
+    <string name="open_settings">打开设置</string>
+    <string name="add_manually">手动添加</string>
 </resources>
