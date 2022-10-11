@@ -10,7 +10,7 @@ width="200"
 An Android app to scan and generate codes(barcodes/QR codes)  
 **🌟Star/watch this repo!🌟**
 
-Get it on the Google Play Store, Galaxy Store, F-Droid or on GitHub Releases.
+Get it on the Google Play Store, Galaxy Store, F-Droid, or GitHub Releases.
 
 Play Store|Galaxy Store
 ---|---
@@ -35,8 +35,8 @@ The following platforms will not be updated:
 
 If you'd like to be notified about updates through GitHub Releases, you can watch this repository(releases only) by clicking Watch -> Custom -> Releases and then saving your preferences. 
 
-You may also run this code on your machine by opening this project in Android Studio, and compiling it to your Android device.
-Do note that this project is protected by the GNU Affero General Public License, hence usage of this project would have to be compliant to the GNU AGPL.
+You may also run this code on your machine by opening this project in Android Studio and compiling it to your Android device.
+Do note that this project is protected by the GNU Affero General Public License, hence the usage of this project would have to be compliant with the GNU AGPL.
 
 ## Contributing
 View [CONTRIBUTING.md](https://github.com/czlucius/code-scanner/blob/main/CONTRIBUTING.md) for more info.  
@@ -67,8 +67,8 @@ This app uses the following open-source libraries:
 
 ## Notes
 1.  Tag EXPM is used for experimental features.                       
-    Use Ctrl+Shift+F to perform project-wide search in Android Studio.
-2.  See foss branch for development for a build free of ML Kit, a proprietary Google library.
+    Use Ctrl+Shift+F to perform a project-wide search in Android Studio.
+2.  See the foss branch for development for a build free of ML Kit, a proprietary Google library.
 3.  Crash reporting is optional.
 4.  For security vulnerabilities, send an email to czl.apps@icloud.com to arrange for encrypted communication before disclosing the vulnerability.
 
