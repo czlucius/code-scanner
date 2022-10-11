@@ -1,7 +1,7 @@
 # Contributing
 
 Hi there! Thanks for your interest in contributing!  
-Development for this project is mainly done in:
+Development for this project is mainly done in the:
 - Java
 - Android XML 
 
@@ -16,4 +16,3 @@ Development for this project is mainly done in:
 - Translation
   - Available soon, but if you want to translate now, you can refer to https://github.com/czlucius/code-scanner/blob/main/app/src/main/res/values/strings.xml, https://github.com/czlucius/code-scanner/blob/main/app/src/play/res/values/strings.xml and **file a new issue with the translated strings**.
   - Please note that Chinese (Simplified) and Chinese (Traditional) have been reserved by the developer to translate.
-  - 
