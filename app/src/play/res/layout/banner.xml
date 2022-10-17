@@ -33,7 +33,7 @@
         android:textStyle="bold" />
 
 
-
+<!--
 <com.google.android.gms.ads.AdView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -43,5 +43,5 @@
     android:layout_gravity="center_horizontal"
     app:adSize="BANNER"
     app:adUnitId="@string/idbannerad"/>
-
+-->
 </LinearLayout>

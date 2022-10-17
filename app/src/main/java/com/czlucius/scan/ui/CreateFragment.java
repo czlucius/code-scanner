@@ -48,7 +48,7 @@ import com.azeesoft.lib.colorpicker.ColorPickerDialog;
 import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ContentsDialogBinding;
 import com.czlucius.scan.databinding.CreateBinding;
-import com.czlucius.scan.misc.monetization.AdStrategy2;
+//import com.czlucius.scan.misc.monetization.AdStrategy2;
 import com.czlucius.scan.objects.data.created.CreatedText;
 import com.czlucius.scan.objects.data.created.CreatedWiFi;
 import com.czlucius.scan.objects.data.created.ICreatedData;
@@ -137,9 +137,11 @@ public class CreateFragment extends Fragment {
         });
 
         // AdMob SDK (play only)
+        /*
         View v = view.findViewById(R.id.banner);
         AdStrategy2.getInstance(requireContext().getApplicationContext())
                 .loadAdView(view::findViewById);
+                */
     }
 
     @Override

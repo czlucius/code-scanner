@@ -40,7 +40,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.czlucius.scan.R;
 import com.czlucius.scan.Utils;
 import com.czlucius.scan.callbacks.ManualResetPreferenceClickListener;
-import com.czlucius.scan.misc.monetization.AdStrategy2;
+//import com.czlucius.scan.misc.monetization.AdStrategy2;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class PreferencesFragment extends PreferenceFragmentCompat {
@@ -55,12 +55,13 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
         // Instantiate ads if on play flavour.
         View v = super.onCreateView(inflater, container, savedInstanceState);
+        /*
         ViewGroup vg = (ViewGroup) v;
         if (vg != null) {
             AdStrategy2.getInstance(getContext())
                     .addAdViewTo(vg);
         }
-
+        */
 
         Preference oss_link = findPreference("open_source");
         if (oss_link != null) {
