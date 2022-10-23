@@ -66,7 +66,7 @@ public class AddWiFiAction extends Action {
                     case NetworkInvalidException.APP_DISALLOWED:
                         // errorMsg(context, R.string.connection_app_disallowed);
 
-                        new MaterialAlertDialogBuilder.Builder(context)
+                        new MaterialAlertDialogBuilder(context)
                                 //.setTitle("")
                                 .setMessage(R.string.wifi_control_error)
                                 .setPositiveButton(R.string.open_settings, new DialogInterface.OnClickListener() {
