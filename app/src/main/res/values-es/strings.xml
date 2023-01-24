@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_code">Fuente abierta</string>
-    <string name="app_name">Lector de Códigos</string>
+    <string name="app_name">Escáner de códigos</string>
     <string name="history">Historial</string>
     <string name="unknown">Desconocido</string>
     <string name="add_contact">Añadir Contacto</string>
