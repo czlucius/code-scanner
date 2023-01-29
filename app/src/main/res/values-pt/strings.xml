@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title">Cargo</string>
+    <string name="text">Texto</string>
+    <string name="app_name">Leitor de código</string>
+    <string name="simple_description">Digitalize e crie códigos</string>
+    <string name="description_permission">Permite a leitura de códigos (códigos de barras, códigos QR, etc.) com a câmera.</string>
+    <string name="intent1_name">Digitalizar Código</string>
+    <string name="intent2_name">Criar código a partir de dados</string>
+    <string name="scan">Digitalização</string>
+    <string name="open_url">Abrir URL</string>
+    <string name="home">Início</string>
+    <string name="mobile">Móvel</string>
+    <string name="fax">Fax</string>
+    <string name="work">Trabalho</string>
+    <string name="data_invalid">Dados inválidos.</string>
+    <string name="no_email_providers">Não foi possível encontrar nenhum provedor de e-mail</string>
+    <string name="no_browsers">Não foi possível encontrar nenhum navegador da Web</string>
+    <string name="img_not_found">Não foi possível encontrar a imagem</string>
+    <string name="error">Erro!</string>
+    <string name="no_model">O modo de leitura QR/código de barras não está disponível.
+\nVerifique/atualize seus Serviços do MicroG ou Google Play e tente novamente.</string>
+    <string name="cam_unavailable">A câmera está indisponível no momento</string>
+    <string name="phones">Telefones</string>
+    <string name="emails">E-mails</string>
+    <string name="addresses">Endereços</string>
+    <string name="contents">Conteúdo</string>
+    <string name="qr">QR Code</string>
+    <string name="pm_denial_permanant">Permissão da câmera negada permanentemente. Corrija isso nas configurações do sistema.</string>
+    <string name="create">Criar</string>
+    <string name="source_code">Código Aberto</string>
+    <string name="no_cam">Não foi possível encontrar nenhuma câmera</string>
+    <string name="open_source_view_or_contribute">Contribua no GitHub. AGPLv3+.</string>
+    <string name="history">Histórico</string>
+    <string name="copy">Copiar</string>
+    <string name="unknown">Desconhecido</string>
+    <string name="add_contact">Adicionar contato</string>
+    <string name="send_email">Enviar e-mail</string>
+    <string name="no_cam_msg">O dispositivo não tem uma câmera, então nenhum código pode ser escaneado.
+\nTente usar uma câmera externa para adicionar essa funcionalidade ao seu dispositivo.</string>
+    <string name="websites">Sites</string>
+    <string name="name">Nome</string>
+    <string name="org">Organização</string>
+    <string name="contact">Contato</string>
+    <string name="email">E-mail</string>
+    <string name="url">URL</string>
+    <string name="to">Para</string>
+    <string name="grant_pm_rationale">Por favor, conceda permissão da câmera para digitalizar QR codes e códigos de barras.</string>
+    <string name="subject">Assunto</string>
+    <string name="cam_pm">Permissão da câmera</string>
+    <string name="pm_denial">Permissão da câmera negada.</string>
+</resources>

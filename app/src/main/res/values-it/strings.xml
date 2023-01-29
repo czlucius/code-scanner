@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qr">Codice QR</string>
+    <string name="subject">Oggetto</string>
+    <string name="intro">Introduzione</string>
+    <string name="onboarding_create_summary">Crea codici QR e applica colori.</string>
+    <string name="onboarding_batch_summary">Scansiona tutti i codici che desideri e trovali nella scheda della cronologia.</string>
+    <string name="onboarding_history_summary">Visualizzazione della cronologia dei codici precedentemente scansionati.</string>
+    <string name="onboarding_welcome">Benvenuto</string>
+    <string name="privacy_policy">Informativa sulla privacy</string>
+    <string name="store_url">https://github.com/czlucius/code-scanner</string>
+    <string name="onboarding_scan_summary">Scansiona e crea codici ovunque.</string>
+    <string name="intent2_name">Crea codice dai dati</string>
+    <string name="open_url">Apri URL</string>
+    <string name="data_invalid">Dati non validi.</string>
+    <string name="error">Errore!</string>
+    <string name="privacy_policy_description">Per sapere come vengono trattati i tuoi dati, leggi l\'informativa sulla privacy riportata di seguito. Grazie.</string>
+    <string name="click_privacy_policy">Visualizza l\'informativa sulla privacy</string>
+    <string name="share_with_others">Condividi questa app con gli altri.</string>
+    <string name="promo_share_description">Scanner di codici - Scansiona e crea codici QR e codici a barre.
+\n%1$s</string>
+    <string name="next">Avanti</string>
+    <string name="intent1_name">Scansiona il codice</string>
+    <string name="scan">Scansione</string>
+    <string name="history">Cronologia</string>
+    <string name="create">Creazione</string>
+    <string name="no_browsers">Impossibile trovare alcun browser web</string>
+    <string name="img_not_found">Impossibile trovare l\'immagine</string>
+    <string name="no_email_providers">Impossibile trovare alcun provider di posta elettronica</string>
+    <string name="no_cam">Impossibile trovare alcuna fotocamera</string>
+    <string name="name">Nome</string>
+    <string name="title">Titolo di lavoro</string>
+    <string name="text">Testo</string>
+    <string name="to">A</string>
+    <string name="app_name">Scanner per codici</string>
+    <string name="simple_description">Scansione e creazione di codici</string>
+    <string name="unknown">Sconosciuto</string>
+    <string name="add_contact">Aggiungi contatto</string>
+    <string name="copy">Copia</string>
+    <string name="fax">Fax</string>
+    <string name="work">Lavoro</string>
+    <string name="home">Casa</string>
+    <string name="mobile">Mobile</string>
+    <string name="no_cam_msg">Il dispositivo non dispone di una fotocamera, pertanto non è possibile scansionare alcun codice.
+\nProvare a utilizzare una fotocamera esterna per aggiungere questa funzionalità al dispositivo.</string>
+    <string name="no_model">Il modello di lettura QR/barcode non è disponibile.
+\nControlla/aggiorna MicroG o Google Play Services e riprova.</string>
+    <string name="cam_unavailable">La fotocamera non è al momento disponibile</string>
+    <string name="email">Email</string>
+    <string name="phones">Telefoni</string>
+    <string name="org">Organizzazione</string>
+    <string name="emails">Email</string>
+    <string name="addresses">Indirizzi</string>
+    <string name="websites">Siti web</string>
+    <string name="contact">Contatto</string>
+    <string name="url">URL</string>
+    <string name="source_code">Open Source</string>
+    <string name="open_source_view_or_contribute">Contribuisci su GitHub. AGPLv3+.</string>
+    <string name="description_permission">Consente la scansione di codici (codici a barre, codici QR, ecc.) con la fotocamera.</string>
+    <string name="send_email">Invia una email</string>
+    <string name="contents">Contenuti</string>
+    <string name="cam_pm">Autorizzazione della fotocamera</string>
+</resources>

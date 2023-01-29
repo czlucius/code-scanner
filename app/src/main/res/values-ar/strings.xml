@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open_source_view_or_contribute">للتبرع في GitHub . AGPLv3+</string>
+    <string name="simple_description">المسح وانشاء كود</string>
+    <string name="source_code">مفتوح المصدر</string>
+    <string name="app_name">ماسح الاكواد</string>
+</resources>
