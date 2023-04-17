@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open_source_view_or_contribute">Draag bij op GitHub. AGPLv3+.</string>
+    <string name="unknown">Onbekend</string>
+    <string name="simple_description">Scan en maak codes</string>
+    <string name="source_code">Open source</string>
+    <string name="description_permission">Scannen van codes toestaan met de camera (barcodes, QR-codes, enz.).</string>
+    <string name="intent1_name">Scan code</string>
+    <string name="intent2_name">Maak code van gegevens</string>
+    <string name="scan">Scan</string>
+    <string name="history">Geschiedenis</string>
+    <string name="create">Maak aan</string>
+    <string name="add_contact">Voeg contact toe</string>
+    <string name="app_name">Code Scanner</string>
+</resources>
