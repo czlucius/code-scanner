@@ -251,10 +251,13 @@ public class CreateFragment extends Fragment {
 
 
         toggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
-            int index = group.indexOfChild(group.findViewById(checkedId));
-            Log.i(TAG, "displayContentsDialog: index is " + index);
-            flipper.setDisplayedChild(index);
-            currentEditState = CurrentEditState.values()[index];
+            // The bug in switching was caused by not checking the isChecked value. Hence, when Material Design updated their API, the bug occurs.
+//            Log.i(TAG, "displayContentsDialog: index is " + index + " isChecked is " + isChecked);
+            if (isChecked) {
+                int index = group.indexOfChild(group.findViewById(checkedId)); // This is an expensive call, hence we don't want to unnecessarily call it
+                flipper.setDisplayedChild(index);
+                currentEditState = CurrentEditState.values()[index];
+            }
         });
         toggleGroup.check(toggleGroup.getChildAt(currentEditState.index).getId());
 
