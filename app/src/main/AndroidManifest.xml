@@ -18,8 +18,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.czlucius.scan">
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Permissions go here: -->
     <uses-permission
         android:name="android.permission.CAMERA"
