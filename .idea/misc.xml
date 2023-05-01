@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Lucius/code/tmp/app/src/play/res/layout/banner.xml" value="0.10989583333333333" />
+        <entry key="..\:/Lucius/code/tmp/app/src/play/res/xml/root_preferences.xml" value="0.10989583333333333" />
         <entry key="app/src/main/res/drawable/ic_baseline_code_24.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/drawable/ic_open_source_initiative.xml" value="0.14947916666666666" />
@@ -62,7 +64,7 @@
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

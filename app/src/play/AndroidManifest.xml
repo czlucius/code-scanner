@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
-  ~ Copyright (C) 2021 Lucius Chee Zihan
+  ~ Copyright (C) 2022 czlucius
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU Affero General Public License as published
@@ -19,11 +19,4 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
-    <application>
-        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/idappad"/>
-    </application>
 </manifest>

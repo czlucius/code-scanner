@@ -38,6 +38,10 @@ If you'd like to be notified about updates through GitHub Releases, you can watc
 You may also run this code on your machine by opening this project in Android Studio, and compiling it to your Android device.
 Do note that this project is protected by the GNU Affero General Public License, hence usage of this project would have to be compliant to the GNU AGPL.
 
+## Contributing
+View [CONTRIBUTING.md](https://github.com/czlucius/code-scanner/blob/main/CONTRIBUTING.md) for more info.  
+This repo is participating in Hacktoberfest 2022, feel free to contribute!
+
 ## Translations
 Feel free to contribute/translate this project!  
 Translations are done on [Weblate](https://weblate.org), translate the project here: https://hosted.weblate.org/engage/code-scanner/

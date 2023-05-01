@@ -139,4 +139,7 @@
     <string name="onboarding_create_summary">Opprett QR-koder og gi dem egen stil med forskjellige farger.</string>
     <string name="onboarding_batch_summary">Skann så mange koder du vil samtidig, og lagre dem i historikk.</string>
     <string name="store_url">https://github.com/czlucius/code-scanner</string>
+    <string name="wifi_control_error">Du må aktivere wifi-kontrolltillatelse manuelt som du har nektet det tidligere\n\nGå til (<b><i>Innstillinger > Apper og varsler > Spesiell apptilgang > Wi-Fi-kontroll > Kodeskanner</i></b>)\n\nderetter aktivere (<b><i>Tillat appen å kontrollere Wi-Fi</i></b>)\n\n\nHvis du ønsker å legge til et wifi-nettverk manuelt, kan du også gjøre det</string>
+    <string name="open_settings">Åpne innstillinger</string>
+    <string name="add_manually">Legg til manuelt</string>
 </resources>

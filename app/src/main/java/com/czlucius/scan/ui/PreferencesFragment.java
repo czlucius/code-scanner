@@ -1,6 +1,6 @@
 /*
  * Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
- * Copyright (C) 2021 Lucius Chee Zihan
+ * Copyright (C) 2022 czlucius
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -40,7 +40,6 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.czlucius.scan.R;
 import com.czlucius.scan.Utils;
 import com.czlucius.scan.callbacks.ManualResetPreferenceClickListener;
-import com.czlucius.scan.misc.monetization.AdStrategy2;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class PreferencesFragment extends PreferenceFragmentCompat {
@@ -55,12 +54,6 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
         // Instantiate ads if on play flavour.
         View v = super.onCreateView(inflater, container, savedInstanceState);
-        ViewGroup vg = (ViewGroup) v;
-        if (vg != null) {
-            AdStrategy2.getInstance(getContext())
-                    .addAdViewTo(vg);
-        }
-
 
         Preference oss_link = findPreference("open_source");
         if (oss_link != null) {
@@ -94,9 +87,6 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 //                            .setNegativeButton(R.string.cancel, (dialog, which) -> resetListener())
 //                            .setPositiveButton(R.string.next, (dialog, which) -> {
 //                                Toast.makeText(getActivity(), R.string.not_app_content, Toast.LENGTH_LONG).show();
-//
-//                                AdStrategy2.getInstance(getContext())
-//                                        .loadRewardedAdVideo(getActivity(), getView(), getResetCallback());
 //                            })
 //                            .setOnCancelListener(dialog -> resetListener())
 //                            .show();

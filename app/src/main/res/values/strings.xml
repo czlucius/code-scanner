@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
-  ~ Copyright (C) 2021 Lucius Chee Zihan
+  ~ Copyright (C) 2022 czlucius
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU Affero General Public License as published
@@ -151,4 +151,7 @@
     <string name="onboarding_history_summary">View history of previously scanned codes.</string>
     <string name="onboarding_create_summary">Create QR codes and apply colours.</string>
     <string name="onboarding_batch_summary">Scan all the codes you want, and find them in the history tab.</string>
+    <string name="wifi_control_error">You have to enable wifi control permission manually as you have denied it previously\n\nGo to (<b><i>Settings > Apps and notifications > Special App access > Wi-Fi Control > Code Scanner</i></b>)\n\nthen enable (<b><i>Allow app to control Wi-Fi</i></b>)\n\n\nIf you wish to add a wifi network manually, you can also do that</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="add_manually">Add Manually</string>
 </resources>

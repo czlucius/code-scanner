@@ -2,7 +2,7 @@
 
 /*
  * Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
- * Copyright (C) 2021 Lucius Chee Zihan
+ * Copyright (C) 2022 czlucius
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -48,7 +48,6 @@ import com.azeesoft.lib.colorpicker.ColorPickerDialog;
 import com.czlucius.scan.R;
 import com.czlucius.scan.databinding.ContentsDialogBinding;
 import com.czlucius.scan.databinding.CreateBinding;
-import com.czlucius.scan.misc.monetization.AdStrategy2;
 import com.czlucius.scan.objects.data.created.CreatedText;
 import com.czlucius.scan.objects.data.created.CreatedWiFi;
 import com.czlucius.scan.objects.data.created.ICreatedData;
@@ -135,11 +134,6 @@ public class CreateFragment extends Fragment {
             createFile("QR @ " + dateFormat.format(new Date()) + ".png"); // TODO add customisation options, shouldn't be that hard
 
         });
-
-        // AdMob SDK (play only)
-        View v = view.findViewById(R.id.banner);
-        AdStrategy2.getInstance(requireContext().getApplicationContext())
-                .loadAdView(view::findViewById);
     }
 
     @Override

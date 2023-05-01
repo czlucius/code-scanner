@@ -1,6 +1,6 @@
 /*
  * Code Scanner. An android app to scan and create codes(barcodes, QR codes, etc)
- * Copyright (C) 2021 Lucius Chee Zihan
+ * Copyright (C) 2022 czlucius
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -18,8 +18,14 @@
 
 package com.czlucius.scan.objects.actions;
 
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import androidx.annotation.StringRes;
@@ -29,6 +35,7 @@ import com.czlucius.scan.R;
 import com.czlucius.scan.exceptions.NetworkInvalidException;
 import com.czlucius.scan.objects.data.Data;
 import com.czlucius.scan.objects.data.WiFi;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class AddWiFiAction extends Action {
     private static Action INSTANCE;
@@ -57,7 +64,26 @@ public class AddWiFiAction extends Action {
                     case NetworkInvalidException.INTERNAL_ERR:
                         errorMsg(context, R.string.connection_internal_error);
                     case NetworkInvalidException.APP_DISALLOWED:
-                        errorMsg(context, R.string.connection_app_disallowed);
+                        // errorMsg(context, R.string.connection_app_disallowed);
+
+                        new MaterialAlertDialogBuilder(context)
+                                //.setTitle("")
+                                .setMessage(R.string.wifi_control_error)
+                                .setPositiveButton(R.string.open_settings, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(Settings.ACTION_SETTINGS);
+                                        context.startActivity(intent); } })
+                                .setNegativeButton(R.string.add_manually, new  DialogInterface.OnClickListener(){
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+                                        context.startActivity(intent);
+                                        Toast.makeText(context,"Password copied\n\n"+"Select  "+wifi.getSsid()+"  & Paste password" , Toast.LENGTH_SHORT).show();
+                                        ClipData clipData = ClipData.newPlainText(context.getString(R.string.password), ((WiFi)data).getPassword());
+                                        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                                        clipboard.setPrimaryClip(clipData);
+                                    }})//      .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+
                         break;
                     case NetworkInvalidException.DUPLICATE:
                         errorMsg(context, R.string.connection_duplicate);
