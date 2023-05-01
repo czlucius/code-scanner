@@ -36,9 +36,10 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_nav_height"
+        app:elevation="1dp"
         android:background="?attr/colorSurface"
-        app:itemTextColor="?attr/colorOnSurface"
+        app:itemTextColor="?attr/colorOnSurfaceVariant"
         app:labelVisibilityMode="selected"
-        app:menu="@menu/bottom_nav" />
+        app:menu="@menu/bottom_nav"/>
 
 </LinearLayout>

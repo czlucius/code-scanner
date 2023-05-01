@@ -69,13 +69,6 @@
 
         <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_code_scanner</item>
 
-
-        <item name="bottomNavigationStyle">
-            @style/Widget.Material3.BottomNavigationView2
-        </item>
-
-        <!--        <item name="colorSecondaryContainer">@color/moderate_grey</item>-->
-
         <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>
