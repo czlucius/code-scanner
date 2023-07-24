@@ -18,8 +18,11 @@
 
 package com.czlucius.scan.ui;
 
+import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
@@ -32,10 +35,27 @@ import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 
 public class CSOnboarding extends IntroActivity {
 
+    private static final String TAG = PreferencesFragment.class.getSimpleName();
+    boolean nightModeActive = false;
 
     @Override
     public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Checking if dark mode is active to set the value of background in black
+        int backgroundColor = R.color.onboarding_background;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            Configuration configuration = getResources().getConfiguration();
+            if (configuration != null) {
+                nightModeActive = getResources().getConfiguration().isNightModeActive();
+                if (nightModeActive) {
+                    backgroundColor = R.color.pure_black;
+                }
+                Log.d(TAG, "Is night mode active: " + nightModeActive);
+            } else {
+                Log.e(TAG, "Configuration is null");
+            }
+        }
 
 
         addSlide(
@@ -43,7 +63,7 @@ public class CSOnboarding extends IntroActivity {
                         .layout(R.layout.mi_fragment_simple_slide_scrollable)
                         .title(R.string.onboarding_welcome)
                         .description(R.string.onboarding_welcome_summary)
-                        .background(R.color.onboarding_background)
+                        .background(backgroundColor)
                         .backgroundDark(R.color.onboarding_background_dark)
                         .build()
         );
@@ -55,7 +75,7 @@ public class CSOnboarding extends IntroActivity {
                         .title(R.string.scan)
                         .description("Scan supported codes whenever, wherever you go.")
                         .image(R.mipmap.onboarding_scan)
-                        .background(R.color.onboarding_background)
+                        .background(backgroundColor)
                         .backgroundDark(R.color.onboarding_background_dark)
                         .build()
         );
@@ -67,7 +87,7 @@ public class CSOnboarding extends IntroActivity {
                         .title(R.string.history)
                         .description("View history of previously scanned codes.")
                         .image(R.mipmap.onboarding_history)
-                        .background(R.color.onboarding_background)
+                        .background(backgroundColor)
                         .backgroundDark(R.color.onboarding_background_dark)
                         .build()
         );
@@ -78,7 +98,7 @@ public class CSOnboarding extends IntroActivity {
                         .title(R.string.create)
                         .description("Create QR codes and style it with different colors.")
                         .image(R.mipmap.onboarding_create)
-                        .background(R.color.onboarding_background)
+                        .background(backgroundColor)
                         .backgroundDark(R.color.onboarding_background_dark)
                         .build()
 
@@ -91,7 +111,7 @@ public class CSOnboarding extends IntroActivity {
                         .title(R.string.batch_scan)
                         .description("Scan unlimited codes at once, and save it to history.")
                         .image(R.mipmap.onboarding_batch)
-                        .background(R.color.onboarding_background)
+                        .background(backgroundColor)
                         .backgroundDark(R.color.onboarding_background_dark)
                         .build()
         );
@@ -102,7 +122,7 @@ public class CSOnboarding extends IntroActivity {
                         .layout(R.layout.mi_fragment_simple_slide_scrollable)
                         .title(R.string.privacy_policy)
                         .description(R.string.privacy_policy_description)
-                        .background(R.color.onboarding_background)
+                        .background(backgroundColor)
                         .backgroundDark(R.color.onboarding_background_dark)
                         .buttonCtaLabel(R.string.click_privacy_policy)
                         .buttonCtaClickListener(v -> {
