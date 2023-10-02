@@ -38,7 +38,7 @@
 
     <!-- App Onboarding colors -->
     <color name="onboarding_background">@color/pure_white</color>
-    <color name="onboarding_background_dark">@color/white_smoke</color>
+    <color name="onboarding_background_dark">@color/pure_black</color>
 
     <color name="md_theme_light_primary">#9C9C9C</color>
     <color name="md_theme_light_onPrimary">#121212</color>
