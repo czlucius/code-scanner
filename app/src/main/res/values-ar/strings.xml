@@ -4,4 +4,10 @@
     <string name="simple_description">المسح وانشاء كود</string>
     <string name="source_code">مفتوح المصدر</string>
     <string name="app_name">ماسح الاكواد</string>
+    <string name="intent1_name">مسح الكود</string>
+    <string name="scan">مسح</string>
+    <string name="no_browsers">لم يتم العثور على اي متصفح انترنت</string>
+    <string name="copy">نسخ</string>
+    <string name="cam_unavailable">الكاميرا غير متوفرة في هذه اللحظة</string>
+    <string name="name">اسم</string>
 </resources>
