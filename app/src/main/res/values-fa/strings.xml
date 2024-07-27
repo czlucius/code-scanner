@@ -52,7 +52,7 @@
     <string name="wifi_enctype_hint">نوع رمزگذاری:</string>
     <string name="wep">WEP</string>
     <string name="wpa">WPA</string>
-    <string name="first_name">نام</string>
+    <string name="first_name">نام کوچک</string>
     <string name="last_name">نام خانوادگی</string>
     <string name="company">شرکت</string>
     <string name="job">شغل</string>
