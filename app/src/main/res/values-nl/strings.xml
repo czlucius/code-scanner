@@ -12,4 +12,22 @@
     <string name="create">Maak aan</string>
     <string name="add_contact">Voeg contact toe</string>
     <string name="app_name">Code Scanner</string>
+    <string name="copy">Kopieer</string>
+    <string name="send_email">Verzend e-mail</string>
+    <string name="home">Thuis</string>
+    <string name="mobile">Mobiel</string>
+    <string name="work">Werk</string>
+    <string name="data_invalid">Ongeldige gegevens.</string>
+    <string name="no_email_providers">Kon geen e-mail providers vinden</string>
+    <string name="no_browsers">Kon geen webbrowsers vinden</string>
+    <string name="name">Naam</string>
+    <string name="phones">Telefoons</string>
+    <string name="org">Organisatie</string>
+    <string name="emails">E-mails</string>
+    <string name="addresses">Adressen</string>
+    <string name="text">Tekst</string>
+    <string name="to">Naar</string>
+    <string name="subject">Onderwerp</string>
+    <string name="cam_pm">Camera permissie</string>
+    <string name="position_code">Positioneer de code in het vierkant</string>
 </resources>
