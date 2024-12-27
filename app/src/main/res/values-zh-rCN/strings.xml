@@ -12,7 +12,7 @@
     <string name="intent1_name">扫描图片</string>
     <string name="intent2_name">创建二维码</string>
     <string name="scan">扫描</string>
-    <string name="history">记录</string>
+    <string name="history">历史</string>
     <string name="unknown">未知</string>
     <string name="add_contact">添加到通讯录</string>
     <string name="copy">复制</string>
