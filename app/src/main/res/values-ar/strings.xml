@@ -10,4 +10,7 @@
     <string name="copy">نسخ</string>
     <string name="cam_unavailable">الكاميرا غير متوفرة في هذه اللحظة</string>
     <string name="name">اسم</string>
+    <string name="intent2_name">إنشاء رمز من البيانات</string>
+    <string name="history">سِجِلّ</string>
+    <string name="description_permission">السماح بمسح الرموز ضوئيًا (الرموز الشريطية، ورموز الاستجابة السريعة، وما إلى ذلك) باستخدام الكاميرا\n)</string>
 </resources>
