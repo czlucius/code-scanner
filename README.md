@@ -10,25 +10,24 @@ width="200"
 An Android app to scan and generate codes(barcodes/QR codes)  
 **🌟Star/watch this repo!🌟**
 
-Get it on the Google Play Store, Galaxy Store, F-Droid or on GitHub Releases.
-
-Play Store|Galaxy Store
+Get it on the Galaxy Store or on GitHub Releases.
+Galaxy Store
 ---|---
-<a href='https://play.google.com/store/apps/details?id=com.czlucius.scan&utm_source=badge&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="80"/></a>|[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" alt="Available on Galaxy Store" height="55">](https://galaxy.store/codescan)
+<a href='https://play.google.com/store/apps/details?id=com.czlucius.scan&utm_source=badge&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="80"/></a>|[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" alt="Available on Galaxy Store" height="55">](https://galaxystore.samsung.com/detail/com.czlucius.scan)
 
+(Play Store distribution has been discontinued.)
 
 ## Using this project
 This project is stable for release.  
 
 Download it through these platforms (or share it with others):
 
--  Play Store: https://play.google.com/store/apps/details?id=com.czlucius.scan
 -  GitHub Releases: https://github.com/czlucius/code-scanner/releases (APK file for all devices)
--  Samsung Galaxy Store: https://galaxy.store/codescan
--  F-Droid (custom repository): https://gitlab.com/czlucius/czlucius-fdroid-repo
+-  Samsung Galaxy Store: https://galaxystore.samsung.com/detail/com.czlucius.scan
     
 
 The following platforms will not be updated:
+-  Play Store: https://play.google.com/store/apps/details?id=com.czlucius.scan
 -  Uptodown: https://code-scanner.en.uptodown.com/android
 -  Amazon Appstore: http://www.amazon.com/gp/mas/dl/android?p=com.czlucius.scan
 
