@@ -12,8 +12,8 @@ An Android app to scan and generate codes(barcodes/QR codes)
 
 Get it on the Galaxy Store or on GitHub Releases.
 Galaxy Store
----|---
-<a href='https://play.google.com/store/apps/details?id=com.czlucius.scan&utm_source=badge&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="80"/></a>|[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" alt="Available on Galaxy Store" height="55">](https://galaxystore.samsung.com/detail/com.czlucius.scan)
+---|
+[<img src="https://github.com/czlucius/code-scanner/blob/main/GalaxyStore_English.png" alt="Available on Galaxy Store" height="55">](https://galaxystore.samsung.com/detail/com.czlucius.scan)
 
 (Play Store distribution has been discontinued.)
 
