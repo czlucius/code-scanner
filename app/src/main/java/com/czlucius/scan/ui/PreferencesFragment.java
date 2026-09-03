@@ -18,11 +18,15 @@
 
 package com.czlucius.scan.ui;
 
+import static androidx.webkit.WebViewFeature.ALGORITHMIC_DARKENING;
+import static androidx.webkit.WebViewFeature.isFeatureSupported;
+
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,13 +40,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.webkit.WebSettingsCompat;
 
 import com.czlucius.scan.R;
 import com.czlucius.scan.Utils;
-import com.czlucius.scan.callbacks.ManualResetPreferenceClickListener;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class PreferencesFragment extends PreferenceFragmentCompat {
+    private static final String TAG = PreferencesFragment.class.getSimpleName();
+
+    boolean nightModeActive = false;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -54,6 +61,16 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
         // Instantiate ads if on play flavour.
         View v = super.onCreateView(inflater, container, savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            Configuration configuration = v.getResources().getConfiguration();
+            if (configuration != null) {
+                nightModeActive = v.getResources().getConfiguration().isNightModeActive();
+                Log.d(TAG, "Is night mode active: " + nightModeActive);
+            } else {
+                Log.e(TAG, "Configuration is null");
+            }
+        }
 
         Preference oss_link = findPreference("open_source");
         if (oss_link != null) {
@@ -146,6 +163,13 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             }
         });
         webView.zoomBy(0.5F);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && isFeatureSupported(ALGORITHMIC_DARKENING)) {
+            WebSettingsCompat.setAlgorithmicDarkeningAllowed(webView.getSettings(), nightModeActive);
+        } else if (nightModeActive) {
+            //TODO: Remove this else block once app sets minSdkVersion to 29
+            WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
+        }
 
         MaterialAlertDialogBuilder ossDialog = new MaterialAlertDialogBuilder(requireContext());
         ossDialog.setView(webView);
