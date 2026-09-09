@@ -279,13 +279,19 @@ public class CreateFragment extends Fragment {
 
     private void displayForegroundDialog() {
         displayColorPicker(vm.getForegroundColor(),
-                (color, hexVal) -> vm.setForegroundColor(color));
+                (color, hexVal) -> {
+                    vm.setForegroundColor(color);
+                    vm.setCurrentState(NONE);
+        });
     }
 
 
     private void displayBackgroundDialog() {
         displayColorPicker(vm.getBackgroundColor(),
-                (color, hexVal) -> vm.setBackgroundColor(color));
+                (color, hexVal) -> {
+                    vm.setBackgroundColor(color);
+                    vm.setCurrentState(NONE);
+        });
     }
 
 
