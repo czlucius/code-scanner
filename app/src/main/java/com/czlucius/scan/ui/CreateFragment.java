@@ -27,8 +27,11 @@ import static com.czlucius.scan.ui.CreateViewModel.EditState.NONE;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -205,11 +208,34 @@ public class CreateFragment extends Fragment {
     }
 
     private void launchShareIntent(File bmpFile) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        Uri fileUri = FileProvider.getUriForFile(requireContext(), "com.czlucius.scan.provider", bmpFile);
-        intent.putExtra(Intent.EXTRA_STREAM, fileUri);
-        intent.setType("image/png");
-        startActivity(intent);
+
+        /*Bug: App crash when click share button
+         *
+         * log Note:  FATAL EXCEPTION: main , Process: com.czlucius.scan.debug, PID: 9894 , java.lang.IllegalArgumentException: Couldn't find meta-data for provider with authority com.czlucius.scan.provider
+         *
+         * used try catch to avoid app crash.
+         *
+         *fix:
+         *Used mediastore to get the file path
+         *Add Extra subject and createrchooser msg to give a idea to user.
+         * */
+
+        try {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            Uri fileUri = FileProvider.getUriForFile(requireContext(), "com.czlucius.scan.provider", bmpFile);
+            intent.putExtra(Intent.EXTRA_STREAM, fileUri);
+            intent.setType("image/png");
+            startActivity(intent);
+        }catch (Exception e){
+            Bitmap bitmap = BitmapFactory.decodeFile(bmpFile.getPath());
+            String path = MediaStore.Images.Media.insertImage(getContext().getContentResolver(), bitmap, "mmmm", null);
+            Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+            shareIntent.setType("image/png");
+            shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Shared from Code Scanner");
+            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
+            getContext().startActivity(Intent.createChooser(shareIntent, "Share The Code"));
+        }
+
     }
 
 
